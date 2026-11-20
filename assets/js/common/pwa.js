@@ -5,7 +5,12 @@
 
   // آدرس سرویس‌ورکر نسبت به ریشه سایت (برای صفحه‌های داخل پوشه‌ها ../)
   var root = (document.querySelector('link[rel="manifest"]') || {}).href;
-  if ("serviceWorker" in navigator && root) {
+  // روی سیستم توسعه (localhost) سرویس‌ورکر ثبت نمی‌شود و قبلی‌ها پاک می‌شوند؛
+  // وگرنه CSS و JS از حافظه می‌آیند و تغییرها تا بالا بردن VERSION دیده نمی‌شوند.
+  var dev = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+  if (dev && "serviceWorker" in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function (regs) { regs.forEach(function (r) { r.unregister(); }); });
+  } else if ("serviceWorker" in navigator && root) {
     window.addEventListener("load", function () {
       navigator.serviceWorker.register(new URL("sw.js", root).href).catch(function () { /* بدون سرویس‌ورکر هم سایت کار می‌کند */ });
     });

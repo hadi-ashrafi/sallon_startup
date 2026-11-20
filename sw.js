@@ -2,10 +2,10 @@
 // هر بار فایلی تغییر کرد، VERSION را بالا ببرید تا گوشی‌ها نسخه تازه را بگیرند
 // (فایل‌ها با cache: "reload" مستقیم از سرور گرفته می‌شوند، نه از حافظه مرورگر).
 // صفحه‌ها «اول شبکه» (تا همیشه تازه باشند) و بقیه فایل‌ها «اول حافظه» (برای سرعت) خوانده می‌شوند.
-const VERSION = "aida-v16";
+const VERSION = "bella-v28";
 // صفحه‌های شخصی (پنل‌ها و حساب کاربری) هیچ‌وقت در حافظه گوشی ذخیره نمی‌شوند:
 // با بک‌اند، محتوایشان مال همان کاربر است و بعد از خروج نباید روی دستگاه بماند.
-const PRIVATE = /\/(admin|stylist|customer)\/|\/account\/(profile|notifications)\.html/;
+const PRIVATE = /\/(admin|stylist|customer|platform)\/|\/account\/(profile|notifications)\.html/;
 const PRECACHE = [
   "./",
   "404.html",
@@ -29,13 +29,14 @@ const PRECACHE = [
   "assets/css/pages/booking.css",
   "assets/css/pages/catalog.css",
   "assets/css/pages/dashboard.css",
-  "assets/css/pages/home.css",
   "assets/fonts/vazirmatn-arabic.woff2",
   "assets/fonts/vazirmatn-latin.woff2",
   "assets/img/app-icon.svg",
+  "assets/img/salon-default.svg",
   "assets/img/avatar-dark.svg",
   "assets/img/avatar.svg",
   "assets/img/favicon.svg",
+  "assets/img/icons.svg",
   "assets/img/icon-180.png",
   "assets/img/icon-192.png",
   "assets/img/icon-512.png",
@@ -48,10 +49,10 @@ const PRECACHE = [
   "assets/js/common/theme.js",
   "assets/js/common/ui.js",
   "assets/js/components/panel.js",
+  "assets/js/components/datepicker.js",
   "assets/js/components/select.js",
   "assets/js/components/slot-picker.js",
   "assets/js/pages/booking.js",
-  "assets/js/pages/home-reviews.js",
   "assets/js/pages/list-filter.js",
   "assets/js/pages/reschedule.js",
   "assets/js/theme-init.js",

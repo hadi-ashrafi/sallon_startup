@@ -3,14 +3,32 @@
 //   - اگر select گروه (<optgroup>) داشته باشد، هر گروه کشویی (بازشونده) است تا فهرست شلوغ نشود.
 //   - اگر بیش از ۱۰ گزینه داشته باشد، کادر جستجو هم می‌گیرد.
 //   - صفحه‌کلید: Enter/Space باز می‌کند، بالا و پایین حرکت، Esc می‌بندد.
+//   - در موبایل (تا ۶۴۰ پیکسل) فهرست به‌شکل برگه از پایین صفحه بالا می‌آید، با عنوان (برچسب فیلد) و پس‌زمینه تیره.
 // برای نگه داشتن select پیش‌فرض روی یک مورد خاص: data-native
 (function () {
   "use strict";
 
-  const ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6l6 -6"/></svg>';
-  const CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5l10 -10"/></svg>';
+  // آیکن از فایل یکسان آیکن‌های سایت (کنار favicon)
+  const SPRITE = ((document.querySelector('link[rel="icon"]') || {}).href || "assets/img/favicon.svg").replace(/favicon\.svg.*$/, "icons.svg");
+  function svgIcon(name, cls) { return '<svg class="' + (cls ? cls + " " : "") + 'ph" aria-hidden="true"><use href="' + SPRITE + "#" + name + '"/></svg>'; }
+  const ICON = svgIcon("chev-down");
+  const CHECK = svgIcon("check");
+  const CLOSE = svgIcon("x");
+  const mobile = window.matchMedia("(max-width: 640px)");
   let openOne = null;
   let uid = 0;
+  let backdrop = null;
+  function setBackdrop(on) {
+    if (!backdrop) {
+      backdrop = document.createElement("div");
+      backdrop.className = "cselect__backdrop";
+      // با click (نه pointerdown) بسته شود تا لمس پس‌زمینه روی کارت زیرش نیفتد
+      backdrop.addEventListener("click", () => openOne && openOne.close());
+      document.body.appendChild(backdrop);
+    }
+    backdrop.classList.toggle("is-open", on);
+    document.documentElement.classList.toggle("cselect-lock", on);
+  }
 
   function enhance(select) {
     const id = "cs-" + ++uid;
@@ -46,8 +64,13 @@
     panel.className = "cselect__panel";
     panel.id = id;
     panel.hidden = true;
+    // عنوان برگه موبایل: متن برچسب فیلد
+    const title = (label && label.textContent.trim()) || select.getAttribute("aria-label") || "انتخاب کنید";
+    panel.innerHTML = '<div class="cselect__head"><b></b><button type="button" class="cselect__close" aria-label="بستن">' + CLOSE + "</button></div>";
+    panel.querySelector(".cselect__head b").textContent = title;
+    panel.querySelector(".cselect__close").addEventListener("click", () => { close(); btn.focus(); });
     const many = select.options.length > 10;
-    if (many) panel.innerHTML = '<input type="search" class="cselect__search" placeholder="جستجو..." aria-label="جستجو در گزینه‌ها">';
+    if (many) panel.insertAdjacentHTML("beforeend", '<input type="search" class="cselect__search" placeholder="جستجو..." aria-label="جستجو در گزینه‌ها">');
     const list = document.createElement("div");
     list.className = "cselect__list";
     list.setAttribute("role", "listbox");
@@ -113,6 +136,11 @@
     }
 
     function place() {
+      panel.classList.toggle("is-sheet", mobile.matches);
+      if (mobile.matches) { // برگه پایین صفحه؛ جا را CSS تعیین می‌کند
+        panel.style.cssText = "";
+        return;
+      }
       const r = btn.getBoundingClientRect();
       const below = innerHeight - r.bottom;
       const up = below < 260 && r.top > below;
@@ -129,6 +157,7 @@
       panel.hidden = false;
       place();
       requestAnimationFrame(() => panel.classList.add("is-open"));
+      if (mobile.matches) setBackdrop(true);
       btn.setAttribute("aria-expanded", "true");
       // گروهِ گزینه انتخاب‌شده باز باشد
       const sel = list.querySelector('[aria-selected="true"]');
@@ -142,6 +171,7 @@
     function close() {
       panel.classList.remove("is-open");
       panel.hidden = true;
+      setBackdrop(false);
       btn.setAttribute("aria-expanded", "false");
       if (openOne === api) openOne = null;
     }
@@ -184,9 +214,10 @@
   }
 
   document.querySelectorAll("select.input:not([multiple]):not([data-native])").forEach(enhance);
+  window.SalonSelect = { enhance }; // برای selectهایی که بعد از بارگذاری ساخته می‌شوند
 
   document.addEventListener("pointerdown", (e) => {
-    if (openOne && !openOne.panel.contains(e.target) && !openOne.wrap.contains(e.target)) openOne.close();
+    if (openOne && e.target !== backdrop && !openOne.panel.contains(e.target) && !openOne.wrap.contains(e.target)) openOne.close();
   });
   addEventListener("resize", () => openOne && openOne.place());
   addEventListener("scroll", (e) => { if (openOne && !openOne.panel.contains(e.target)) openOne.place(); }, true);

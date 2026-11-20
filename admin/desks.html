@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>اجاره میز سالن | بلا</title>
+    <meta name="description" content="اجاره میز سالن" />
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#131213" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../assets/img/icon-180.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="بلا" />
+    <link rel="preload" href="../assets/fonts/vazirmatn-arabic.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- استایل‌ها -->
+    <link rel="stylesheet" href="../assets/css/base/tokens.css" />
+    <link rel="stylesheet" href="../assets/css/base/base.css" />
+    <link rel="stylesheet" href="../assets/css/layout/header.css" />
+    <link rel="stylesheet" href="../assets/css/layout/footer.css" />
+    <link rel="stylesheet" href="../assets/css/components/buttons.css" />
+    <link rel="stylesheet" href="../assets/css/components/forms.css" />
+    <link rel="stylesheet" href="../assets/css/components/cards.css" />
+    <link rel="stylesheet" href="../assets/css/components/tables.css" />
+    <link rel="stylesheet" href="../assets/css/components/dialog.css" />
+    <link rel="stylesheet" href="../assets/css/layout/panel.css" />
+    <link rel="stylesheet" href="../assets/css/pages/dashboard.css" />
+    <link rel="stylesheet" href="../assets/css/pages/market.css" />
+    <link rel="stylesheet" href="../assets/css/base/motion.css" />
+
+    <!-- اسکریپت‌ها -->
+    <script src="../assets/js/theme-init.js"></script>
+    <script src="../assets/js/common/location.js" defer></script>
+    <script src="../assets/js/common/theme.js" defer></script>
+    <script src="../assets/js/common/nav.js" defer></script>
+    <script src="../assets/js/common/reveal.js" defer></script>
+    <script src="../assets/js/common/ui.js" defer></script>
+    <script src="../assets/js/common/forms.js" defer></script>
+    <script src="../assets/js/common/pwa.js" defer></script>
+    <script src="../assets/js/components/select.js" defer></script>
+    <script src="../assets/js/components/panel.js" defer></script>
+    <script src="../assets/js/pages/wallet.js" defer></script>
+  </head>
+  <body class="no-footer">
+    <a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__bar">
+        <a class="brand" href="../index.html" aria-label="صفحه اصلی بلا">
+          <span class="logo" role="img" aria-label="بلا"></span>
+          <span class="brand__name">
+            <b>بِلا</b>
+            <small class="brand__sub">سامانه سالن‌های زیبایی</small>
+          </span>
+        </a>
+        <nav id="site-nav" class="site-nav" aria-label="منوی اصلی">
+          <div class="site-nav__head">
+            <strong>منوی بِلا</strong>
+            <button type="button" class="icon-btn" data-nav-close aria-label="بستن منو"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#x"/></svg></button>
+          </div>
+          <form class="nav-search" action="../salons.html" method="get" role="search">
+            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg><input name="q" type="search" placeholder="جستجوی سالن یا خدمت" aria-label="جستجوی سالن یا خدمت" />
+          </form>
+          <ul>
+            <li><a href="../index.html">خانه</a></li>
+            <li><a href="../salons.html?view=map">نقشه</a></li>
+            <li><a href="../index.html#top-stylists">آرایشگران برتر</a></li>
+            <li><a href="../index.html#by-category">دسته‌بندی‌ها</a></li>
+            <li><a href="../customer/appointments.html">نوبت‌های من</a></li>
+            <li><a href="../account/login.html">ورود</a></li>
+          </ul>
+        </nav>
+        <form class="hdr-search" action="../salons.html" method="get" role="search" aria-label="جستجوی سالن">
+          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg>
+          <label class="visually-hidden" for="hdr-q">جستجوی سالن یا خدمت</label>
+          <input id="hdr-q" name="q" type="search" placeholder="جستجوی سالن، خدمت یا محله…" autocomplete="off" />
+        </form>
+        <div class="header-actions">
+          <button type="button" class="loc-chip" data-loc-open aria-label="موقعیت و شهر شما"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#pin"/></svg><span data-loc-city>شهر</span></button>
+          <a class="icon-btn hdr-search-btn" href="../salons.html#f-q" aria-label="جستجو"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg></a>
+          <button type="button" class="icon-btn" data-theme-toggle aria-pressed="false" aria-label="تغییر حالت روشن و تیره">
+            <svg class="i-moon ph" aria-hidden="true"><use href="../assets/img/icons.svg#moon"/></svg><svg class="i-sun ph" aria-hidden="true"><use href="../assets/img/icons.svg#sun"/></svg>
+          </button>
+          <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="منو">
+            <svg class="ph" aria-hidden="true"><use href="../assets/img/icons.svg#menu"/></svg>
+          </button>
+          <a class="btn btn-primary btn-book" href="../booking.html">رزرو نوبت</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <div class="wrap panel-layout">
+        <nav class="side-nav" aria-label="منوی پنل سالن">
+          <div class="side-nav__user">
+            <div class="avatar"><span class="avatar__ph" aria-hidden="true"></span></div>
+            <div><strong>سالن زیبایی آیدا</strong><small>مدیر سالن</small></div>
+          </div>
+          <div class="side-nav__group">
+            <p class="side-nav__title">عمومی</p>
+            <ul>
+              <li><a href="../admin/index.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#dashboard"/></svg><span>داشبورد</span></a></li>
+              <li><a href="../admin/reports.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#chart"/></svg><span>گزارش‌ها و آمار</span></a></li>
+            </ul>
+          </div>
+          <div class="side-nav__group">
+            <p class="side-nav__title">نوبت‌دهی</p>
+            <ul>
+              <li><a href="../admin/appointments.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#calendar"/></svg><span>نوبت‌ها</span></a></li>
+            </ul>
+          </div>
+          <div class="side-nav__group">
+            <p class="side-nav__title">سالن</p>
+            <ul>
+              <li><a href="../admin/services.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#list"/></svg><span>خدمات و دسته‌ها</span></a></li>
+              <li><a href="../admin/staff.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#users"/></svg><span>آرایشگران</span></a></li>
+              <li><a href="../admin/desks.html" aria-current="page"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#chair"/></svg><span>اجاره میز</span></a></li>
+              <li><a href="../admin/discounts.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#percent"/></svg><span>کدهای تخفیف</span></a></li>
+            </ul>
+          </div>
+          <div class="side-nav__group">
+            <p class="side-nav__title">مالی</p>
+            <ul>
+              <li><a href="../admin/wallet.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#wallet"/></svg><span>کیف پول سالن</span></a></li>
+            </ul>
+          </div>
+          <div class="side-nav__group">
+            <p class="side-nav__title">مشتریان</p>
+            <ul>
+              <li><a href="../admin/reviews.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#message"/></svg><span>نظرات</span></a></li>
+              <li><a href="../admin/users.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#user"/></svg><span>کاربران و نقش‌ها</span></a></li>
+            </ul>
+          </div>
+          <div class="side-nav__group">
+            <p class="side-nav__title">سیستم</p>
+            <ul>
+              <li><a href="../admin/settings.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#settings"/></svg><span>تنظیمات و تعطیلات</span></a></li>
+            </ul>
+          </div>
+          <div class="side-nav__group">
+            <p class="side-nav__title">حساب</p>
+            <ul>
+              <li><a href="../account/profile.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#user"/></svg><span>حساب من</span></a></li>
+              <li><a href="../account/notifications.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#bell"/></svg><span>اعلان‌ها</span></a></li>
+            </ul>
+          </div>
+          <div class="side-nav__group">
+            <ul>
+              <li class="side-nav__logout-item"><a class="side-nav__logout" href="../index.html" data-logout><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#logout"/></svg><span>خروج</span></a></li>
+            </ul>
+          </div>
+        </nav>
+        <div class="panel-content">
+          <header class="p-head">
+            <div>
+              <p class="p-head__eyebrow">پنل سالن</p>
+              <h1>اجاره میز</h1>
+              <p class="p-head__sub">میزهای خالی را به آرایشگران مستقل اجاره دهید؛ مبلغ اجاره (منهای ۱۰٪ کارمزد) به کیف پول سالن می‌آید.</p>
+            </div>
+            <div class="p-head__actions"><button type="button" class="btn btn-primary" data-open="desk-dialog" data-title="میز تازه" data-fill="{}"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#plus"/></svg>افزودن میز</button></div>
+          </header>
+          <div class="stats">
+            <div class="stat stat--lead">
+              <span class="stat__icon"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#wallet"/></svg></span>
+              <span class="stat__label">درآمد اجاره آبان</span>
+              <span class="stat__value">۲۸٫۸<small>میلیون تومان</small></span>
+              <span class="stat__trend stat__trend--up">▲ ۲ میز اجاره‌ای</span>
+            </div>
+            <div class="stat">
+              <span class="stat__icon"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#chair"/></svg></span>
+              <span class="stat__label">میزهای اجاره‌ای</span>
+              <span class="stat__value">۳<small>میز</small></span>
+              
+            </div>
+            <div class="stat">
+              <span class="stat__icon"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#chart"/></svg></span>
+              <span class="stat__label">درصد اشغال</span>
+              <span class="stat__value">۶۸<small>٪</small></span>
+              
+            </div>
+            <div class="stat">
+              <span class="stat__icon"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#bell"/></svg></span>
+              <span class="stat__label">درخواست در انتظار</span>
+              <span class="stat__value">۲<small>درخواست</small></span>
+              
+            </div>
+          </div>
+          <div class="stack-lg">
+          <section class="card">
+            <div class="card__head"><div><h2>درخواست‌های اجاره</h2><p>با تأیید شما، مبلغ از کیف پول آرایشگر کسر و به کیف پول سالن واریز می‌شود.</p></div></div>
+            <div class="rent-list">
+              <article class="rent-item">
+                <div class="avatar avatar--sm"><span class="avatar__ph" aria-hidden="true"></span></div>
+                <div class="rent-item__body"><b>فرشته کاظمی</b><small>مژه‌کار · ★ ۴٫۸ · کارت بهداشت معتبر</small><small><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#calendar"/></svg>میز رنگ و کراتین ۲ · ۵ و ۶ آذر · روزانه</small></div>
+                <div class="rent-item__actions"><span class="rent-item__price">۱٬۸۰۰٬۰۰۰ تومان</span><button type="button" class="btn btn-primary btn-sm" data-act="approveRent" data-id="21">تأیید</button><button type="button" class="btn btn-ghost btn-sm" data-act="rejectRent" data-id="21">رد</button></div>
+              </article>
+              <article class="rent-item">
+                <div class="avatar avatar--sm"><span class="avatar__ph" aria-hidden="true"></span></div>
+                <div class="rent-item__body"><b>نیلوفر صادقی</b><small>متخصص مو · ★ ۴٫۶ · ۶ سال سابقه</small><small><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#calendar"/></svg>میز رنگ و کراتین ۲ · ماهانه از ۱ آذر</small></div>
+                <div class="rent-item__actions"><span class="rent-item__price">۱۶٬۰۰۰٬۰۰۰ تومان</span><button type="button" class="btn btn-primary btn-sm" data-act="approveRent" data-id="22">تأیید</button><button type="button" class="btn btn-ghost btn-sm" data-act="rejectRent" data-id="22">رد</button></div>
+              </article>
+            </div>
+          </section>
+          <section class="card card--flush">
+            <div class="card__head card__head--pad"><div><h2>میزهای سالن</h2></div></div>
+            <div class="table-wrap">
+              <table class="table">
+                <thead><tr><th scope="col">میز</th><th scope="col">تخصص</th><th scope="col">روزانه</th><th scope="col">ماهانه</th><th scope="col">وضعیت</th><th scope="col"><span class="visually-hidden">عملیات</span></th></tr></thead>
+                <tbody>
+                  <tr><td><b>میز رنگ و کراتین ۱</b></td><td>مو</td><td>۹۰۰٬۰۰۰ تومان</td><td>۱۶٬۰۰۰٬۰۰۰ تومان</td><td><span class="chip chip--confirmed">اجاره داده شده</span><br /><small class="muted">الهام نوری · ماهانه تا ۲۶ آذر</small></td>
+                  <td><button type="button" class="btn btn-ghost btn-sm" data-open="desk-dialog" data-title="ویرایش میز رنگ و کراتین ۱" data-fill='{"title":"میز رنگ و کراتین ۱","day":"900000","month":"16000000"}'>ویرایش</button></td></tr>
+                  <tr><td><b>میز رنگ و کراتین ۲</b></td><td>مو</td><td>۹۰۰٬۰۰۰ تومان</td><td>۱۶٬۰۰۰٬۰۰۰ تومان</td><td><span class="chip chip--pending">آزاد</span><br /><small class="muted">آزاد</small></td>
+                  <td><button type="button" class="btn btn-ghost btn-sm" data-open="desk-dialog" data-title="ویرایش میز رنگ و کراتین ۲" data-fill='{"title":"میز رنگ و کراتین ۲","day":"900000","month":"16000000"}'>ویرایش</button></td></tr>
+                  <tr><td><b>میز ناخن کنار پنجره</b></td><td>ناخن</td><td>۴۵۰٬۰۰۰ تومان</td><td>۸٬۵۰۰٬۰۰۰ تومان</td><td><span class="chip chip--completed">غیرفعال</span><br /><small class="muted">غیرفعال</small></td>
+                  <td><button type="button" class="btn btn-ghost btn-sm" data-open="desk-dialog" data-title="ویرایش میز ناخن کنار پنجره" data-fill='{"title":"میز ناخن کنار پنجره","day":"450000","month":"8500000"}'>ویرایش</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          </div>
+
+          <dialog class="dialog-form" id="desk-dialog" aria-labelledby="desk-dialog-title">
+            <form method="post" action="" class="form">
+              <div class="dialog-form__head"><h2 id="desk-dialog-title">میز تازه</h2><button type="button" class="icon-btn" data-close aria-label="بستن">✕</button></div>
+              <div class="dialog-form__body form">
+                <div class="field"><label for="dk-title">عنوان میز</label><input id="dk-title" name="title" class="input" required placeholder="مثلاً میز ناخن با هود" /></div>
+                <div class="form-row cols-2">
+                  <div class="field"><label for="dk-kind">تخصص</label><select id="dk-kind" name="kind" class="input"><option>مو</option><option>ناخن</option><option>ابرو</option><option>مژه</option><option>میکاپ</option><option>پوست</option><option>اپیلاسیون</option><option>عروس</option><option>ماساژ و اسپا</option></select></div>
+                  <div class="field"><label for="dk-shift">شیفت</label><select id="dk-shift" name="shift" class="input"><option>تمام‌وقت</option><option>صبح</option><option>عصر</option></select></div>
+                </div>
+                <div class="form-row cols-2">
+                  <div class="field"><label for="dk-day">اجاره روزانه (تومان)</label><input id="dk-day" name="day" class="input ltr" inputmode="numeric" required data-money /></div>
+                  <div class="field"><label for="dk-month">اجاره ماهانه (اختیاری)</label><input id="dk-month" name="month" class="input ltr" inputmode="numeric" data-money /></div>
+                </div>
+                <div class="field"><label for="dk-perks">امکانات</label><input id="dk-perks" name="perks" class="input" placeholder="با ویرگول جدا کنید: سینک، سشوار، هود" /></div>
+                <label class="switch"><input type="checkbox" name="autoApprove" /><span class="switch__ui"></span><span>درخواست آرایشگران تأییدشده با امتیاز ۴٫۵ به بالا خودکار پذیرفته شود</span></label>
+              </div>
+              <div class="dialog-form__foot"><button type="button" class="btn btn-ghost" data-close>انصراف</button><button class="btn btn-primary" type="submit">ذخیره میز</button></div>
+            </form>
+          </dialog>
+        </div>
+      </div>
+    </main>
+
+
+  </body>
+</html>

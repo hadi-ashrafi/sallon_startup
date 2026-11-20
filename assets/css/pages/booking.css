@@ -13,7 +13,8 @@
 .stepper li.is-done { color: var(--accent-ink); }
 .stepper li.is-done .stepper__num { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-size: 0; }
 .stepper li.is-done .stepper__num::after { content: "✓"; font-size: .8rem; }
-.stepper li[aria-current="step"] { background: linear-gradient(135deg, var(--accent), var(--plum)); color: var(--on-accent); }
+.stepper li[aria-current="step"] { background: var(--accent); color: var(--on-accent); }
+.stepper__label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 .stepper li[aria-current="step"] .stepper__num { background: rgba(255, 255, 255, .22); border-color: transparent; color: inherit; }
 /* گوشی‌های کوچک: فقط عنوان قدم فعال، بقیه فقط شماره */
 @media (max-width: 480px) {

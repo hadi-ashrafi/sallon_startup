@@ -118,12 +118,24 @@
       emit();
     }
 
+    // refresh: خدمت یا آرایشگر عوض شد؛ روز و ساعت انتخاب‌شده می‌ماند مگر دیگر آزاد نباشد.
+    // بدون بک‌اند ساعت‌ها ثابت‌اند و چیزی عوض نمی‌شود؛ با بک‌اند ساعت‌های همان روز دوباره گرفته می‌شود.
+    async function refresh() {
+      if (!pick.date || !slotsUrl) return false;
+      const keep = pick.time;
+      await loadSlots(pick.date);
+      const again = keep && slots.find((b) => b.dataset.time === keep && !b.disabled);
+      if (again) { pickSlot(again); return false; }
+      if (keep) { Object.assign(pick, { time: "", timeLabel: "" }); emit(); return true; } // ساعت قبلی دیگر آزاد نیست
+      return false;
+    }
+
     days.forEach((btn) => btn.addEventListener("click", () => pickDay(btn)));
     if (slotsUrl) slotsBox.innerHTML = ""; // ساعت‌های نمونه با بک‌اند نشان داده نمی‌شوند
     else slots.forEach((btn) => btn.addEventListener("click", () => pickSlot(btn)));
     emit();
 
-    return { reset };
+    return { reset, refresh };
   }
 
   window.SalonSlotPicker = { mount };

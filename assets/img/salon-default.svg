@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
+  <title>سالن زیبایی</title>
+  <!-- نماد پیش‌فرض سالنی که عکس نگذاشته: آینه طاقی (همان طاق لوگو)، قیچی و میز آرایش -->
+  <circle cx="60" cy="60" r="50" fill="#fff" fill-opacity=".12" stroke="none"/>
+  <path d="M36 90V52a24 24 0 0 1 48 0v38" stroke-width="4.5"/>
+  <path d="M43 90V53a17 17 0 0 1 34 0v37" stroke-width="2" stroke-opacity=".5"/>
+  <path d="M49 48l8-8M50 58l14-14" stroke-width="2.5" stroke-opacity=".55"/>
+  <circle cx="53.5" cy="79" r="4.5" stroke-width="2.6"/>
+  <circle cx="66.5" cy="79" r="4.5" stroke-width="2.6"/>
+  <path d="M56.5 75.6L66 60M63.5 75.6L54 60" stroke-width="2.6"/>
+  <path d="M26 90h68" stroke-width="4.5"/>
+  <path d="M34 90v10M86 90v10" stroke-width="3.5"/>
+  <path d="M93 26v12M87 32h12" stroke-width="3"/>
+  <path d="M25 38v7M21.5 41.5h7" stroke-width="2.4" stroke-opacity=".75"/>
+</svg>

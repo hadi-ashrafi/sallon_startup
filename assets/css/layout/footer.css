@@ -1,92 +1,39 @@
-/* پانویس: یک باکس شیشه‌ای با لوگو در وسط، تماس، فضای مجازی و نقشه */
+/* پانویس جمع‌وجور: لوگو، شعار و تلفن در یک ستون، لینک‌ها در سه ستون کنارش (موبایل: زیر هم، کوچک) */
 
-.site-footer { margin-top: var(--s6); padding-block: 0 var(--s4); font-size: .92rem; }
+.site-footer { margin-top: var(--s6); padding-block: 0 var(--s4); font-size: .88rem; }
 .footer-box {
-  display: grid; justify-items: center; gap: var(--s4); padding: var(--s6) var(--s5) var(--s5);
-  border: 1px solid var(--glass-border); border-radius: 32px; text-align: center;
+  display: grid; gap: var(--s3) var(--s6); padding: var(--s5); grid-template-columns: minmax(0, 1fr);
+  border: 1px solid var(--glass-border); border-radius: 24px; background: var(--glass-bg);
+}
+@media (min-width: 768px) {
+  .footer-box { grid-template-columns: minmax(200px, 1fr) minmax(0, 2fr); grid-template-areas: "brand cols" "tag cols" "contact cols"; align-items: start; }
+  .footer-brand { grid-area: brand; }
+  .footer-tagline { grid-area: tag; }
+  .footer-contact { grid-area: contact; }
+  .footer-box > nav, .footer-box > .mk-footer__cols { grid-area: cols; }
 }
 
-.footer-brand { display: grid; justify-items: center; gap: var(--s2); color: var(--ink); text-decoration: none; }
-.footer-brand .logo { height: 64px; }
-.footer-brand strong { font-size: 1.2rem; font-weight: 900; }
-.footer-tagline { margin: calc(-1 * var(--s3)) 0 0; color: var(--muted); }
+.footer-brand { display: inline-flex; align-items: center; gap: var(--s2); color: var(--ink); text-decoration: none; }
+.footer-brand .logo { height: 36px; }
+.footer-brand strong { font-size: 1.1rem; font-weight: 900; }
+.footer-tagline { margin: 0; color: var(--muted); font-size: .84rem; line-height: 1.8; }
 
-/* شماره تماس و آیکن‌های فضای مجازی کنار هم */
-.footer-contact { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--s3); }
+.footer-contact { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); }
 .footer-phone {
-  display: inline-flex; align-items: center; gap: var(--s2); min-height: 48px; padding: 0 var(--s5);
-  border-radius: 999px; background: var(--accent); color: var(--on-accent); font-weight: 800; font-size: 1.05rem; text-decoration: none;
-  box-shadow: 0 10px 22px -12px var(--accent); transition: transform .2s var(--ease-out);
+  display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 14px; border-radius: 999px;
+  background: var(--accent-soft); color: var(--accent-ink); font-weight: 800; font-size: .88rem; text-decoration: none;
 }
-.footer-phone:hover { color: var(--on-accent); transform: translateY(-2px); }
-.social-list { list-style: none; display: flex; gap: var(--s2); margin: 0; padding: 0; }
-.social-btn {
-  display: grid; place-items: center; width: 48px; height: 48px; border-radius: 16px; color: var(--accent-ink);
-  background: var(--glass-soft); border: 1px solid var(--glass-border); transition: transform .2s var(--ease-out), background .2s var(--ease), color .2s var(--ease);
-}
-.social-btn .icon { width: 22px; height: 22px; }
-.social-btn:hover { transform: translateY(-2px); background: var(--accent); color: var(--on-accent); }
+.footer-phone .icon { width: 18px; height: 18px; }
+.footer-phone:hover { background: var(--accent); color: var(--on-accent); }
 
-/* باکس نقشه: فعلاً طرح نقشه؛ بک‌اند iframe نقشه بلد را جای .map-box__canvas می‌گذارد. */
-.map-box {
-  width: 100%; max-width: 760px; overflow: hidden; text-align: start;
-  border-radius: 24px; border: 1px solid var(--glass-border); background: var(--glass-soft);
-}
-.map-box__canvas {
-  position: relative; display: grid; place-items: center; height: 180px;
-  background:
-    linear-gradient(115deg, transparent 47%, var(--map-road) 47%, var(--map-road) 53%, transparent 53%),
-    linear-gradient(20deg, transparent 58%, var(--map-road) 58%, var(--map-road) 61%, transparent 61%),
-    linear-gradient(90deg, transparent 28%, var(--map-street) 28%, var(--map-street) 30%, transparent 30%, transparent 72%, var(--map-street) 72%, var(--map-street) 74%, transparent 74%),
-    linear-gradient(0deg, transparent 35%, var(--map-street) 35%, var(--map-street) 38%, transparent 38%),
-    radial-gradient(60px 40px at 18% 75%, var(--map-park), transparent 70%),
-    radial-gradient(80px 50px at 85% 20%, var(--map-park), transparent 70%),
-    var(--map-bg);
-  --map-bg: #F6E9E6; --map-road: #FFFFFF; --map-street: rgba(255, 255, 255, .7); --map-park: #D7EBD8;
-}
-:root[data-theme="dark"] .map-box__canvas { --map-bg: #2A1D23; --map-road: #46323B; --map-street: rgba(255, 255, 255, .08); --map-park: #24382B; }
-.map-box__canvas iframe { position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; border: 0; }
-.map-box__pin {
-  display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg);
-  background: var(--accent); color: var(--on-accent); box-shadow: 0 10px 20px -8px var(--accent);
-  animation: pin-bounce 2.4s var(--ease-out) infinite;
-}
-.map-box__pin .icon { transform: rotate(45deg); width: 22px; height: 22px; }
-.map-box__info { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s3); padding: var(--s4); }
-.map-box__info > div { flex: 1; min-width: 200px; }
-.map-box__info p { margin: 0; color: var(--muted); }
-.map-box__icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 14px; background: var(--accent-soft); color: var(--accent-ink); }
-.map-box__hours { display: flex; align-items: center; gap: 6px; font-size: .85rem; }
-@keyframes pin-bounce { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+.site-footer__base { margin: var(--s3) 0 0; text-align: center; color: var(--muted); font-size: .76rem; }
 
-.footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s1) var(--s2); padding-top: var(--s4); border-top: 1px solid var(--line); width: 100%; }
-.footer-links a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 var(--s3); border-radius: 999px; color: var(--ink); text-decoration: none; transition: background .2s var(--ease), color .2s var(--ease); }
-.footer-links a:hover { background: var(--accent-soft); color: var(--accent-ink); }
-.site-footer__base { margin: var(--s3) 0 0; text-align: center; color: var(--muted); font-size: .82rem; }
-
-/* ================= موبایل: پانویس جمع‌وجور ================= */
+/* ================= موبایل ================= */
 @media (max-width: 640px) {
-  .site-footer { margin-top: var(--s5); font-size: .86rem; }
-  .footer-box { gap: var(--s3); padding: var(--s5) var(--s4) var(--s4); border-radius: 24px; }
-  .footer-brand { gap: var(--s1); }
-  .footer-brand .logo { height: 46px; }
-  .footer-brand strong { font-size: 1.02rem; }
-  .footer-tagline { margin-top: calc(-1 * var(--s2)); font-size: .82rem; }
-  .footer-contact { gap: var(--s2); }
-  .footer-phone { min-height: 42px; padding: 0 var(--s4); font-size: .95rem; }
-  .social-btn { width: 42px; height: 42px; border-radius: 14px; }
-  .social-btn .icon { width: 20px; height: 20px; }
-  .map-box { border-radius: 18px; }
-  .map-box__canvas { height: 110px; }
-  .map-box__pin { width: 38px; height: 38px; }
-  .map-box__pin .icon { width: 18px; height: 18px; }
-  .map-box__info { gap: var(--s2); padding: var(--s3); }
-  .map-box__info > div { flex: 1 1 0; min-width: 0; }
-  .map-box__info .btn { flex: 1 1 100%; min-height: 38px; }
-  .map-box__info strong { font-size: .9rem; }
-  .map-box__icon { width: 36px; height: 36px; border-radius: 12px; }
-  .map-box__hours { font-size: .78rem; }
-  .footer-links { gap: 0 var(--s1); padding-top: var(--s3); }
-  .footer-links a { min-height: 34px; padding: 0 var(--s2); font-size: .82rem; }
-  .site-footer__base { margin-top: var(--s2); font-size: .74rem; }
+  .site-footer { margin-top: var(--s5); }
+  .footer-box { gap: var(--s3); padding: var(--s4); border-radius: 20px; }
+  .footer-brand .logo { height: 30px; }
+  .footer-brand strong { font-size: 1rem; }
+  .footer-tagline { font-size: .78rem; }
+  .site-footer__base { margin-top: var(--s2); font-size: .7rem; }
 }

@@ -67,16 +67,28 @@
 .filters { padding: var(--s4); border: 1px solid var(--glass-border); border-radius: var(--r-lg); }
 
 /* ================= پروفایل آرایشگر ================= */
-.profile { display: grid; gap: var(--s5); align-items: center; padding: var(--s5); border-radius: 28px; margin-bottom: var(--s5); }
-@media (min-width: 760px) { .profile { grid-template-columns: 240px 1fr; padding: var(--s6); } }
-.profile__avatar { max-width: 240px; border-radius: 28px; box-shadow: 0 0 0 6px var(--glass-soft); }
-.profile__info { display: grid; gap: var(--s3); justify-items: start; }
-.profile__info h1 { margin: 0; }
+/* موبایل: همه وسط‌چین (عکس گرد، نام، نوع همکاری، سه عدد هم‌اندازه، دکمه تمام‌عرض)؛ دسکتاپ: عکس کنار اطلاعات */
+.profile { display: grid; justify-items: center; gap: var(--s3); padding: var(--s5) var(--s4); border-radius: 26px; margin-bottom: var(--s5); text-align: center; }
+.profile__avatar { width: 112px; max-width: 112px; border-radius: 50%; box-shadow: 0 0 0 4px var(--bg), 0 0 0 6px var(--accent-soft); }
+.profile__info { display: grid; gap: var(--s2); justify-items: center; width: 100%; }
+.profile__info h1 { margin: 0; font-size: 1.45rem; }
 .profile__info p { margin: 0; }
-.profile__title { color: var(--muted); font-size: 1.05rem; }
-.profile__facts { list-style: none; display: flex; flex-wrap: wrap; gap: var(--s3); margin: var(--s2) 0; padding: 0; }
-.profile__facts li { display: grid; padding: var(--s2) var(--s4); border-radius: var(--r-md); background: var(--glass-soft); border: 1px solid var(--glass-border); }
-.profile__facts span { font-size: .8rem; color: var(--muted); }
+.profile__status .chip { font-size: .74rem; }
+.profile__title { color: var(--muted); font-size: .95rem; }
+.profile .tag-list { justify-content: center; }
+.profile__facts { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s2); width: 100%; max-width: 420px; margin: var(--s2) 0; padding: 0; }
+.profile__facts li { display: grid; justify-items: center; gap: 2px; padding: var(--s2); border-radius: 16px; background: var(--glass-soft); border: 1px solid var(--glass-border); }
+.profile__facts strong { display: inline-flex; align-items: center; gap: 4px; font-size: 1rem; white-space: nowrap; }
+.profile__facts .stars { display: none; } /* امتیاز با عدد کافی است؛ پنج ستاره در کادر کوچک جا نمی‌شود */
+.profile__facts span { font-size: .76rem; color: var(--muted); }
+.profile__info > .btn-primary { width: 100%; max-width: 420px; }
+@media (min-width: 760px) {
+  .profile { grid-template-columns: 180px 1fr; justify-items: start; align-items: center; gap: var(--s6); padding: var(--s6); text-align: start; }
+  .profile__avatar { width: 180px; max-width: 180px; border-radius: 28px; }
+  .profile__info { justify-items: start; }
+  .profile .tag-list { justify-content: flex-start; }
+  .profile__info > .btn-primary { width: auto; }
+}
 .profile-grid { display: grid; gap: var(--s5); }
 @media (min-width: 960px) { .profile-grid { grid-template-columns: 1.15fr .85fr; align-items: start; } }
 .profile-grid > * { min-width: 0; }
@@ -142,12 +154,6 @@
 
 /* ================= گوشی: پروفایل آرایشگر، درباره ما و فهرست خدمات جمع‌وجور ================= */
 @media (max-width: 640px) {
-  .profile { gap: var(--s4); padding: var(--s4); border-radius: 22px; }
-  .profile__avatar { width: 130px; max-width: 130px; border-radius: 22px; box-shadow: 0 0 0 4px var(--glass-soft); }
-  .profile__info { gap: var(--s2); }
-  .profile__title { font-size: .95rem; }
-  .profile__facts { gap: var(--s2); }
-  .profile__facts li { padding: var(--s1) var(--s3); }
   .about__media img { aspect-ratio: 4 / 3; box-shadow: 0 0 0 5px var(--glass-soft); }
   .svc-hero, .svc-group { padding: var(--s4); }
 }

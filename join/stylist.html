@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ثبت‌نام آرایشگر | بلا</title>
+    <meta name="description" content="به‌عنوان آرایشگر در بلا ثبت‌نام کنید: کار در سالن، اجاره میز و کیف پول اختصاصی." />
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#131213" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../assets/img/icon-180.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="بلا" />
+    <link rel="preload" href="../assets/fonts/vazirmatn-arabic.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- استایل‌ها -->
+    <link rel="stylesheet" href="../assets/css/base/tokens.css" />
+    <link rel="stylesheet" href="../assets/css/base/base.css" />
+    <link rel="stylesheet" href="../assets/css/layout/header.css" />
+    <link rel="stylesheet" href="../assets/css/layout/footer.css" />
+    <link rel="stylesheet" href="../assets/css/components/buttons.css" />
+    <link rel="stylesheet" href="../assets/css/components/forms.css" />
+    <link rel="stylesheet" href="../assets/css/components/cards.css" />
+    <link rel="stylesheet" href="../assets/css/components/tables.css" />
+    <link rel="stylesheet" href="../assets/css/components/dialog.css" />
+    <link rel="stylesheet" href="../assets/css/pages/booking.css" />
+    <link rel="stylesheet" href="../assets/css/pages/dashboard.css" />
+    <link rel="stylesheet" href="../assets/css/pages/market.css" />
+    <link rel="stylesheet" href="../assets/css/base/motion.css" />
+
+    <!-- اسکریپت‌ها -->
+    <script src="../assets/js/theme-init.js"></script>
+    <script src="../assets/js/common/location.js" defer></script>
+    <script src="../assets/js/common/theme.js" defer></script>
+    <script src="../assets/js/common/nav.js" defer></script>
+    <script src="../assets/js/common/reveal.js" defer></script>
+    <script src="../assets/js/common/ui.js" defer></script>
+    <script src="../assets/js/common/forms.js" defer></script>
+    <script src="../assets/js/common/pwa.js" defer></script>
+    <script src="../assets/js/components/select.js" defer></script>
+    <script src="../assets/js/pages/wizard.js" defer></script>
+    <script src="../assets/js/components/datepicker.js" defer></script>
+  </head>
+  <body class="no-footer">
+    <a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__bar">
+        <a class="brand" href="../index.html" aria-label="صفحه اصلی بلا">
+          <span class="logo" role="img" aria-label="بلا"></span>
+          <span class="brand__name">
+            <b>بِلا</b>
+            <small class="brand__sub">سامانه سالن‌های زیبایی</small>
+          </span>
+        </a>
+        <nav id="site-nav" class="site-nav" aria-label="منوی اصلی">
+          <div class="site-nav__head">
+            <strong>منوی بِلا</strong>
+            <button type="button" class="icon-btn" data-nav-close aria-label="بستن منو"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#x"/></svg></button>
+          </div>
+          <form class="nav-search" action="../salons.html" method="get" role="search">
+            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg><input name="q" type="search" placeholder="جستجوی سالن یا خدمت" aria-label="جستجوی سالن یا خدمت" />
+          </form>
+          <ul>
+            <li><a href="../index.html">خانه</a></li>
+            <li><a href="../salons.html?view=map">نقشه</a></li>
+            <li><a href="../index.html#top-stylists">آرایشگران برتر</a></li>
+            <li><a href="../index.html#by-category">دسته‌بندی‌ها</a></li>
+            <li><a href="../customer/appointments.html">نوبت‌های من</a></li>
+            <li><a href="../account/login.html">ورود</a></li>
+          </ul>
+        </nav>
+        <form class="hdr-search" action="../salons.html" method="get" role="search" aria-label="جستجوی سالن">
+          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg>
+          <label class="visually-hidden" for="hdr-q">جستجوی سالن یا خدمت</label>
+          <input id="hdr-q" name="q" type="search" placeholder="جستجوی سالن، خدمت یا محله…" autocomplete="off" />
+        </form>
+        <div class="header-actions">
+          <button type="button" class="loc-chip" data-loc-open aria-label="موقعیت و شهر شما"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#pin"/></svg><span data-loc-city>شهر</span></button>
+          <a class="icon-btn hdr-search-btn" href="../salons.html#f-q" aria-label="جستجو"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg></a>
+          <button type="button" class="icon-btn" data-theme-toggle aria-pressed="false" aria-label="تغییر حالت روشن و تیره">
+            <svg class="i-moon ph" aria-hidden="true"><use href="../assets/img/icons.svg#moon"/></svg><svg class="i-sun ph" aria-hidden="true"><use href="../assets/img/icons.svg#sun"/></svg>
+          </button>
+          <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="منو">
+            <svg class="ph" aria-hidden="true"><use href="../assets/img/icons.svg#menu"/></svg>
+          </button>
+          <a class="btn btn-primary btn-book" href="../booking.html">رزرو نوبت</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section class="section section--page">
+        <div class="wrap join-layout">
+          <aside class="join-aside glass">
+            <span class="join-card__icon"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg></span>
+            <h1>ثبت‌نام آرایشگر</h1>
+            <p>پروفایل حرفه‌ای بسازید، در سالن‌ها کار کنید یا میز اجاره کنید و درآمدتان را در کیف پول خودتان ببینید.</p>
+            <ul class="check-list"><li><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#check"/></svg>ثبت‌نام رایگان؛ کارمزد فقط از نوبت‌های انجام‌شده</li><li><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#check"/></svg>کار به‌عنوان کارمند سالن یا آرایشگر مستقل</li><li><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#check"/></svg>اجاره میز روزانه و ماهانه</li><li><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#check"/></svg>تسویه کیف پول به شبا در یک روز کاری</li></ul>
+            <p class="join-aside__help"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#phone"/></svg>سؤال دارید؟ <a href="tel:02100000000">۰۲۱-۰۰۰۰۰۰۰۰</a></p>
+          </aside>
+
+          <form class="join-form panel" method="post" action="" enctype="multipart/form-data" novalidate data-wizard>
+            <ol class="stepper wiz-steps" aria-label="مراحل ثبت‌نام" data-wdots><li data-wdot="0" aria-current="step"><span class="stepper__num">۱</span><span class="stepper__label">اطلاعات فردی</span></li><li data-wdot="1"><span class="stepper__num">۲</span><span class="stepper__label">تخصص</span></li><li data-wdot="2"><span class="stepper__num">۳</span><span class="stepper__label">نحوه همکاری</span></li><li data-wdot="3"><span class="stepper__num">۴</span><span class="stepper__label">مدارک و حساب</span></li><li data-wdot="4"><span class="stepper__num">۵</span><span class="stepper__label">قرارداد</span></li></ol>
+
+            <!-- قدم ۱ -->
+            <fieldset class="wiz-step" data-wstep="0">
+              <legend class="wiz-step__title"><b>اطلاعات فردی</b><small>با همین شماره وارد حساب می‌شوید.</small></legend>
+              <div class="form-row cols-2">
+                <div class="field"><label for="fullName">نام و نام خانوادگی</label><input id="fullName" name="fullName" class="input" required minlength="3" autocomplete="name" data-label="نام" /></div>
+                <div class="field"><label for="phone">شماره موبایل</label><input id="phone" name="phone" class="input ltr" required inputmode="tel" pattern="(09|۰۹)[0-9۰-۹]{9}" placeholder="۰۹۱۲۰۰۰۰۰۰۰" autocomplete="tel" data-label="موبایل" /></div>
+              </div>
+              <div class="form-row cols-2">
+                <div class="field"><label for="nationalId">کد ملی</label><input id="nationalId" name="nationalId" class="input ltr" required inputmode="numeric" pattern="[0-9۰-۹]{10}" maxlength="10" data-label="کد ملی" /><span class="hint">برای احراز هویت و قرارداد؛ نمایش عمومی ندارد.</span></div>
+                <div class="field"><label for="birth">تاریخ تولد</label><input id="birth" name="birthDate" class="input" placeholder="روز، ماه و سال تولد" data-label="تولد" data-jdate data-jdate-max="today" /></div>
+              </div>
+              <div class="form-row cols-2">
+                <div class="field"><label for="city">شهر</label><select id="city" name="city" class="input" data-label="شهر"><option>تهران</option><option>کرج</option><option>اصفهان</option><option>شیراز</option><option>مشهد</option><option>تبریز</option></select></div>
+                <div class="field"><label for="password">رمز عبور</label><input id="password" name="password" type="password" class="input ltr" required minlength="8" autocomplete="new-password" /><span class="hint">دست‌کم ۸ حرف.</span></div>
+              </div>
+            </fieldset>
+
+            <!-- قدم ۲ -->
+            <fieldset class="wiz-step" data-wstep="1" hidden>
+              <legend class="wiz-step__title"><b>تخصص و سابقه</b><small>دست‌کم یک تخصص انتخاب کنید.</small></legend>
+              <div class="field"><span class="field-label">تخصص‌ها</span><div class="tag-picker" data-min-check="1" data-label="تخصص‌ها"><label class="tag-pick"><input type="checkbox" name="specialties" value="1" /><span>مو و کوتاهی</span></label><label class="tag-pick"><input type="checkbox" name="specialties" value="2" /><span>رنگ و لایت</span></label><label class="tag-pick"><input type="checkbox" name="specialties" value="3" /><span>کراتین و احیا</span></label><label class="tag-pick"><input type="checkbox" name="specialties" value="4" /><span>ناخن</span></label><label class="tag-pick"><input type="checkbox" name="specialties" value="5" /><span>مژه</span></label><label class="tag-pick"><input type="checkbox" name="specialties" value="6" /><span>ابرو</span></label><label class="tag-pick"><input type="checkbox" name="specialties" value="7" /><span>میکاپ</span></label><label class="tag-pick"><input type="checkbox" name="specialties" value="8" /><span>عروس</span></label><label class="tag-pick"><input type="checkbox" name="specialties" value="9" /><span>پوست و فیشیال</span></label><label class="tag-pick"><input type="checkbox" name="specialties" value="10" /><span>اپیلاسیون</span></label><label class="tag-pick"><input type="checkbox" name="specialties" value="11" /><span>آرایش دائم</span></label><label class="tag-pick"><input type="checkbox" name="specialties" value="12" /><span>ماساژ</span></label></div></div>
+              <div class="form-row cols-2">
+                <div class="field"><label for="exp">سابقه کار (سال)</label><input id="exp" name="experienceYears" type="number" min="0" max="60" class="input" required inputmode="numeric" data-label="سابقه" /></div>
+                <div class="field"><label for="insta">اینستاگرام کاری (اختیاری)</label><input id="insta" name="instagram" class="input ltr" placeholder="@username" /></div>
+              </div>
+              <div class="field"><label for="bio">معرفی کوتاه</label><textarea id="bio" name="bio" class="input" maxlength="400" rows="3" placeholder="مثلاً ۸ سال تجربه در رنگ و لایت، دوره‌دیده آکادمی …"></textarea></div>
+                <label class="upload-box">
+                  <input type="file" name="portfolio" accept="image/*" data-label="نمونه‌کار (اختیاری)" />
+                  <span class="upload-box__icon"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#upload"/></svg></span>
+                  <span class="upload-box__text"><b>نمونه‌کار (اختیاری)</b><small>تا ۱۰ عکس، هر کدام حداکثر ۵ مگابایت</small></span>
+                  <span class="upload-box__file" data-file-name></span>
+                </label>
+            </fieldset>
+
+            <!-- قدم ۳ -->
+            <fieldset class="wiz-step" data-wstep="2" hidden>
+              <legend class="wiz-step__title"><b>نحوه همکاری</b><small>بعداً هم از پنل قابل تغییر است.</small></legend>
+              <div class="pay-methods">
+                <label class="pay-method"><input type="radio" name="workMode" value="employee" required data-label="نحوه همکاری" data-text="کارمند سالن" /><span><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#store"/></svg><b>کارمند یک سالن هستم</b><small>سالن، شما را به تیمش اضافه می‌کند؛ سهم شما طبق توافق با سالن از کیف پول سالن پرداخت می‌شود.</small></span></label>
+                <label class="pay-method"><input type="radio" name="workMode" value="renter" data-text="آرایشگر مستقل با اجاره میز" /><span><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#chair"/></svg><b>آرایشگر مستقل؛ میز اجاره می‌کنم</b><small>در هر سالنی میز اجاره کنید؛ درآمد نوبت‌ها (منهای ۱۰٪ کارمزد) مستقیم به کیف پول خودتان می‌آید.</small></span></label>
+                <label class="pay-method"><input type="radio" name="workMode" value="both" data-text="هر دو" /><span><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#briefcase"/></svg><b>هر دو</b><small>در یک سالن کارمندم و گاهی هم جای دیگر میز اجاره می‌کنم.</small></span></label>
+              </div>
+              <div class="field" data-show-if="workMode=employee,both" hidden>
+                <label for="salonCode">کد دعوت سالن (اختیاری)</label>
+                <input id="salonCode" name="salonInviteCode" class="input ltr" placeholder="مثلاً AIDA-4821" />
+                <span class="hint">اگر سالن کد دعوت داده، وارد کنید تا مستقیم به تیمش اضافه شوید؛ وگرنه بعداً از پنل درخواست بدهید.</span>
+              </div>
+            </fieldset>
+
+            <!-- قدم ۴ -->
+            <fieldset class="wiz-step" data-wstep="3" hidden>
+              <legend class="wiz-step__title"><b>مدارک و حساب بانکی</b><small>مدارک فقط برای تأیید هویت و صلاحیت است و نمایش عمومی ندارد.</small></legend>
+              <div class="upload-grid">
+                <label class="upload-box">
+                  <input type="file" name="nationalCard" accept="image/*,application/pdf" required data-label="تصویر کارت ملی" />
+                  <span class="upload-box__icon"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#upload"/></svg></span>
+                  <span class="upload-box__text"><b>تصویر کارت ملی</b><small>روی کارت، خوانا</small></span>
+                  <span class="upload-box__file" data-file-name></span>
+                </label>
+                <label class="upload-box">
+                  <input type="file" name="healthCard" accept="image/*,application/pdf" required data-label="کارت بهداشت" />
+                  <span class="upload-box__icon"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#upload"/></svg></span>
+                  <span class="upload-box__text"><b>کارت بهداشت</b><small>معتبر و تاریخ‌دار</small></span>
+                  <span class="upload-box__file" data-file-name></span>
+                </label>
+                <label class="upload-box">
+                  <input type="file" name="certificate" accept="image/*,application/pdf" required data-label="مدرک فنی‌وحرفه‌ای" />
+                  <span class="upload-box__icon"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#upload"/></svg></span>
+                  <span class="upload-box__text"><b>مدرک فنی‌وحرفه‌ای</b><small>یا گواهی مهارت معتبر</small></span>
+                  <span class="upload-box__file" data-file-name></span>
+                </label>
+              </div>
+                <div class="form-row cols-2">
+                  <div class="field">
+                    <label for="sheba">شماره شبا</label>
+                    <div class="input-affix"><span class="input-affix__pre ltr">IR</span><input id="sheba" name="sheba" class="input ltr" inputmode="numeric" pattern="[0-9۰-۹]{24}" maxlength="24" placeholder="۲۴ رقم" required data-label="شبا" /></div>
+                    <span class="hint">درآمد کیف پول به این حساب تسویه می‌شود.</span>
+                  </div>
+                  <div class="field">
+                    <label for="holder">نام صاحب حساب</label>
+                    <input id="holder" name="accountHolder" class="input" required data-label="صاحب حساب" />
+                    <span class="hint">باید به نام خود شما باشد.</span>
+                  </div>
+                </div>
+            </fieldset>
+
+            <!-- قدم ۵ -->
+            <fieldset class="wiz-step" data-wstep="4" hidden>
+              <legend class="wiz-step__title"><b>قرارداد همکاری</b><small>خلاصه‌ی مهم‌ترین بندها؛ متن کامل را هم بخوانید.</small></legend>
+              <div class="contract-box">
+                <div class="contract-box__head"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#file"/></svg><b>قرارداد همکاری آرایشگران</b><a href="../legal/stylist-contract.html" target="_blank" rel="noopener">متن کامل</a></div>
+                <ul><li>کارمزد بِلا: ۱۰٪ مبلغ هر نوبت انجام‌شده؛ در پرداخت نقدی، نصف بیعانه (۲۰٪) سهم بِلا است.</li><li>درآمد هر نوبت ۲۴ ساعت پس از ثبت «انجام شد» قابل برداشت است؛ برداشت به شبای ثبت‌شده در یک روز کاری.</li><li>مسئولیت کیفیت خدمت، رعایت بهداشت و داشتن کارت بهداشت معتبر با آرایشگر است.</li><li>اجاره میز: پس از تأیید سالن، مبلغ از کیف پول کسر می‌شود؛ لغو تا ۴۸ ساعت قبل از شروع، بدون جریمه.</li><li>تماس مستقیم با مشتری برای دور زدن سامانه، تخلف و موجب تعلیق حساب است.</li></ul>
+              </div>
+              <div class="wiz-review" data-wreview><b>مرور اطلاعات</b><dl class="kv" data-wreview-list></dl></div>
+              <label class="check"><input type="checkbox" name="acceptContract" required data-label="قرارداد" />متن کامل <a href="../legal/stylist-contract.html" target="_blank">قرارداد همکاری آرایشگران</a> را خوانده‌ام و می‌پذیرم.</label>
+              <label class="check"><input type="checkbox" name="acceptTerms" required />با <a href="../legal/terms.html" target="_blank">قوانین و مقررات</a> و <a href="../legal/privacy.html" target="_blank">سیاست حریم خصوصی</a> موافقم.</label>
+            </fieldset>
+
+            <div class="wiz-foot">
+              <button type="button" class="btn btn-ghost" data-wback hidden><svg class="icon flip ph" aria-hidden="true"><use href="../assets/img/icons.svg#arrow"/></svg>مرحله قبل</button>
+              <span class="wiz-foot__count" data-wcount></span>
+              <button type="button" class="btn btn-primary" data-wnext>مرحله بعد<svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#arrow"/></svg></button>
+              <button type="submit" class="btn btn-primary" data-wsubmit hidden><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#check"/></svg>ثبت درخواست</button>
+            </div>
+            <p class="hint">پس از ارسال، مدارک حداکثر ظرف ۴۸ ساعت کاری بررسی و نتیجه پیامک می‌شود.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+
+    <nav class="tabbar" aria-label="منوی پایین">
+      <a class="tabbar__item" href="../index.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#home"/></svg><span>خانه</span></a>
+      <a class="tabbar__item" href="../salons.html?view=map"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#map"/></svg><span>نقشه</span></a>
+      <a class="tabbar__book" href="../booking.html">
+        <span class="tabbar__fab"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#calendar"/></svg></span>
+        <span>رزرو نوبت</span>
+      </a>
+      <a class="tabbar__item" href="../customer/wallet.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#wallet"/></svg><span>کیف پول</span></a>
+      <a class="tabbar__item" href="../account/login.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#user"/></svg><span>حساب</span></a>
+    </nav>
+  </body>
+</html>

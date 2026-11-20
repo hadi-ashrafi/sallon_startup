@@ -60,6 +60,8 @@ button:disabled, input:disabled, select:disabled, .btn[aria-disabled="true"] { c
   width: 1.25em; height: 1.25em; flex-shrink: 0; display: inline-block; vertical-align: middle;
   fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
 }
+/* آیکن‌های Phosphor (صفحه‌های بازارگاه): شکل در assets/img/icons.svg است و با <use> می‌آید؛ توپر رسم می‌شود، نه خطی. */
+svg.ph { fill: currentColor; stroke: none; }
 
 /* ---------- نوارهای افقیِ قابل‌کشیدن ----------
    داخل همان لبه‌ی محتوا می‌مانند (از کادر بیرون نمی‌زنند)؛ سمت چپ کمی محو می‌شود تا معلوم باشد ادامه دارد. */

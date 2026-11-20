@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<!-- پیش‌نویس حقوقی: پیش از انتشار عمومی، متن را وکیل بازبینی کند و جاهای [ـــ] (نام شرکت، شماره ثبت، نشانی، شماره تماس) پر شود. -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>پرداخت، کارمزد و لغو | بلا</title>
+    <meta name="description" content="روش‌های پرداخت، تقسیم مبلغ نوبت، کارمزد بِلا، برگشت وجه و تسویه کیف پول به زبان ساده." />
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#131213" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../assets/img/icon-180.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="بلا" />
+    <link rel="preload" href="../assets/fonts/vazirmatn-arabic.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- استایل‌ها -->
+    <link rel="stylesheet" href="../assets/css/base/tokens.css" />
+    <link rel="stylesheet" href="../assets/css/base/base.css" />
+    <link rel="stylesheet" href="../assets/css/layout/header.css" />
+    <link rel="stylesheet" href="../assets/css/layout/footer.css" />
+    <link rel="stylesheet" href="../assets/css/components/buttons.css" />
+    <link rel="stylesheet" href="../assets/css/components/forms.css" />
+    <link rel="stylesheet" href="../assets/css/components/cards.css" />
+    <link rel="stylesheet" href="../assets/css/components/tables.css" />
+    <link rel="stylesheet" href="../assets/css/components/dialog.css" />
+    <link rel="stylesheet" href="../assets/css/pages/catalog.css" />
+    <link rel="stylesheet" href="../assets/css/pages/dashboard.css" />
+    <link rel="stylesheet" href="../assets/css/pages/market.css" />
+    <link rel="stylesheet" href="../assets/css/base/motion.css" />
+
+    <!-- اسکریپت‌ها -->
+    <script src="../assets/js/theme-init.js"></script>
+    <script src="../assets/js/common/location.js" defer></script>
+    <script src="../assets/js/common/theme.js" defer></script>
+    <script src="../assets/js/common/nav.js" defer></script>
+    <script src="../assets/js/common/reveal.js" defer></script>
+    <script src="../assets/js/common/ui.js" defer></script>
+    <script src="../assets/js/common/forms.js" defer></script>
+    <script src="../assets/js/common/pwa.js" defer></script>
+    <script src="../assets/js/components/select.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__bar">
+        <a class="brand" href="../index.html" aria-label="صفحه اصلی بلا">
+          <span class="logo" role="img" aria-label="بلا"></span>
+          <span class="brand__name">
+            <b>بِلا</b>
+            <small class="brand__sub">سامانه سالن‌های زیبایی</small>
+          </span>
+        </a>
+        <nav id="site-nav" class="site-nav" aria-label="منوی اصلی">
+          <div class="site-nav__head">
+            <strong>منوی بِلا</strong>
+            <button type="button" class="icon-btn" data-nav-close aria-label="بستن منو"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#x"/></svg></button>
+          </div>
+          <form class="nav-search" action="../salons.html" method="get" role="search">
+            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg><input name="q" type="search" placeholder="جستجوی سالن یا خدمت" aria-label="جستجوی سالن یا خدمت" />
+          </form>
+          <ul>
+            <li><a href="../index.html">خانه</a></li>
+            <li><a href="../salons.html?view=map">نقشه</a></li>
+            <li><a href="../index.html#top-stylists">آرایشگران برتر</a></li>
+            <li><a href="../index.html#by-category">دسته‌بندی‌ها</a></li>
+            <li><a href="../customer/appointments.html">نوبت‌های من</a></li>
+            <li><a href="../account/login.html">ورود</a></li>
+          </ul>
+        </nav>
+        <form class="hdr-search" action="../salons.html" method="get" role="search" aria-label="جستجوی سالن">
+          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg>
+          <label class="visually-hidden" for="hdr-q">جستجوی سالن یا خدمت</label>
+          <input id="hdr-q" name="q" type="search" placeholder="جستجوی سالن، خدمت یا محله…" autocomplete="off" />
+        </form>
+        <div class="header-actions">
+          <button type="button" class="loc-chip" data-loc-open aria-label="موقعیت و شهر شما"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#pin"/></svg><span data-loc-city>شهر</span></button>
+          <a class="icon-btn hdr-search-btn" href="../salons.html#f-q" aria-label="جستجو"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg></a>
+          <button type="button" class="icon-btn" data-theme-toggle aria-pressed="false" aria-label="تغییر حالت روشن و تیره">
+            <svg class="i-moon ph" aria-hidden="true"><use href="../assets/img/icons.svg#moon"/></svg><svg class="i-sun ph" aria-hidden="true"><use href="../assets/img/icons.svg#sun"/></svg>
+          </button>
+          <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="منو">
+            <svg class="ph" aria-hidden="true"><use href="../assets/img/icons.svg#menu"/></svg>
+          </button>
+          <a class="btn btn-primary btn-book" href="../booking.html">رزرو نوبت</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section class="section section--page">
+        <div class="wrap">
+          <nav class="crumbs" aria-label="مسیر"><a href="../index.html">خانه</a><span aria-hidden="true">/</span><span>قوانین</span><span aria-hidden="true">/</span><span aria-current="page">پرداخت، کارمزد و لغو</span></nav>
+          <nav class="legal-tabs" aria-label="صفحه‌های قوانین"><a href="../legal/terms.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scale"/></svg>قوانین و مقررات</a><a href="../legal/fees.html" aria-current="page"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#percent"/></svg>پرداخت، کارمزد و لغو</a><a href="../legal/privacy.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lock"/></svg>حریم خصوصی</a><a href="../legal/stylist-contract.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>قرارداد آرایشگران</a><a href="../legal/salon-contract.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#store"/></svg>قرارداد سالن‌ها</a></nav>
+          <div class="legal">
+            <aside class="legal__toc glass">
+              <b>فهرست</b>
+              <ol><li><a href="#f-overview">خلاصه</a></li><li><a href="#f-example">مثال با یک نوبت ۱ میلیون تومانی</a></li><li><a href="#f-split">سهم سالن و آرایشگر</a></li><li><a href="#f-cancel">لغو، عدم حضور و برگشت وجه</a></li><li><a href="#f-desk">اجاره میز</a></li><li><a href="#f-payout">برداشت و تسویه</a></li><li><a href="#f-tax">مالیات و فاکتور</a></li></ol>
+              <button type="button" class="btn btn-ghost btn-sm btn-block" onclick="window.print()"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#file"/></svg>چاپ / ذخیره PDF</button>
+            </aside>
+            <article class="legal__body panel">
+              <header class="legal__head">
+                <h1>پرداخت، کارمزد و لغو</h1>
+                <p>روش‌های پرداخت، تقسیم مبلغ نوبت، کارمزد بِلا، برگشت وجه و تسویه کیف پول به زبان ساده.</p>
+                <p class="legal__rev"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#clock"/></svg>آخرین بازنگری: ۱ آذر ۱۴۰۵ · نسخه ۱٫۰</p>
+              </header>
+            <section id="f-overview" class="legal__sec">
+              <h2><span class="legal__num">۱</span>خلاصه</h2>
+              <p>بِلا از هر نوبتِ انجام‌شده ۱۰٪ کارمزد برمی‌دارد؛ چه مشتری آنلاین پرداخت کند، چه در سالن. هزینه ثبت‌نام و اشتراک ماهانه‌ای وجود ندارد.</p><div class="table-wrap"><table class="table legal-table"><thead><tr><th scope="col"></th><th scope="col">پرداخت آنلاین کامل</th><th scope="col">پرداخت در سالن (نقدی)</th></tr></thead><tbody><tr><td>مشتری آنلاین می‌پردازد</td><td>۱۰۰٪ مبلغ</td><td>۲۰٪ (بیعانه)</td></tr><tr><td>مشتری در سالن می‌پردازد</td><td>-</td><td>۸۰٪ باقی‌مانده</td></tr><tr><td>سهم بِلا</td><td>۱۰٪ (از مبلغ آنلاین کسر می‌شود)</td><td>نصف بیعانه = ۱۰٪</td></tr><tr><td>به کیف پول ارائه‌دهنده</td><td>۹۰٪</td><td>نصف بیعانه = ۱۰٪</td></tr></tbody></table></div>
+            </section>
+            <section id="f-example" class="legal__sec">
+              <h2><span class="legal__num">۲</span>مثال با یک نوبت ۱ میلیون تومانی</h2>
+              <div class="table-wrap"><table class="table legal-table"><thead><tr><th scope="col"></th><th scope="col">آنلاین کامل</th><th scope="col">نقدی با بیعانه</th></tr></thead><tbody><tr><td>پرداخت آنلاین مشتری</td><td>۱٬۰۰۰٬۰۰۰ تومان</td><td>۲۰۰٬۰۰۰ تومان</td></tr><tr><td>پرداخت در سالن</td><td>-</td><td>۸۰۰٬۰۰۰ تومان</td></tr><tr><td>کارمزد بِلا</td><td>۱۰۰٬۰۰۰ تومان</td><td>۱۰۰٬۰۰۰ تومان</td></tr><tr><td>واریز به کیف پول ارائه‌دهنده</td><td>۹۰۰٬۰۰۰ تومان</td><td>۱۰۰٬۰۰۰ تومان</td></tr><tr><td>کل دریافتی ارائه‌دهنده</td><td>۹۰۰٬۰۰۰ تومان</td><td>۹۰۰٬۰۰۰ تومان</td></tr></tbody></table></div><p>در هر دو روش، دریافتی نهایی ارائه‌دهنده یکسان است و فقط مسیر رسیدن پول فرق می‌کند. مبلغ‌ها به نزدیک‌ترین هزار تومان گرد می‌شوند.</p>
+            </section>
+            <section id="f-split" class="legal__sec">
+              <h2><span class="legal__num">۳</span>سهم سالن و آرایشگر</h2>
+              <ol><li><b>آرایشگر کارمند سالن:</b> سهم ارائه‌دهنده به کیف پول سالن می‌رود. اگر سالن در پنل «درصد سهم آرایشگر» را تعیین کرده باشد، همان درصد خودکار به کیف پول آرایشگر منتقل می‌شود.</li><li><b>آرایشگر مستقل با اجاره میز:</b> سهم ارائه‌دهنده کامل به کیف پول خود آرایشگر می‌رود؛ سالن درآمدش را از اجاره میز می‌گیرد.</li></ol>
+            </section>
+            <section id="f-cancel" class="legal__sec">
+              <h2><span class="legal__num">۴</span>لغو، عدم حضور و برگشت وجه</h2>
+              <div class="table-wrap"><table class="table legal-table"><thead><tr><th scope="col">وضعیت</th><th scope="col">مشتری</th><th scope="col">بِلا</th><th scope="col">ارائه‌دهنده</th></tr></thead><tbody><tr><td>لغو تا ۳ ساعت قبل</td><td>برگشت کامل به کیف پول</td><td>۰</td><td>۰</td></tr><tr><td>لغو دیرهنگام یا عدم حضور (نقدی)</td><td>بیعانه برنمی‌گردد</td><td>نصف بیعانه</td><td>نصف بیعانه</td></tr><tr><td>لغو دیرهنگام یا عدم حضور (آنلاین)</td><td>۸۰٪ برمی‌گردد</td><td>نصف بیعانه</td><td>نصف بیعانه</td></tr><tr><td>لغو از طرف ارائه‌دهنده</td><td>برگشت کامل</td><td>۰</td><td>۰ و ثبت در سابقه</td></tr></tbody></table></div><p>برگشت وجه به کیف پول فوری است. برگشت به کارت بانکی به درخواست مشتری، ظرف ۷۲ ساعت کاری انجام می‌شود.</p>
+            </section>
+            <section id="f-desk" class="legal__sec">
+              <h2><span class="legal__num">۵</span>اجاره میز</h2>
+              <p>اجاره‌بهای میز از کیف پول آرایشگر کسر می‌شود. بِلا ۱۰٪ از این مبلغ را به‌عنوان کارمزد از سهم سالن برمی‌دارد و ۹۰٪ به کیف پول سالن واریز می‌شود. لغو اجاره تا ۴۸ ساعت پیش از شروع، با برگشت کامل است؛ پس از آن، اجاره روز اول برنمی‌گردد.</p>
+            </section>
+            <section id="f-payout" class="legal__sec">
+              <h2><span class="legal__num">۶</span>برداشت و تسویه</h2>
+              <ol><li>درآمد هر نوبت ۲۴ ساعت پس از ثبت «انجام شد» از «در انتظار» به «قابل برداشت» می‌رود.</li><li>حداقل مبلغ برداشت ۱۰۰٬۰۰۰ تومان است و برداشت کارمزد ندارد.</li><li>درخواست‌های ثبت‌شده تا ساعت ۱۲ هر روز کاری، همان روز با پایا به شبای ثبت‌شده واریز می‌شود.</li><li>سالن‌ها و آرایشگران می‌توانند «تسویه خودکار هفتگی» را در پنل روشن کنند.</li></ol>
+            </section>
+            <section id="f-tax" class="legal__sec">
+              <h2><span class="legal__num">۷</span>مالیات و فاکتور</h2>
+              <p>برای هر نوبت، رسید الکترونیکی برای مشتری صادر می‌شود. بِلا برای کارمزد خود صورت‌حساب صادر می‌کند. تکالیف مالیاتی درآمد ارائه‌دهندگان (از جمله ثبت در سامانه مؤدیان در صورت شمول) بر عهده خود آن‌هاست؛ گزارش ماهانه درآمد از پنل قابل دریافت است.</p>
+            </section>
+
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="wrap">
+        <div class="footer-box mk-footer">
+          <a class="footer-brand" href="../index.html" aria-label="صفحه اصلی بلا">
+            <span class="logo" aria-hidden="true"></span>
+            <strong>بِلا</strong>
+          </a>
+          <p class="footer-tagline">سامانه سالن‌های زیبایی؛ نوبت بگیرید، سالن پیدا کنید، کار کنید.</p>
+          <div class="footer-contact">
+            <a class="footer-phone" href="tel:02100000000"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#phone"/></svg><span class="ltr">۰۲۱-۰۰۰۰۰۰۰۰</span></a>
+          </div>
+          <div class="mk-footer__cols">
+            <nav aria-label="مشتریان">
+              <strong>مشتریان</strong>
+              <a href="../salons.html">جستجوی سالن</a>
+              <a href="../salons.html?view=map">سالن‌ها روی نقشه</a>
+              <a href="../salons.html?sort=top">برترین سالن‌ها</a>
+              <a href="../customer/wallet.html">کیف پول</a>
+            </nav>
+            <nav aria-label="همکاران">
+              <strong>همکاران</strong>
+              <a href="../join/stylist.html">ثبت‌نام آرایشگر</a>
+              <a href="../join/salon.html">ثبت سالن زیبایی</a>
+              <a href="../desks.html">اجاره میز در سالن</a>
+              <a href="../legal/fees.html">کارمزد و تسویه</a>
+            </nav>
+            <nav aria-label="قوانین">
+              <strong>قوانین</strong>
+              <a href="../legal/terms.html">قوانین و مقررات</a>
+              <a href="../legal/privacy.html">حریم خصوصی</a>
+              <a href="../legal/stylist-contract.html">قرارداد آرایشگران</a>
+              <a href="../legal/salon-contract.html">قرارداد سالن‌ها</a>
+            </nav>
+          </div>
+        </div>
+        <p class="site-footer__base">© بِلا — سامانه سالن‌های زیبایی</p>
+      </div>
+    </footer>
+
+    <nav class="tabbar" aria-label="منوی پایین">
+      <a class="tabbar__item" href="../index.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#home"/></svg><span>خانه</span></a>
+      <a class="tabbar__item" href="../salons.html?view=map"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#map"/></svg><span>نقشه</span></a>
+      <a class="tabbar__book" href="../booking.html">
+        <span class="tabbar__fab"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#calendar"/></svg></span>
+        <span>رزرو نوبت</span>
+      </a>
+      <a class="tabbar__item" href="../customer/wallet.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#wallet"/></svg><span>کیف پول</span></a>
+      <a class="tabbar__item" href="../account/login.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#user"/></svg><span>حساب</span></a>
+    </nav>
+  </body>
+</html>

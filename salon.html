@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>سالن | بلا</title>
+    <meta name="robots" content="noindex" />
+    <!-- salon.html?id=N → salon/N.html (هر سالن صفحه خودش را دارد) -->
+    <script>
+      (function () {
+        var id = new URLSearchParams(location.search).get("id") || "1";
+        if (!/^[0-9]+$/.test(id)) id = "1";
+        location.replace("salon/" + id + ".html" + location.hash);
+      })();
+    </script>
+  </head>
+  <body><p><a href="salon/1.html">رفتن به صفحه سالن</a></p></body>
+</html>

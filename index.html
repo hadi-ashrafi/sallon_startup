@@ -3,17 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>سالن زیبایی آیدا</title>
-    <meta name="description" content="رزرو آنلاین نوبت سالن زیبایی آیدا: آرایشگر و ساعت آزاد را خودتان انتخاب کنید." />
-    <meta name="theme-color" content="#FBF1F0" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#170F13" media="(prefers-color-scheme: dark)" />
+    <title>بلا | سامانه سالن‌های زیبایی</title>
+    <meta name="description" content="سالن‌های زیبایی شهر را روی نقشه پیدا کنید، آرایشگر و ساعت آزاد را ببینید و آنلاین نوبت بگیرید." />
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#131213" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="apple-touch-icon" href="assets/img/icon-180.png" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="آیدا" />
+    <meta name="apple-mobile-web-app-title" content="بلا" />
     <link rel="preload" href="assets/fonts/vazirmatn-arabic.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- استایل‌ها -->
@@ -26,11 +25,12 @@
     <link rel="stylesheet" href="assets/css/components/cards.css" />
     <link rel="stylesheet" href="assets/css/components/tables.css" />
     <link rel="stylesheet" href="assets/css/components/dialog.css" />
-    <link rel="stylesheet" href="assets/css/pages/home.css" />
+    <link rel="stylesheet" href="assets/css/pages/market.css" />
     <link rel="stylesheet" href="assets/css/base/motion.css" />
 
     <!-- اسکریپت‌ها -->
     <script src="assets/js/theme-init.js"></script>
+    <script src="assets/js/common/location.js" defer></script>
     <script src="assets/js/common/theme.js" defer></script>
     <script src="assets/js/common/nav.js" defer></script>
     <script src="assets/js/common/reveal.js" defer></script>
@@ -38,50 +38,51 @@
     <script src="assets/js/common/forms.js" defer></script>
     <script src="assets/js/common/pwa.js" defer></script>
     <script src="assets/js/components/select.js" defer></script>
-    <script src="assets/js/pages/home-reviews.js" defer></script>
+    <script src="assets/js/pages/salons.js" defer></script>
+    <script src="assets/js/pages/browse.js" defer></script>
   </head>
-  <body>
+  <body data-loc-gate>
     <a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
 
-    <!-- ===== سربرگ سایت ===== -->
     <header class="site-header">
       <div class="wrap site-header__bar">
-        <a class="brand" href="index.html" aria-label="صفحه اصلی سالن زیبایی آیدا">
-          <span class="logo" role="img" aria-label="آیدا"></span>
+        <a class="brand" href="index.html" aria-label="صفحه اصلی بلا">
+          <span class="logo" role="img" aria-label="بلا"></span>
           <span class="brand__name">
-            سالن زیبایی
-            <b>آیدا</b>
+            <b>بِلا</b>
+            <small class="brand__sub">سامانه سالن‌های زیبایی</small>
           </span>
         </a>
         <nav id="site-nav" class="site-nav" aria-label="منوی اصلی">
           <div class="site-nav__head">
-            <strong>منوی سالن</strong>
-            <button type="button" class="icon-btn" data-nav-close aria-label="بستن منو">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
-                <path d="M18 6L6 18M6 6l12 12" />
-              </svg>
-            </button>
+            <strong>منوی بِلا</strong>
+            <button type="button" class="icon-btn" data-nav-close aria-label="بستن منو"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#x"/></svg></button>
           </div>
+          <form class="nav-search" action="salons.html" method="get" role="search">
+            <svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#search"/></svg><input name="q" type="search" placeholder="جستجوی سالن یا خدمت" aria-label="جستجوی سالن یا خدمت" />
+          </form>
           <ul>
             <li><a href="index.html" aria-current="page">خانه</a></li>
-            <li><a href="services.html">خدمات</a></li>
-            <li><a href="stylists.html">آرایشگران</a></li>
-            <li><a href="about.html">درباره ما</a></li>
-            <li><a href="#contact">تماس</a></li>
-            <li><a href="account/login.html">ورود / ثبت‌نام</a></li>
+            <li><a href="salons.html?view=map">نقشه</a></li>
+            <li><a href="index.html#top-stylists">آرایشگران برتر</a></li>
+            <li><a href="index.html#by-category">دسته‌بندی‌ها</a></li>
+            <li><a href="customer/appointments.html">نوبت‌های من</a></li>
+            <li><a href="account/login.html">ورود</a></li>
           </ul>
         </nav>
+        <form class="hdr-search" action="salons.html" method="get" role="search" aria-label="جستجوی سالن">
+          <svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#search"/></svg>
+          <label class="visually-hidden" for="hdr-q">جستجوی سالن یا خدمت</label>
+          <input id="hdr-q" name="q" type="search" placeholder="جستجوی سالن، خدمت یا محله…" autocomplete="off" />
+        </form>
         <div class="header-actions">
+          <button type="button" class="loc-chip" data-loc-open aria-label="موقعیت و شهر شما"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#pin"/></svg><span data-loc-city>شهر</span></button>
+          <a class="icon-btn hdr-search-btn" href="salons.html#f-q" aria-label="جستجو"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#search"/></svg></a>
           <button type="button" class="icon-btn" data-theme-toggle aria-pressed="false" aria-label="تغییر حالت روشن و تیره">
-            <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-              <path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z" /></svg
-            ><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="4" />
-              <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
-            </svg>
+            <svg class="i-moon ph" aria-hidden="true"><use href="assets/img/icons.svg#moon"/></svg><svg class="i-sun ph" aria-hidden="true"><use href="assets/img/icons.svg#sun"/></svg>
           </button>
           <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="منو">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+            <svg class="ph" aria-hidden="true"><use href="assets/img/icons.svg#menu"/></svg>
           </button>
           <a class="btn btn-primary btn-book" href="booking.html">رزرو نوبت</a>
         </div>
@@ -89,774 +90,536 @@
     </header>
 
     <main id="main" tabindex="-1">
-      <!-- ===== هیرو: شعار چرخشی داخل کارت شیشه‌ای ===== -->
-      <section class="hero" aria-labelledby="hero-title">
+      <!-- ===== هیرو رزرومحور: جستجو + خدمت با یک لمس؛ زیرش مستقیم ساعت‌های آزاد ===== -->
+      <section class="mk-hero" aria-labelledby="hero-title">
+        <div class="wrap mk-hero__grid">
+          <div class="mk-hero__text">
+            <div class="hero-panel">
+              <span class="hero-panel__arch" aria-hidden="true"></span>
+              <p class="hero-pill"><span class="live-dot" aria-hidden="true"></span>۹ سالن همین الان وقت آزاد دارند</p>
+              <h1 id="hero-title" class="hero__title">نوبت آرایشگاه،<br /><em>در چند ثانیه</em></h1>
+              <ul class="hero-perks">
+                <li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#shield"/></svg>سالن‌های تأییدشده</li>
+                <li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#refund"/></svg>لغو رایگان تا ۳ ساعت قبل</li>
+                <li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#cash"/></svg>پرداخت در سالن</li>
+              </ul>
+
+            <form class="mk-search glass" action="salons.html" method="get" role="search" aria-label="جستجوی سالن">
+              <div class="mk-search__field">
+                <svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#search"/></svg>
+                <label class="visually-hidden" for="q">چه خدمتی؟</label>
+                <input id="q" name="q" class="mk-search__input" placeholder="جستجو در بلا" autocomplete="off" />
+              </div>
+              <button class="btn btn-primary" type="submit" aria-label="جستجو"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#search"/></svg><span>جستجو</span></button>
+            </form>
+            </div>
+
+            <dialog class="sheet" id="all-services" aria-labelledby="all-title">
+              <div class="sheet__head">
+                <h2 id="all-title">همه خدمات</h2>
+                <button type="button" class="icon-btn" data-dialog-close aria-label="بستن"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#x"/></svg></button>
+              </div>
+              <nav class="sheet__body svc-grid svc-grid--all" aria-label="همه خدمات">
+                <a class="svc-tile" href="salons.html?category=1&amp;sort=near"><span class="svc-tile__ic"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#scissors"/></svg></span><span class="svc-tile__name">مو</span></a>
+                <a class="svc-tile" href="salons.html?category=2&amp;sort=near"><span class="svc-tile__ic"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#nail"/></svg></span><span class="svc-tile__name">ناخن</span></a>
+                <a class="svc-tile" href="salons.html?category=3&amp;sort=near"><span class="svc-tile__ic"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#brow"/></svg></span><span class="svc-tile__name">ابرو</span></a>
+                <a class="svc-tile" href="salons.html?category=4&amp;sort=near"><span class="svc-tile__ic"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#lash"/></svg></span><span class="svc-tile__name">مژه</span></a>
+                <a class="svc-tile" href="salons.html?category=5&amp;sort=near"><span class="svc-tile__ic"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#makeup"/></svg></span><span class="svc-tile__name">میکاپ</span></a>
+                <a class="svc-tile" href="salons.html?category=6&amp;sort=near"><span class="svc-tile__ic"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#skin"/></svg></span><span class="svc-tile__name">پوست</span></a>
+                <a class="svc-tile" href="salons.html?category=7&amp;sort=near"><span class="svc-tile__ic"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#wax"/></svg></span><span class="svc-tile__name">اپیلاسیون</span></a>
+                <a class="svc-tile" href="salons.html?category=8&amp;sort=near"><span class="svc-tile__ic"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#crown"/></svg></span><span class="svc-tile__name">عروس</span></a>
+                <a class="svc-tile" href="salons.html?category=10&amp;sort=near"><span class="svc-tile__ic"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#lotus"/></svg></span><span class="svc-tile__name">ماساژ و اسپا</span></a>
+              </nav>
+            </dialog>
+          </div>
+
+          <!-- نقشه کوچک (فقط دسکتاپ): با زدنش نقشه کامل باز می‌شود -->
+          <a class="mini-map glass" href="salons.html?view=map" aria-label="دیدن سالن‌ها روی نقشه">
+            <span class="mini-map__grid" aria-hidden="true"></span>
+            <span class="mini-map__roads" aria-hidden="true"></span>
+            <span class="mini-map__pins" aria-hidden="true"><span class="mini-map__pin is-top" style="--x:38.9%;--y:71.4%"></span><span class="mini-map__pin is-top" style="--x:28.9%;--y:35.7%"></span><span class="mini-map__pin" style="--x:40.7%;--y:52.1%"></span><span class="mini-map__pin" style="--x:49.4%;--y:18.2%"></span><span class="mini-map__pin is-top" style="--x:25.9%;--y:50.0%"></span><span class="mini-map__pin" style="--x:75.6%;--y:64.3%"></span><span class="mini-map__pin" style="--x:43.7%;--y:43.6%"></span><span class="mini-map__pin" style="--x:88.9%;--y:64.3%"></span><span class="mini-map__pin is-top" style="--x:63.0%;--y:10.7%"></span><span class="mini-map__pin" style="--x:33.7%;--y:92.1%"></span></span>
+            <span class="mini-map__me" aria-hidden="true"></span>
+            <span class="mini-map__cta"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#map"/></svg><span><b>پیدا کردن سالن از روی نقشه</b><small>۱۰ سالن در محدوده شما</small></span><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#arrow"/></svg></span>
+          </a>
+        </div>
+        <!-- خدمات: زیر جستجو و نقشه، تمام‌عرض (دسکتاپ یک ردیف هشت‌تایی) -->
         <div class="wrap">
-          <div class="hero__card glass">
-            <p class="hero__eyebrow">
-              <span class="hero__pulse" aria-hidden="true"></span>
-              رزرو آنلاین سالن زیبایی آیدا
-            </p>
-
-            <!-- تصویر متحرک سالن (استایل و حرکت‌ها در assets/css/pages/home.css) -->
-            <div class="hero-art" aria-hidden="true">
-              <svg viewBox="0 0 360 250" class="hero-art__svg">
-                <defs>
-                  <linearGradient id="ha-glass" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="var(--ha-glass-a)" />
-                    <stop offset="1" stop-color="var(--ha-glass-b)" />
-                  </linearGradient>
-                  <linearGradient id="ha-gold" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="#F3CF97" />
-                    <stop offset="1" stop-color="#D4A062" />
-                  </linearGradient>
-                  <linearGradient id="ha-shine" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0" stop-color="#fff" stop-opacity="0" />
-                    <stop offset=".5" stop-color="#fff" stop-opacity=".75" />
-                    <stop offset="1" stop-color="#fff" stop-opacity="0" />
-                  </linearGradient>
-                  <clipPath id="ha-mirror"><path d="M138 168 V96 a42 42 0 0 1 84 0 V168 Z" /></clipPath>
-                </defs>
-
-                <!-- هاله پشت آینه -->
-                <circle class="ha-halo" cx="180" cy="112" r="92" />
-
-                <!-- آینه طاقی با درخشش -->
-                <path d="M130 172 V96 a50 50 0 0 1 100 0 V172 Z" fill="url(#ha-gold)" />
-                <path d="M138 168 V96 a42 42 0 0 1 84 0 V168 Z" fill="url(#ha-glass)" />
-                <g clip-path="url(#ha-mirror)">
-                  <rect class="ha-shine" x="90" y="40" width="34" height="160" fill="url(#ha-shine)" transform="rotate(20 180 110)" />
-                  <path d="M152 92 q6 -18 22 -24" class="ha-glint" />
-                </g>
-
-                <!-- میز -->
-                <rect x="96" y="172" width="168" height="10" rx="5" fill="url(#ha-gold)" />
-                <rect x="108" y="182" width="6" height="40" rx="3" fill="url(#ha-gold)" />
-                <rect x="246" y="182" width="6" height="40" rx="3" fill="url(#ha-gold)" />
-
-                <!-- عطر، رژ، ظرف -->
-                <g class="ha-bottle">
-                  <rect x="236" y="146" width="20" height="26" rx="6" class="ha-pink" />
-                  <rect x="242" y="138" width="8" height="9" rx="2" fill="url(#ha-gold)" />
-                </g>
-                <rect x="222" y="154" width="7" height="18" rx="3" class="ha-deep" />
-                <rect x="222" y="150" width="7" height="6" rx="2" fill="url(#ha-gold)" />
-                <ellipse cx="118" cy="166" rx="14" ry="6" class="ha-soft" />
-                <rect x="104" y="156" width="28" height="11" rx="5" class="ha-soft" />
-
-                <!-- گلدان و برگ‌های تاب‌خور -->
-                <g class="ha-plant">
-                  <path d="M62 150 q-14 -30 4 -52 q8 26 -4 52" class="ha-leaf" />
-                  <path d="M66 152 q10 -34 32 -40 q-8 28 -32 40" class="ha-leaf ha-leaf--2" />
-                  <path d="M64 152 q-24 -18 -30 -40 q24 8 30 40" class="ha-leaf ha-leaf--3" />
-                </g>
-                <path d="M50 150 h30 l-5 30 h-20 z" fill="url(#ha-gold)" />
-
-                <!-- قیچی و شانه شناور -->
-                <g class="ha-float ha-scissors">
-                  <circle cx="300" cy="74" r="7" class="ha-stroke" />
-                  <circle cx="314" cy="88" r="7" class="ha-stroke" />
-                  <path d="M305 79 l26 -22 M309 83 l26 -6" class="ha-stroke" />
-                </g>
-                <g class="ha-float ha-comb">
-                  <rect x="30" y="58" width="44" height="10" rx="4" class="ha-deep" />
-                  <path d="M36 68 v10 M43 68 v10 M50 68 v10 M57 68 v10 M64 68 v10" class="ha-teeth" />
-                </g>
-
-                <!-- برق‌ها -->
-                <g class="ha-sparkles">
-                  <path class="ha-spark" style="--d: 0s" d="M118 54 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 z" />
-                  <path class="ha-spark" style="--d: .8s" d="M250 40 l2.5 6 6 2.5 -6 2.5 -2.5 6 -2.5 -6 -6 -2.5 6 -2.5 z" />
-                  <path class="ha-spark" style="--d: 1.6s" d="M268 128 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2 z" />
-                  <path class="ha-spark" style="--d: 2.3s" d="M96 120 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2 z" />
-                </g>
-
-                <!-- گلبرگ‌های در حال افتادن -->
-                <ellipse class="ha-petal" style="--x: 150px; --d: 0s" cx="0" cy="0" rx="4" ry="2.4" />
-                <ellipse class="ha-petal" style="--x: 210px; --d: 2.2s" cx="0" cy="0" rx="3.4" ry="2" />
-                <ellipse class="ha-petal" style="--x: 280px; --d: 4.1s" cx="0" cy="0" rx="4" ry="2.4" />
-                <ellipse class="ha-petal" style="--x: 80px; --d: 5.6s" cx="0" cy="0" rx="3" ry="1.8" />
-              </svg>
-            </div>
-            <h1 id="hero-title" class="hero__title">
-              زیبایی،
-              <em>به وقت تو</em>
-            </h1>
-
-            <div class="hero__actions">
-              <a class="btn btn-primary btn-lg" href="booking.html">
-                رزرو نوبت
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M19 12H5" />
-                  <path d="M11 6l-6 6l6 6" />
-                </svg>
-              </a>
-              <a class="btn btn-ghost btn-lg" href="services.html">خدمات سالن</a>
-            </div>
-
-            <ul class="hero__stats">
-              <li>
-                <strong>۱۱</strong>
-                <span>دسته خدمات</span>
-              </li>
-              <li>
-                <strong>۸۰</strong>
-                <span>خدمت تخصصی</span>
-              </li>
-              <li>
-                <strong>۶</strong>
-                <span>آرایشگر حرفه‌ای</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- خدمات پرطرفدار -->
-          <div class="hero__popular">
-            <p class="hero__popular-title">
-              <span aria-hidden="true">✦</span>
-              پرطرفدارترین خدمات
-            </p>
-            <nav class="hero__cats" aria-label="خدمات پرطرفدار">
-              <a class="hero__cat" href="service.html?id=2">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                  <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                  <path d="M8.6 8.6l10.4 10.4" />
-                  <path d="M8.6 15.4l10.4 -10.4" />
-                </svg>
-                رنگ مو
-              </a>
-              <a class="hero__cat" href="service.html?id=6">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                  <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                  <path d="M8.6 8.6l10.4 10.4" />
-                  <path d="M8.6 15.4l10.4 -10.4" />
-                </svg>
-                بالیاژ و آمبره
-              </a>
-              <a class="hero__cat" href="service.html?id=8">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                  <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                  <path d="M8.6 8.6l10.4 10.4" />
-                  <path d="M8.6 15.4l10.4 -10.4" />
-                </svg>
-                کراتین و احیا
-              </a>
-              <a class="hero__cat" href="service.html?id=17">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M9 10h6v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
-                  <path d="M10 10v-4h4v4" />
-                  <path d="M11 6v-3h2v3" />
-                  <path d="M11 14h2" />
-                </svg>
-                ژلیش
-              </a>
-              <a class="hero__cat" href="service.html?id=15">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M9 10h6v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
-                  <path d="M10 10v-4h4v4" />
-                  <path d="M11 6v-3h2v3" />
-                  <path d="M11 14h2" />
-                </svg>
-                کاشت ناخن
-              </a>
-              <a class="hero__cat" href="service.html?id=29">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M3 13c3 -4 6 -6 9 -6s6 2 9 6" />
-                  <path d="M3 13c3 3 6 4.5 9 4.5s6 -1.5 9 -4.5" />
-                  <path d="M12 13m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                  <path d="M12 7v-3" />
-                  <path d="M7.5 8.5l-1.5 -2.5" />
-                  <path d="M16.5 8.5l1.5 -2.5" />
-                </svg>
-                اکستنشن مژه
-              </a>
-              <a class="hero__cat" href="service.html?id=26">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M3 11c3 -4 11 -6 18 -2" />
-                  <path d="M5 15c2 2 4.5 3 7 3s5 -1 7 -3" />
-                  <path d="M12 15m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                </svg>
-                لیفت ابرو
-              </a>
-              <a class="hero__cat" href="service.html?id=37">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M3 21v-4a4 4 0 1 1 4 4h-4" />
-                  <path d="M21 3a16 16 0 0 0 -12.8 10.2" />
-                  <path d="M21 3a16 16 0 0 1 -10.2 12.8" />
-                  <path d="M10.6 9a9 9 0 0 1 4.4 4.4" />
-                </svg>
-                میکاپ مجلسی
-              </a>
-              <a class="hero__cat" href="service.html?id=41">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0 -18" />
-                  <path d="M9 14.5c1.6 1.4 4.4 1.4 6 0" />
-                  <path d="M9 10h.01" />
-                  <path d="M15 10h.01" />
-                </svg>
-                پاکسازی پوست
-              </a>
-              <a class="hero__cat" href="service.html?id=72">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4z" /></svg>
-                میکاپ و شینیون
-              </a>
-            </nav>
-          </div>
+          <nav class="svc-grid" aria-label="رزرو بر اساس خدمت">
+              <a class="svc-tile" href="salons.html?category=1&amp;sort=near"><span class="svc-tile__ic"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#scissors"/></svg></span><span class="svc-tile__name">مو</span></a>
+              <a class="svc-tile" href="salons.html?category=2&amp;sort=near"><span class="svc-tile__ic"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#nail"/></svg></span><span class="svc-tile__name">ناخن</span></a>
+              <a class="svc-tile" href="salons.html?category=3&amp;sort=near"><span class="svc-tile__ic"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#brow"/></svg></span><span class="svc-tile__name">ابرو</span></a>
+              <a class="svc-tile" href="salons.html?category=4&amp;sort=near"><span class="svc-tile__ic"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#lash"/></svg></span><span class="svc-tile__name">مژه</span></a>
+              <a class="svc-tile" href="salons.html?category=5&amp;sort=near"><span class="svc-tile__ic"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#makeup"/></svg></span><span class="svc-tile__name">میکاپ</span></a>
+              <a class="svc-tile" href="salons.html?category=6&amp;sort=near"><span class="svc-tile__ic"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#skin"/></svg></span><span class="svc-tile__name">پوست</span></a>
+              <a class="svc-tile" href="salons.html?category=8&amp;sort=near"><span class="svc-tile__ic"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#crown"/></svg></span><span class="svc-tile__name">عروس</span></a>
+              <button type="button" class="svc-tile svc-tile--all" data-dialog-open="all-services" aria-haspopup="dialog"><span class="svc-tile__ic"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#dots"/></svg></span><span class="svc-tile__name">همه</span></button>
+          </nav>
         </div>
       </section>
 
-      <!-- ===== امروز در سالن ===== -->
-      <section class="today reveal" aria-label="امروز در سالن">
-        <div class="wrap today__grid" data-stagger>
-          <div class="today__item">
-            <span class="today__label">امروز، پنجشنبه ۲۱ آبان ۱۴۰۵</span>
-            <strong class="today__value">باز از ۱۰:۰۰ تا ۱۵:۰۰</strong>
+      <!-- ===== سالن‌های نزدیک من، با یک فیلتر (خدمت + مرتب‌سازی) — pages/browse.js ===== -->
+      <section id="near-me" class="section section--tight" aria-labelledby="near-title" data-home-filter>
+        <div class="wrap">
+          <div class="section__head">
+            <div>
+              <h2 id="near-title">سالن‌های نزدیک من</h2>
+              <p>نزدیک‌ترین سالن‌ها به شما<span data-near-status></span></p>
+            </div>
+            <a class="btn btn-ghost btn-sm" href="salons.html?sort=near">همه</a>
           </div>
-          <div class="today__item">
-            <span class="today__label">برای قطعی شدن نوبت</span>
-            <strong class="today__value">۲۰٪ بیعانه آنلاین</strong>
+          <div class="near-filter" role="group" aria-label="فیلتر سالن‌ها">
+            <select class="input" name="category" aria-label="خدمات"><option value="">همه خدمات</option><option value="1">مو</option><option value="2">ناخن</option><option value="3">ابرو</option><option value="4">مژه</option><option value="5">میکاپ</option><option value="6">پوست</option><option value="7">اپیلاسیون</option><option value="8">عروس</option><option value="10">ماساژ و اسپا</option></select>
+            <select class="input" name="sort" aria-label="مرتب‌سازی">
+              <option value="near">نزدیک‌ترین</option>
+              <option value="popular">پرطرفدارترین</option>
+              <option value="top">بیشترین امتیاز</option>
+              <option value="cheap">ارزان‌ترین</option>
+              <option value="expensive">گران‌ترین</option>
+            </select>
           </div>
-          <div class="today__item">
-            <span class="today__label">لغو یا جابه‌جایی</span>
-            <strong class="today__value">تا ۳ ساعت قبل، از پنل خودتان</strong>
+          <div class="carousel-wrap">
+            <button type="button" class="car-btn" data-car-prev aria-controls="near" aria-label="قبلی"><svg class="icon flip ph" aria-hidden="true"><use href="assets/img/icons.svg#arrow"/></svg></button>
+            <div class="carousel carousel--salons" id="near" data-near-list data-carousel tabindex="0" role="region" aria-label="سالن‌های نزدیک من">
+            <article class="salon-card" data-salon data-id="1" data-name="سالن زیبایی آیدا" data-area="یوسف‌آباد" data-lat="35.73" data-lng="51.405"
+              data-rating="4.9" data-reviews="412" data-price="350000"
+              data-cats="1,2,3,4,5,8" data-open="1" data-top="1">
+              <a class="salon-card__cover has-photo" href="salon/1.html" tabindex="-1" aria-hidden="true">
+                <img class="cover-img" src="assets/img/salon.svg" alt="" loading="lazy" />
+                <span class="salon-card__badges"><span class="s-badge s-badge--top"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#crown"/></svg>برتر</span></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/1.html">سالن زیبایی آیدا</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۹</b></span>
+                </div>
+                <p class="salon-card__area">یوسف‌آباد · از ۳۵۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">مو · ناخن · ابرو و ۳ خدمت دیگر</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="2" data-name="رز سفید" data-area="سعادت‌آباد" data-lat="35.78" data-lng="51.378"
+              data-rating="4.8" data-reviews="286" data-price="600000"
+              data-cats="1,5,6,8" data-open="1" data-top="1">
+              <a class="salon-card__cover" href="salon/2.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"><span class="s-badge s-badge--top"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#crown"/></svg>برتر</span></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/2.html">رز سفید</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۸</b></span>
+                </div>
+                <p class="salon-card__area">سعادت‌آباد · از ۶۰۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">مو · میکاپ · پوست و ۱ خدمت دیگر</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="6" data-name="آتلیه عروس نیلا" data-area="شهرک غرب" data-lat="35.76" data-lng="51.37"
+              data-rating="4.9" data-reviews="233" data-price="900000"
+              data-cats="5,8,1" data-open="1" data-top="1">
+              <a class="salon-card__cover" href="salon/6.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"><span class="s-badge s-badge--top"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#crown"/></svg>برتر</span></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/6.html">آتلیه عروس نیلا</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۹</b></span>
+                </div>
+                <p class="salon-card__area">شهرک غرب · از ۹۰۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">میکاپ · عروس · مو</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="9" data-name="کلینیک پوست و زیبایی سپید" data-area="جردن" data-lat="35.769" data-lng="51.418"
+              data-rating="4.7" data-reviews="208" data-price="500000"
+              data-cats="6,7,10" data-open="0" data-top="0">
+              <a class="salon-card__cover" href="salon/9.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/9.html">کلینیک پوست و زیبایی سپید</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۷</b></span>
+                </div>
+                <p class="salon-card__area">جردن · از ۵۰۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">پوست · اپیلاسیون · ماساژ و اسپا</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="3" data-name="استودیو ناخن لیا" data-area="ونک" data-lat="35.757" data-lng="51.41"
+              data-rating="4.7" data-reviews="198" data-price="180000"
+              data-cats="2,3,4" data-open="1" data-top="0">
+              <a class="salon-card__cover" href="salon/3.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/3.html">استودیو ناخن لیا</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۷</b></span>
+                </div>
+                <p class="salon-card__area">ونک · از ۱۸۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">ناخن · ابرو · مژه</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="5" data-name="خانه زیبایی مهرو" data-area="تجریش" data-lat="35.8045" data-lng="51.4335"
+              data-rating="4.6" data-reviews="157" data-price="300000"
+              data-cats="1,6,7,10" data-open="1" data-top="0">
+              <a class="salon-card__cover" href="salon/5.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/5.html">خانه زیبایی مهرو</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۶</b></span>
+                </div>
+                <p class="salon-card__area">تجریش · از ۳۰۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">مو · پوست · اپیلاسیون و ۱ خدمت دیگر</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="11" data-name="لاکچری اسپا نیاوران" data-area="نیاوران" data-lat="35.815" data-lng="51.47"
+              data-rating="4.8" data-reviews="119" data-price="800000"
+              data-cats="10,6,2" data-open="1" data-top="1">
+              <a class="salon-card__cover" href="salon/11.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"><span class="s-badge s-badge--top"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#crown"/></svg>برتر</span></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/11.html">لاکچری اسپا نیاوران</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۸</b></span>
+                </div>
+                <p class="salon-card__area">نیاوران · از ۸۰۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">ماساژ و اسپا · پوست · ناخن</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="7" data-name="سالن ترمه" data-area="نارمک" data-lat="35.74" data-lng="51.504"
+              data-rating="4.5" data-reviews="96" data-price="150000"
+              data-cats="1,2,3,7" data-open="1" data-top="0">
+              <a class="salon-card__cover" href="salon/7.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/7.html">سالن ترمه</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۵</b></span>
+                </div>
+                <p class="salon-card__area">نارمک · از ۱۵۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">مو · ناخن · ابرو و ۱ خدمت دیگر</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="10" data-name="سالن گیسو" data-area="تهرانپارس" data-lat="35.74" data-lng="51.54"
+              data-rating="4.4" data-reviews="83" data-price="140000"
+              data-cats="1,2,4" data-open="1" data-top="0">
+              <a class="salon-card__cover" href="salon/10.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/10.html">سالن گیسو</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۴</b></span>
+                </div>
+                <p class="salon-card__area">تهرانپارس · از ۱۴۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">مو · ناخن · مژه</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="12" data-name="سالن آینه" data-area="انقلاب" data-lat="35.701" data-lng="51.391"
+              data-rating="4.3" data-reviews="64" data-price="130000"
+              data-cats="1,3,5" data-open="1" data-top="0">
+              <a class="salon-card__cover" href="salon/12.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/12.html">سالن آینه</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۳</b></span>
+                </div>
+                <p class="salon-card__area">انقلاب · از ۱۳۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">مو · ابرو · میکاپ</p>
+              </div>
+            </article>
+            </div>
+            <button type="button" class="car-btn" data-car-next aria-controls="near" aria-label="بعدی"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#arrow"/></svg></button>
           </div>
+          <p class="list-empty" data-near-empty hidden>سالنی با این خدمت پیدا نشد.</p>
         </div>
       </section>
 
-      <!-- ===== خدمات ===== -->
-      <section id="services" class="section" aria-labelledby="services-title">
+      <!-- ===== برترین سالن‌ها ===== -->
+      <section class="section" aria-labelledby="top-title">
         <div class="wrap">
           <div class="section__head reveal">
             <div>
-              <h2 id="services-title">دسته‌های خدمات</h2>
-              <p>۸۰ خدمت در ۱۱ دسته؛ روی هر دسته بزنید تا خدمات و قیمت‌ها را ببینید.</p>
+              <h2 id="top-title">برترین سالن‌ها</h2>
+              <p>بر اساس امتیاز مشتری‌هایی که واقعاً نوبت گرفته‌اند.</p>
             </div>
-            <a class="btn btn-ghost" href="services.html">همه خدمات</a>
+            <a class="btn btn-ghost" href="salons.html?sort=top">همه</a>
           </div>
-          <div class="cat-grid reveal" data-stagger>
-            <a class="cat-tile" href="services.html?category=1#cat-1">
-              <span class="tile-icon">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                  <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                  <path d="M8.6 8.6l10.4 10.4" />
-                  <path d="M8.6 15.4l10.4 -10.4" />
-                </svg>
-              </span>
-              <span class="tile__name">مو</span>
-              <span class="tile__meta">۱۴ خدمت</span>
-            </a>
-            <a class="cat-tile" href="services.html?category=2#cat-2">
-              <span class="tile-icon">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M9 10h6v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
-                  <path d="M10 10v-4h4v4" />
-                  <path d="M11 6v-3h2v3" />
-                  <path d="M11 14h2" />
-                </svg>
-              </span>
-              <span class="tile__name">ناخن</span>
-              <span class="tile__meta">۸ خدمت</span>
-            </a>
-            <a class="cat-tile" href="services.html?category=3#cat-3">
-              <span class="tile-icon">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M3 11c3 -4 11 -6 18 -2" />
-                  <path d="M5 15c2 2 4.5 3 7 3s5 -1 7 -3" />
-                  <path d="M12 15m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                </svg>
-              </span>
-              <span class="tile__name">ابرو</span>
-              <span class="tile__meta">۶ خدمت</span>
-            </a>
-            <a class="cat-tile" href="services.html?category=4#cat-4">
-              <span class="tile-icon">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M3 13c3 -4 6 -6 9 -6s6 2 9 6" />
-                  <path d="M3 13c3 3 6 4.5 9 4.5s6 -1.5 9 -4.5" />
-                  <path d="M12 13m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                  <path d="M12 7v-3" />
-                  <path d="M7.5 8.5l-1.5 -2.5" />
-                  <path d="M16.5 8.5l1.5 -2.5" />
-                </svg>
-              </span>
-              <span class="tile__name">مژه</span>
-              <span class="tile__meta">۶ خدمت</span>
-            </a>
-            <a class="cat-tile" href="services.html?category=5#cat-5">
-              <span class="tile-icon">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M3 21v-4a4 4 0 1 1 4 4h-4" />
-                  <path d="M21 3a16 16 0 0 0 -12.8 10.2" />
-                  <path d="M21 3a16 16 0 0 1 -10.2 12.8" />
-                  <path d="M10.6 9a9 9 0 0 1 4.4 4.4" />
-                </svg>
-              </span>
-              <span class="tile__name">میکاپ و گریم</span>
-              <span class="tile__meta">۶ خدمت</span>
-            </a>
-            <a class="cat-tile" href="services.html?category=6#cat-6">
-              <span class="tile-icon">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0 -18" />
-                  <path d="M9 14.5c1.6 1.4 4.4 1.4 6 0" />
-                  <path d="M9 10h.01" />
-                  <path d="M15 10h.01" />
-                </svg>
-              </span>
-              <span class="tile__name">پوست و فیشیال</span>
-              <span class="tile__meta">۷ خدمت</span>
-            </a>
-            <a class="cat-tile" href="services.html?category=7#cat-7">
-              <span class="tile-icon">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 4h14v4h-14z" />
-                  <path d="M7 8v2a5 5 0 0 0 10 0v-2" />
-                  <path d="M12 15v6" />
-                  <path d="M9 21h6" />
-                </svg>
-              </span>
-              <span class="tile__name">اپیلاسیون و اصلاح</span>
-              <span class="tile__meta">۷ خدمت</span>
-            </a>
-            <a class="cat-tile" href="services.html?category=8#cat-8">
-              <span class="tile-icon">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M4 20l4 -1l11 -11a2.1 2.1 0 0 0 -3 -3l-11 11z" />
-                  <path d="M14 6l3 3" />
-                  <path d="M4 20l1 -4" />
-                </svg>
-              </span>
-              <span class="tile__name">آرایش دائم</span>
-              <span class="tile__meta">۸ خدمت</span>
-            </a>
-            <a class="cat-tile" href="services.html?category=9#cat-9">
-              <span class="tile-icon">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 20c-5 0 -8 -4 -8 -8c4 0 8 3 8 8z" />
-                  <path d="M12 20c5 0 8 -4 8 -8c-4 0 -8 3 -8 8z" />
-                  <path d="M12 20c-2 -3 -2 -9 0 -13c2 4 2 10 0 13z" />
-                </svg>
-              </span>
-              <span class="tile__name">ماساژ و اسپا</span>
-              <span class="tile__meta">۷ خدمت</span>
-            </a>
-            <a class="cat-tile" href="services.html?category=10#cat-10">
-              <span class="tile-icon">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4z" /></svg>
-              </span>
-              <span class="tile__name">خدمات عروس</span>
-              <span class="tile__meta">۶ خدمت</span>
-            </a>
-            <a class="cat-tile" href="services.html?category=11#cat-11">
-              <span class="tile-icon">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M9 3h6v3h-6z" />
-                  <path d="M8 6h8l1 3v10a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2v-10z" />
-                  <path d="M10 13h4" />
-                </svg>
-              </span>
-              <span class="tile__name">مراقبت و زیبایی بدن</span>
-              <span class="tile__meta">۵ خدمت</span>
-            </a>
+          <div class="carousel-wrap">
+            <button type="button" class="car-btn" data-car-prev aria-controls="top-salons" aria-label="قبلی"><svg class="icon flip ph" aria-hidden="true"><use href="assets/img/icons.svg#arrow"/></svg></button>
+            <div class="carousel carousel--salons" id="top-salons" data-carousel tabindex="0" role="region" aria-label="برترین سالن‌ها">
+            <article class="salon-card" data-salon data-id="1" data-name="سالن زیبایی آیدا" data-area="یوسف‌آباد" data-lat="35.73" data-lng="51.405"
+              data-rating="4.9" data-reviews="412" data-price="350000"
+              data-cats="1,2,3,4,5,8" data-open="1" data-top="1">
+              <a class="salon-card__cover has-photo" href="salon/1.html" tabindex="-1" aria-hidden="true">
+                <img class="cover-img" src="assets/img/salon.svg" alt="" loading="lazy" />
+                <span class="salon-card__badges"><span class="s-badge s-badge--top"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#crown"/></svg>برتر</span></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/1.html">سالن زیبایی آیدا</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۹</b></span>
+                </div>
+                <p class="salon-card__area">یوسف‌آباد · از ۳۵۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">مو · ناخن · ابرو و ۳ خدمت دیگر</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="6" data-name="آتلیه عروس نیلا" data-area="شهرک غرب" data-lat="35.76" data-lng="51.37"
+              data-rating="4.9" data-reviews="233" data-price="900000"
+              data-cats="5,8,1" data-open="1" data-top="1">
+              <a class="salon-card__cover" href="salon/6.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"><span class="s-badge s-badge--top"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#crown"/></svg>برتر</span></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/6.html">آتلیه عروس نیلا</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۹</b></span>
+                </div>
+                <p class="salon-card__area">شهرک غرب · از ۹۰۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">میکاپ · عروس · مو</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="2" data-name="رز سفید" data-area="سعادت‌آباد" data-lat="35.78" data-lng="51.378"
+              data-rating="4.8" data-reviews="286" data-price="600000"
+              data-cats="1,5,6,8" data-open="1" data-top="1">
+              <a class="salon-card__cover" href="salon/2.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"><span class="s-badge s-badge--top"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#crown"/></svg>برتر</span></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/2.html">رز سفید</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۸</b></span>
+                </div>
+                <p class="salon-card__area">سعادت‌آباد · از ۶۰۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">مو · میکاپ · پوست و ۱ خدمت دیگر</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="11" data-name="لاکچری اسپا نیاوران" data-area="نیاوران" data-lat="35.815" data-lng="51.47"
+              data-rating="4.8" data-reviews="119" data-price="800000"
+              data-cats="10,6,2" data-open="1" data-top="1">
+              <a class="salon-card__cover" href="salon/11.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"><span class="s-badge s-badge--top"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#crown"/></svg>برتر</span></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/11.html">لاکچری اسپا نیاوران</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۸</b></span>
+                </div>
+                <p class="salon-card__area">نیاوران · از ۸۰۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">ماساژ و اسپا · پوست · ناخن</p>
+              </div>
+            </article>
+            </div>
+            <button type="button" class="car-btn" data-car-next aria-controls="top-salons" aria-label="بعدی"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#arrow"/></svg></button>
           </div>
         </div>
       </section>
 
-      <!-- ===== آرایشگران ===== -->
-      <section class="section" aria-labelledby="team-title">
+      <!-- ===== آرایشگران برتر ===== -->
+      <section id="top-stylists" class="section" aria-labelledby="pros-title">
         <div class="wrap">
           <div class="section__head reveal">
             <div>
-              <h2 id="team-title">آرایشگران آیدا</h2>
-              <p>هر آرایشگر چند تخصص دارد؛ پروفایل هر کدام را ببینید.</p>
+              <h2 id="pros-title">آرایشگران برتر</h2>
+              <p>پرامتیازترین آرایشگران شهر؛ مستقل یا کارمند سالن.</p>
             </div>
-            <a class="btn btn-ghost" href="stylists.html">همه آرایشگران</a>
+            <a class="btn btn-ghost" href="stylists.html">همه</a>
           </div>
-          <div class="team-row reveal" data-stagger>
-            <article class="stylist-card">
-              <div class="avatar"><span class="avatar__ph" aria-hidden="true"></span></div>
-              <div class="stylist-card__body">
-                <h3 class="h3">سارا محمدی</h3>
-                <p class="stylist-card__title">متخصص رنگ و لایت</p>
-                <ul class="tag-list">
-                  <li class="tag">متخصص رنگ و لایت</li>
-                  <li class="tag">متخصص مو</li>
-                </ul>
-                <p class="stylist-card__services">کوتاهی مو، رنگ مو، رنگ ریشه</p>
-                <p class="stylist-card__rating">
-                  <span class="stars" aria-label="امتیاز ۴.۹ از ۵">
-                    ★★★★★
-                    <span class="stars__off"></span>
-                  </span>
-                  <span>۴.۹</span>
-                  <small>(۳۸ نظر)</small>
-                </p>
-              </div>
-              <a class="btn btn-ghost btn-block" href="stylist.html?id=1">مشاهده پروفایل</a>
+          <div class="carousel-wrap">
+            <button type="button" class="car-btn" data-car-prev aria-controls="pros" aria-label="قبلی"><svg class="icon flip ph" aria-hidden="true"><use href="assets/img/icons.svg#arrow"/></svg></button>
+            <div class="carousel " id="pros" data-carousel tabindex="0" role="region" aria-label="آرایشگران برتر">
+            <article class="pro-card glass">
+              <span class="pro-card__rank">#۱</span>
+              <div class="avatar pro-card__avatar"><span class="avatar__ph" aria-hidden="true"></span></div>
+              <h3 class="h3"><a href="stylist.html?id=7">نیلا افشار</a></h3>
+              <p class="pro-card__title">میکاپ و شینیون عروس</p>
+              <p class="pro-card__salon"><span class="kind-badge">سالن</span>آتلیه عروس نیلا</p>
+              <p class="pro-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۹</b><small>(۲۴۱ نظر)</small></p>
+              <a class="btn btn-ghost btn-sm btn-block" href="booking.html?salon=6&amp;staff=7">رزرو</a>
             </article>
-            <article class="stylist-card">
-              <div class="avatar"><span class="avatar__ph" aria-hidden="true"></span></div>
-              <div class="stylist-card__body">
-                <h3 class="h3">نگار رضایی</h3>
-                <p class="stylist-card__title">میکاپ آرتیست</p>
-                <ul class="tag-list">
-                  <li class="tag">میکاپ آرتیست</li>
-                  <li class="tag">متخصص عروس</li>
-                  <li class="tag">متخصص ابرو</li>
-                </ul>
-                <p class="stylist-card__services">میکاپ روزانه، میکاپ لایت، میکاپ مجلسی</p>
-                <p class="stylist-card__rating">
-                  <span class="stars" aria-label="امتیاز ۴.۸ از ۵">
-                    ★★★★★
-                    <span class="stars__off"></span>
-                  </span>
-                  <span>۴.۸</span>
-                  <small>(۵۲ نظر)</small>
-                </p>
-              </div>
-              <a class="btn btn-ghost btn-block" href="stylist.html?id=2">مشاهده پروفایل</a>
+            <article class="pro-card glass">
+              <span class="pro-card__rank">#۲</span>
+              <div class="avatar pro-card__avatar"><span class="avatar__ph" aria-hidden="true"></span></div>
+              <h3 class="h3"><a href="stylist.html?id=1">سارا محمدی</a></h3>
+              <p class="pro-card__title">متخصص رنگ و لایت</p>
+              <p class="pro-card__salon"><span class="kind-badge kind-badge--free">مستقل</span>در ۲ سالن</p>
+              <p class="pro-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۹</b><small>(۱۸۶ نظر)</small></p>
+              <a class="btn btn-ghost btn-sm btn-block" href="booking.html?salon=1&amp;staff=1">رزرو</a>
             </article>
-            <article class="stylist-card">
-              <div class="avatar"><span class="avatar__ph" aria-hidden="true"></span></div>
-              <div class="stylist-card__body">
-                <h3 class="h3">مینا کریمی</h3>
-                <p class="stylist-card__title">ناخن‌کار</p>
-                <ul class="tag-list">
-                  <li class="tag">ناخن‌کار</li>
-                </ul>
-                <p class="stylist-card__services">کاشت ناخن، ترمیم ناخن، ژلیش</p>
-                <p class="stylist-card__rating">
-                  <span class="stars" aria-label="امتیاز ۴.۷ از ۵">
-                    ★★★★★
-                    <span class="stars__off"></span>
-                  </span>
-                  <span>۴.۷</span>
-                  <small>(۴۱ نظر)</small>
-                </p>
-              </div>
-              <a class="btn btn-ghost btn-block" href="stylist.html?id=3">مشاهده پروفایل</a>
+            <article class="pro-card glass">
+              <span class="pro-card__rank">#۳</span>
+              <div class="avatar pro-card__avatar"><span class="avatar__ph" aria-hidden="true"></span></div>
+              <h3 class="h3"><a href="stylist.html?id=2">نگار رضایی</a></h3>
+              <p class="pro-card__title">میکاپ آرتیست</p>
+              <p class="pro-card__salon"><span class="kind-badge">سالن</span>سالن زیبایی آیدا</p>
+              <p class="pro-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۸</b><small>(۲۰۳ نظر)</small></p>
+              <a class="btn btn-ghost btn-sm btn-block" href="booking.html?salon=1&amp;staff=2">رزرو</a>
             </article>
-            <article class="stylist-card">
-              <div class="avatar"><span class="avatar__ph" aria-hidden="true"></span></div>
-              <div class="stylist-card__body">
-                <h3 class="h3">الهام نوری</h3>
-                <p class="stylist-card__title">متخصص مژه و ابرو</p>
-                <ul class="tag-list">
-                  <li class="tag">مژه‌کار</li>
-                  <li class="tag">متخصص ابرو</li>
-                  <li class="tag">متخصص آرایش دائم</li>
-                </ul>
-                <p class="stylist-card__services">اکستنشن مژه، لیفت مژه، لمینت مژه</p>
-                <p class="stylist-card__rating">
-                  <span class="stars" aria-label="امتیاز ۴.۹ از ۵">
-                    ★★★★★
-                    <span class="stars__off"></span>
-                  </span>
-                  <span>۴.۹</span>
-                  <small>(۲۹ نظر)</small>
-                </p>
-              </div>
-              <a class="btn btn-ghost btn-block" href="stylist.html?id=4">مشاهده پروفایل</a>
+            <article class="pro-card glass">
+              <span class="pro-card__rank">#۴</span>
+              <div class="avatar pro-card__avatar"><span class="avatar__ph" aria-hidden="true"></span></div>
+              <h3 class="h3"><a href="stylist.html?id=8">لیا رحیمی</a></h3>
+              <p class="pro-card__title">کاشت و طراحی ناخن</p>
+              <p class="pro-card__salon"><span class="kind-badge kind-badge--free">مستقل</span>در ۲ سالن</p>
+              <p class="pro-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۸</b><small>(۱۵۸ نظر)</small></p>
+              <a class="btn btn-ghost btn-sm btn-block" href="booking.html?salon=3&amp;staff=8">رزرو</a>
             </article>
-            <article class="stylist-card">
-              <div class="avatar"><span class="avatar__ph" aria-hidden="true"></span></div>
-              <div class="stylist-card__body">
-                <h3 class="h3">پریسا احمدی</h3>
-                <p class="stylist-card__title">متخصص پوست و فیشیال</p>
-                <ul class="tag-list">
-                  <li class="tag">متخصص پوست و فیشیال</li>
-                  <li class="tag">اپیلاسیون‌کار</li>
-                </ul>
-                <p class="stylist-card__services">پاکسازی پوست، فیشیال کلاسیک، فیشیال تخصصی</p>
-                <p class="stylist-card__rating">
-                  <span class="stars" aria-label="امتیاز ۴.۸ از ۵">
-                    ★★★★★
-                    <span class="stars__off"></span>
-                  </span>
-                  <span>۴.۸</span>
-                  <small>(۳۳ نظر)</small>
-                </p>
-              </div>
-              <a class="btn btn-ghost btn-block" href="stylist.html?id=5">مشاهده پروفایل</a>
+            <article class="pro-card glass">
+              <span class="pro-card__rank">#۵</span>
+              <div class="avatar pro-card__avatar"><span class="avatar__ph" aria-hidden="true"></span></div>
+              <h3 class="h3"><a href="stylist.html?id=4">الهام نوری</a></h3>
+              <p class="pro-card__title">اکستنشن و لیفت مژه</p>
+              <p class="pro-card__salon"><span class="kind-badge kind-badge--free">مستقل</span>در ۳ سالن</p>
+              <p class="pro-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۹</b><small>(۱۲۹ نظر)</small></p>
+              <a class="btn btn-ghost btn-sm btn-block" href="booking.html?salon=1&amp;staff=4">رزرو</a>
             </article>
-            <article class="stylist-card">
-              <div class="avatar"><span class="avatar__ph" aria-hidden="true"></span></div>
-              <div class="stylist-card__body">
-                <h3 class="h3">شیما رستمی</h3>
-                <p class="stylist-card__title">متخصص مو و عروس</p>
-                <ul class="tag-list">
-                  <li class="tag">متخصص مو</li>
-                  <li class="tag">متخصص عروس</li>
-                </ul>
-                <p class="stylist-card__services">کوتاهی مو، کراتین و احیا، صافی مو</p>
-                <p class="stylist-card__rating">
-                  <span class="stars" aria-label="امتیاز ۴.۶ از ۵">
-                    ★★★★★
-                    <span class="stars__off"></span>
-                  </span>
-                  <span>۴.۶</span>
-                  <small>(۱۸ نظر)</small>
-                </p>
-              </div>
-              <a class="btn btn-ghost btn-block" href="stylist.html?id=6">مشاهده پروفایل</a>
+            <article class="pro-card glass">
+              <span class="pro-card__rank">#۶</span>
+              <div class="avatar pro-card__avatar"><span class="avatar__ph" aria-hidden="true"></span></div>
+              <h3 class="h3"><a href="stylist.html?id=10">رها مقدم</a></h3>
+              <p class="pro-card__title">کراتین و احیای مو</p>
+              <p class="pro-card__salon"><span class="kind-badge kind-badge--free">مستقل</span>در ۲ سالن</p>
+              <p class="pro-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۷</b><small>(۱۴۴ نظر)</small></p>
+              <a class="btn btn-ghost btn-sm btn-block" href="booking.html?salon=2&amp;staff=10">رزرو</a>
             </article>
+            <article class="pro-card glass">
+              <span class="pro-card__rank">#۷</span>
+              <div class="avatar pro-card__avatar"><span class="avatar__ph" aria-hidden="true"></span></div>
+              <h3 class="h3"><a href="stylist.html?id=3">مینا کریمی</a></h3>
+              <p class="pro-card__title">ناخن‌کار</p>
+              <p class="pro-card__salon"><span class="kind-badge">سالن</span>سالن زیبایی آیدا</p>
+              <p class="pro-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۷</b><small>(۱۴۱ نظر)</small></p>
+              <a class="btn btn-ghost btn-sm btn-block" href="booking.html?salon=1&amp;staff=3">رزرو</a>
+            </article>
+            <article class="pro-card glass">
+              <span class="pro-card__rank">#۸</span>
+              <div class="avatar pro-card__avatar"><span class="avatar__ph" aria-hidden="true"></span></div>
+              <h3 class="h3"><a href="stylist.html?id=9">مهرو صالحی</a></h3>
+              <p class="pro-card__title">پوست و فیشیال تخصصی</p>
+              <p class="pro-card__salon"><span class="kind-badge">سالن</span>کلینیک پوست و زیبایی سپید</p>
+              <p class="pro-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۸</b><small>(۹۷ نظر)</small></p>
+              <a class="btn btn-ghost btn-sm btn-block" href="booking.html?salon=9&amp;staff=9">رزرو</a>
+            </article>
+            <article class="pro-card glass">
+              <span class="pro-card__rank">#۹</span>
+              <div class="avatar pro-card__avatar"><span class="avatar__ph" aria-hidden="true"></span></div>
+              <h3 class="h3"><a href="stylist.html?id=5">پریسا احمدی</a></h3>
+              <p class="pro-card__title">پوست و فیشیال</p>
+              <p class="pro-card__salon"><span class="kind-badge">سالن</span>سالن زیبایی آیدا</p>
+              <p class="pro-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۸</b><small>(۹۲ نظر)</small></p>
+              <a class="btn btn-ghost btn-sm btn-block" href="booking.html?salon=1&amp;staff=5">رزرو</a>
+            </article>
+            <article class="pro-card glass">
+              <span class="pro-card__rank">#۱۰</span>
+              <div class="avatar pro-card__avatar"><span class="avatar__ph" aria-hidden="true"></span></div>
+              <h3 class="h3"><a href="stylist.html?id=11">ترمه فاضلی</a></h3>
+              <p class="pro-card__title">ابرو و آرایش دائم</p>
+              <p class="pro-card__salon"><span class="kind-badge">سالن</span>سالن ترمه</p>
+              <p class="pro-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۷</b><small>(۸۸ نظر)</small></p>
+              <a class="btn btn-ghost btn-sm btn-block" href="booking.html?salon=7&amp;staff=11">رزرو</a>
+            </article>
+            </div>
+            <button type="button" class="car-btn" data-car-next aria-controls="pros" aria-label="بعدی"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#arrow"/></svg></button>
           </div>
         </div>
       </section>
 
-      <!-- ===== نظر مشتری‌ها ===== -->
-      <section class="section" aria-labelledby="reviews-title">
+      <!-- ===== چطور کار می‌کند + پرداخت (جمع‌وجور) ===== -->
+      <section class="section" aria-labelledby="how-title">
         <div class="wrap">
-          <h2 id="reviews-title" class="reviews-title reveal">مشتری‌ها درباره ما چه می‌گویند</h2>
-          <!-- هر بار یک نظر؛ خودکار جلو می‌رود (assets/js/pages/home-reviews.js) -->
-          <div class="review-slider reveal" data-review-slider data-interval="5500" aria-roledescription="اسلایدر" aria-label="نظرات مشتریان">
-            <div class="review-slider__track" aria-live="polite">
-              <figure class="review-slide is-active">
-                <span class="review-slide__quote" aria-hidden="true">”</span>
-                <span class="stars" aria-label="امتیاز ۵.۰ از ۵">
-                  ★★★★★
-                  <span class="stars__off"></span>
-                </span>
-                <blockquote><p>بالیاژ دقیقاً همان رنگی شد که می‌خواستم؛ کاملاً طبیعی و یکدست. سر ساعت هم شروع کردند.</p></blockquote>
-                <figcaption>
-                  <div class="avatar avatar--sm"><span class="avatar__ph" aria-hidden="true"></span></div>
-                  <span>
-                    <strong>نازنین</strong>
-                    <small>بالیاژ و آمبره با سارا محمدی</small>
-                  </span>
-                </figcaption>
-              </figure>
-              <figure class="review-slide" aria-hidden="true">
-                <span class="review-slide__quote" aria-hidden="true">”</span>
-                <span class="stars" aria-label="امتیاز ۵.۰ از ۵">
-                  ★★★★★
-                  <span class="stars__off"></span>
-                </span>
-                <blockquote><p>رزرو آنلاین خیلی راحت بود و اصلاً منتظر نماندم. میکاپ سبک و ماندگار بود.</p></blockquote>
-                <figcaption>
-                  <div class="avatar avatar--sm"><span class="avatar__ph" aria-hidden="true"></span></div>
-                  <span>
-                    <strong>مریم</strong>
-                    <small>میکاپ مجلسی با نگار رضایی</small>
-                  </span>
-                </figcaption>
-              </figure>
-              <figure class="review-slide" aria-hidden="true">
-                <span class="review-slide__quote" aria-hidden="true">”</span>
-                <span class="stars" aria-label="امتیاز ۴.۰ از ۵">
-                  ★★★★
-                  <span class="stars__off">★</span>
-                </span>
-                <blockquote><p>کاشت ناخن تمیز و ظریف بود. محیط سالن هم خیلی آرام است.</p></blockquote>
-                <figcaption>
-                  <div class="avatar avatar--sm"><span class="avatar__ph" aria-hidden="true"></span></div>
-                  <span>
-                    <strong>الناز</strong>
-                    <small>کاشت ناخن با مینا کریمی</small>
-                  </span>
-                </figcaption>
-              </figure>
-              <figure class="review-slide" aria-hidden="true">
-                <span class="review-slide__quote" aria-hidden="true">”</span>
-                <span class="stars" aria-label="امتیاز ۵.۰ از ۵">
-                  ★★★★★
-                  <span class="stars__off"></span>
-                </span>
-                <blockquote><p>لیفت مژه‌ام عالی شد و توضیح مراقبت بعدش را هم کامل دادند.</p></blockquote>
-                <figcaption>
-                  <div class="avatar avatar--sm"><span class="avatar__ph" aria-hidden="true"></span></div>
-                  <span>
-                    <strong>سحر</strong>
-                    <small>لیفت مژه با الهام نوری</small>
-                  </span>
-                </figcaption>
-              </figure>
-              <figure class="review-slide" aria-hidden="true">
-                <span class="review-slide__quote" aria-hidden="true">”</span>
-                <span class="stars" aria-label="امتیاز ۵.۰ از ۵">
-                  ★★★★★
-                  <span class="stars__off"></span>
-                </span>
-                <blockquote><p>بعد از فیشیال پوستم واقعاً شاداب شد. برای ماه بعد هم نوبت گرفتم.</p></blockquote>
-                <figcaption>
-                  <div class="avatar avatar--sm"><span class="avatar__ph" aria-hidden="true"></span></div>
-                  <span>
-                    <strong>فاطمه</strong>
-                    <small>فیشیال تخصصی با پریسا احمدی</small>
-                  </span>
-                </figcaption>
-              </figure>
-            </div>
-            <div class="review-slider__nav">
-              <button type="button" class="icon-btn" data-review-prev aria-label="نظر قبلی">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 6l6 6l-6 6" /></svg>
-              </button>
-              <div class="review-slider__dots" data-review-dots></div>
-              <button type="button" class="icon-btn" data-review-next aria-label="نظر بعدی">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 6l-6 6l6 6" /></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ===== دعوت پایانی ===== -->
-      <section class="closing reveal" aria-labelledby="closing-title">
-        <div class="wrap">
-          <div class="closing__inner">
+          <div class="section__head reveal">
             <div>
-              <h2 id="closing-title">برای این هفته وقت بگیرید</h2>
-              <p>نوبت تا ۳۰ روز آینده باز است. نشانی: تهران، خیابان نمونه، پلاک ۱۲ (نشانی نمونه)</p>
+              <h2 id="how-title">نوبت گرفتن در سه قدم</h2>
+              <p>بدون تماس تلفنی و انتظار پشت خط.</p>
             </div>
-            <div class="cluster">
-              <a class="btn btn-primary btn-lg" href="booking.html">رزرو نوبت</a>
-              <a class="btn btn-ghost btn-lg" href="about.html#hours">ساعات کاری و قوانین</a>
-            </div>
+            
           </div>
+          <ol class="how how--compact">
+            <li class="how__step glass"><svg class="icon how__icon ph" aria-hidden="true"><use href="assets/img/icons.svg#search"/></svg><div><h3 class="h3">خدمت و سالن</h3><p>نزدیک‌ترین یا پرامتیازترین سالن را انتخاب کنید.</p></div></li>
+            <li class="how__step glass"><svg class="icon how__icon ph" aria-hidden="true"><use href="assets/img/icons.svg#clock"/></svg><div><h3 class="h3">ساعت آزاد</h3><p>فقط ساعت‌های واقعاً خالی نمایش داده می‌شوند.</p></div></li>
+            <li class="how__step glass"><svg class="icon how__icon ph" aria-hidden="true"><use href="assets/img/icons.svg#card"/></svg><div><h3 class="h3">پرداخت</h3><p>کامل آنلاین، یا فقط ۲۰٪ بیعانه و بقیه در سالن. <a href="legal/fees.html">جزئیات</a></p></div></li>
+          </ol>
         </div>
       </section>
     </main>
 
-    <!-- ===== پانویس سایت ===== -->
     <footer class="site-footer" id="contact">
       <div class="wrap">
-        <div class="footer-box">
-          <!-- لوگو و نام -->
-          <a class="footer-brand" href="index.html" aria-label="صفحه اصلی سالن زیبایی آیدا">
+        <div class="footer-box mk-footer">
+          <a class="footer-brand" href="index.html" aria-label="صفحه اصلی بلا">
             <span class="logo" aria-hidden="true"></span>
-            <strong>سالن زیبایی آیدا</strong>
+            <strong>بِلا</strong>
           </a>
-          <p class="footer-tagline">زیبایی، به وقت تو</p>
-
-          <!-- تماس و فضای مجازی -->
+          <p class="footer-tagline">سامانه سالن‌های زیبایی؛ نوبت بگیرید، سالن پیدا کنید، کار کنید.</p>
           <div class="footer-contact">
-            <a class="footer-phone" href="tel:02100000000">
-              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
-              </svg>
-              <span class="ltr">۰۲۱-۰۰۰۰۰۰۰۰</span>
-            </a>
-            <ul class="social-list" aria-label="فضای مجازی">
-              <li>
-                <a class="social-btn" href="https://instagram.com/aida.salon" rel="noopener" target="_blank" aria-label="اینستاگرام">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
-                    <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                    <path d="M16.5 7.5v.01" />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a class="social-btn" href="https://t.me/aida_salon" rel="noopener" target="_blank" aria-label="تلگرام">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg>
-                </a>
-              </li>
-              <li>
-                <a class="social-btn" href="https://wa.me/989120000000" rel="noopener" target="_blank" aria-label="واتس‌اپ">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-                    <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
-                  </svg>
-                </a>
-              </li>
-            </ul>
+            <a class="footer-phone" href="tel:02100000000"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#phone"/></svg><span class="ltr">۰۲۱-۰۰۰۰۰۰۰۰</span></a>
           </div>
-
-          <!-- نقشه: بک‌اند به‌جای .map-box__canvas، iframe نقشه بلد را می‌گذارد (data-balad-lat / data-balad-lng) -->
-          <div class="map-box" data-balad-lat="35.7000" data-balad-lng="51.4000">
-            <div class="map-box__canvas" aria-hidden="true">
-              <span class="map-box__pin">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-                  <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
-                </svg>
-              </span>
-            </div>
-            <div class="map-box__info">
-              <span class="map-box__icon">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-                  <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
-                </svg>
-              </span>
-              <div>
-                <strong>نشانی سالن</strong>
-                <p>تهران، خیابان نمونه، پلاک ۱۲ (نشانی نمونه)</p>
-                <p class="map-box__hours">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
-                    <path d="M12 7v5l3 3" />
-                  </svg>
-                  شنبه تا پنجشنبه، ۱۰ تا ۱۹
-                </p>
-              </div>
-              <a class="btn btn-ghost btn-sm" href="https://balad.ir" rel="noopener" target="_blank">مسیریابی با بلد</a>
-            </div>
+          <div class="mk-footer__cols">
+            <nav aria-label="مشتریان">
+              <strong>مشتریان</strong>
+              <a href="salons.html">جستجوی سالن</a>
+              <a href="salons.html?view=map">سالن‌ها روی نقشه</a>
+              <a href="salons.html?sort=top">برترین سالن‌ها</a>
+              <a href="customer/wallet.html">کیف پول</a>
+            </nav>
+            <nav aria-label="همکاران">
+              <strong>همکاران</strong>
+              <a href="join/stylist.html">ثبت‌نام آرایشگر</a>
+              <a href="join/salon.html">ثبت سالن زیبایی</a>
+              <a href="desks.html">اجاره میز در سالن</a>
+              <a href="legal/fees.html">کارمزد و تسویه</a>
+            </nav>
+            <nav aria-label="قوانین">
+              <strong>قوانین</strong>
+              <a href="legal/terms.html">قوانین و مقررات</a>
+              <a href="legal/privacy.html">حریم خصوصی</a>
+              <a href="legal/stylist-contract.html">قرارداد آرایشگران</a>
+              <a href="legal/salon-contract.html">قرارداد سالن‌ها</a>
+            </nav>
           </div>
-
-          <nav class="footer-links" aria-label="پیوندهای پایین صفحه">
-            <a href="services.html">خدمات</a>
-            <a href="stylists.html">آرایشگران</a>
-            <a href="about.html#hours">ساعات کاری و قوانین</a>
-            <a href="about.html">درباره ما</a>
-          </nav>
         </div>
-        <p class="site-footer__base">© سالن زیبایی آیدا</p>
+        <p class="site-footer__base">© بِلا — سامانه سالن‌های زیبایی</p>
       </div>
     </footer>
 
-    <!-- ===== منوی پایین (موبایل و تبلت) ===== -->
     <nav class="tabbar" aria-label="منوی پایین">
-      <a class="tabbar__item" href="index.html" aria-current="page">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
-          <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-          <path d="M10 21v-6h4v6" />
-        </svg>
-        <span>خانه</span>
-      </a>
-      <a class="tabbar__item" href="services.html">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 4h6v6h-6z" />
-          <path d="M14 4h6v6h-6z" />
-          <path d="M4 14h6v6h-6z" />
-          <path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-        </svg>
-        <span>خدمات</span>
-      </a>
+      <a class="tabbar__item" href="index.html" aria-current="page"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#home"/></svg><span>خانه</span></a>
+      <a class="tabbar__item" href="salons.html?view=map"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#map"/></svg><span>نقشه</span></a>
       <a class="tabbar__book" href="booking.html">
-        <span class="tabbar__fab">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
-            <path d="M16 3v4" />
-            <path d="M8 3v4" />
-            <path d="M4 11h16" />
-            <path d="M12 14v4" />
-            <path d="M10 16h4" />
-          </svg>
-        </span>
+        <span class="tabbar__fab"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#calendar"/></svg></span>
         <span>رزرو نوبت</span>
       </a>
-      <a class="tabbar__item" href="stylists.html">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-          <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-          <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
-        </svg>
-        <span>آرایشگران</span>
-      </a>
-      <a class="tabbar__item" href="account/login.html">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-          <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-        </svg>
-        <span>ورود</span>
-      </a>
+      <a class="tabbar__item" href="customer/wallet.html"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#wallet"/></svg><span>کیف پول</span></a>
+      <a class="tabbar__item" href="account/login.html"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#user"/></svg><span>حساب</span></a>
     </nav>
   </body>
 </html>

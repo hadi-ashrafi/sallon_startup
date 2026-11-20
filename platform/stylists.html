@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>آرایشگران | بلا</title>
+    <meta name="description" content="آرایشگران" />
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#131213" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../assets/img/icon-180.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="بلا" />
+    <link rel="preload" href="../assets/fonts/vazirmatn-arabic.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- استایل‌ها -->
+    <link rel="stylesheet" href="../assets/css/base/tokens.css" />
+    <link rel="stylesheet" href="../assets/css/base/base.css" />
+    <link rel="stylesheet" href="../assets/css/layout/header.css" />
+    <link rel="stylesheet" href="../assets/css/layout/footer.css" />
+    <link rel="stylesheet" href="../assets/css/components/buttons.css" />
+    <link rel="stylesheet" href="../assets/css/components/forms.css" />
+    <link rel="stylesheet" href="../assets/css/components/cards.css" />
+    <link rel="stylesheet" href="../assets/css/components/tables.css" />
+    <link rel="stylesheet" href="../assets/css/components/dialog.css" />
+    <link rel="stylesheet" href="../assets/css/layout/panel.css" />
+    <link rel="stylesheet" href="../assets/css/pages/dashboard.css" />
+    <link rel="stylesheet" href="../assets/css/pages/market.css" />
+    <link rel="stylesheet" href="../assets/css/base/motion.css" />
+
+    <!-- اسکریپت‌ها -->
+    <script src="../assets/js/theme-init.js"></script>
+    <script src="../assets/js/common/location.js" defer></script>
+    <script src="../assets/js/common/theme.js" defer></script>
+    <script src="../assets/js/common/nav.js" defer></script>
+    <script src="../assets/js/common/reveal.js" defer></script>
+    <script src="../assets/js/common/ui.js" defer></script>
+    <script src="../assets/js/common/forms.js" defer></script>
+    <script src="../assets/js/common/pwa.js" defer></script>
+    <script src="../assets/js/components/select.js" defer></script>
+    <script src="../assets/js/components/panel.js" defer></script>
+  </head>
+  <body class="no-footer">
+    <a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__bar">
+        <a class="brand" href="../index.html" aria-label="صفحه اصلی بلا">
+          <span class="logo" role="img" aria-label="بلا"></span>
+          <span class="brand__name">
+            <b>بِلا</b>
+            <small class="brand__sub">سامانه سالن‌های زیبایی</small>
+          </span>
+        </a>
+        <nav id="site-nav" class="site-nav" aria-label="منوی اصلی">
+          <div class="site-nav__head">
+            <strong>منوی بِلا</strong>
+            <button type="button" class="icon-btn" data-nav-close aria-label="بستن منو"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#x"/></svg></button>
+          </div>
+          <form class="nav-search" action="../salons.html" method="get" role="search">
+            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg><input name="q" type="search" placeholder="جستجوی سالن یا خدمت" aria-label="جستجوی سالن یا خدمت" />
+          </form>
+          <ul>
+            <li><a href="../index.html">خانه</a></li>
+            <li><a href="../salons.html?view=map">نقشه</a></li>
+            <li><a href="../index.html#top-stylists">آرایشگران برتر</a></li>
+            <li><a href="../index.html#by-category">دسته‌بندی‌ها</a></li>
+            <li><a href="../customer/appointments.html">نوبت‌های من</a></li>
+            <li><a href="../account/login.html">ورود</a></li>
+          </ul>
+        </nav>
+        <form class="hdr-search" action="../salons.html" method="get" role="search" aria-label="جستجوی سالن">
+          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg>
+          <label class="visually-hidden" for="hdr-q">جستجوی سالن یا خدمت</label>
+          <input id="hdr-q" name="q" type="search" placeholder="جستجوی سالن، خدمت یا محله…" autocomplete="off" />
+        </form>
+        <div class="header-actions">
+          <button type="button" class="loc-chip" data-loc-open aria-label="موقعیت و شهر شما"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#pin"/></svg><span data-loc-city>شهر</span></button>
+          <a class="icon-btn hdr-search-btn" href="../salons.html#f-q" aria-label="جستجو"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg></a>
+          <button type="button" class="icon-btn" data-theme-toggle aria-pressed="false" aria-label="تغییر حالت روشن و تیره">
+            <svg class="i-moon ph" aria-hidden="true"><use href="../assets/img/icons.svg#moon"/></svg><svg class="i-sun ph" aria-hidden="true"><use href="../assets/img/icons.svg#sun"/></svg>
+          </button>
+          <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="منو">
+            <svg class="ph" aria-hidden="true"><use href="../assets/img/icons.svg#menu"/></svg>
+          </button>
+          <a class="btn btn-primary btn-book" href="../booking.html">رزرو نوبت</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <div class="wrap panel-layout">
+        <nav class="side-nav" aria-label="منوی مدیریت بِلا">
+          <div class="side-nav__user">
+            <div class="avatar"><span class="avatar__ph" aria-hidden="true"></span></div>
+            <div><strong>مدیر سامانه</strong><small>دسترسی کامل</small></div>
+          </div>
+          <div class="side-nav__group">
+            <p class="side-nav__title">عمومی</p>
+            <ul>
+              <li><a href="../platform/index.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#dashboard"/></svg><span>داشبورد</span></a></li>
+            </ul>
+          </div>
+          <div class="side-nav__group">
+            <p class="side-nav__title">همکاران</p>
+            <ul>
+              <li><a href="../platform/salons.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#store"/></svg><span>سالن‌ها</span></a></li>
+              <li><a href="../platform/stylists.html" aria-current="page"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg><span>آرایشگران</span></a></li>
+            </ul>
+          </div>
+          <div class="side-nav__group">
+            <p class="side-nav__title">مالی</p>
+            <ul>
+              <li><a href="../platform/payouts.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#bank"/></svg><span>تسویه و تراکنش‌ها</span></a></li>
+              <li><a href="../platform/settings.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#percent"/></svg><span>کارمزد و قوانین مالی</span></a></li>
+            </ul>
+          </div>
+          <div class="side-nav__group">
+            <p class="side-nav__title">حساب</p>
+            <ul>
+              <li><a href="../account/profile.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#user"/></svg><span>حساب من</span></a></li>
+            </ul>
+          </div>
+          <div class="side-nav__group">
+            <ul>
+              <li class="side-nav__logout-item"><a class="side-nav__logout" href="../index.html" data-logout><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#logout"/></svg><span>خروج</span></a></li>
+            </ul>
+          </div>
+        </nav>
+        <div class="panel-content">
+          <header class="p-head">
+            <div>
+              <p class="p-head__eyebrow">مدیریت بِلا</p>
+              <h1>آرایشگران</h1>
+              <p class="p-head__sub">بررسی مدارک، فعال‌سازی و تعلیق</p>
+            </div>
+            <div class="p-head__actions"></div>
+          </header>
+          <section class="card card--flush">
+            <form class="toolbar" role="search">
+              <div class="field field--search"><label class="visually-hidden" for="pl-q">جستجو</label><div class="search-input"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg><input id="pl-q" class="input" data-table-search="pl-table" placeholder="نام، محله یا شماره" /></div></div>
+              <div class="chips-filter" data-filter-for="pl-table" role="group" aria-label="وضعیت">
+                <button type="button" data-value="" aria-pressed="true">همه</button>
+                <button type="button" data-value="Pending" aria-pressed="false">در انتظار</button>
+                <button type="button" data-value="Active" aria-pressed="false">فعال</button>
+                <button type="button" data-value="Suspended" aria-pressed="false">تعلیق</button>
+              </div>
+            </form>
+            <div class="table-wrap">
+              <table class="table" id="pl-table">
+                <thead><tr><th scope="col">آرایشگر</th><th scope="col">تخصص</th><th scope="col">مدارک</th><th scope="col">وضعیت</th><th scope="col">ثبت</th><th scope="col"><span class="visually-hidden">عملیات</span></th></tr></thead>
+                <tbody>
+                  <tr data-status="Pending"><td><b>فرشته کاظمی</b></td><td>مژه و ابرو</td><td>کارت بهداشت + مدرک</td><td><span class="chip chip--pending">در انتظار بررسی</span></td><td>۱ ساعت پیش</td>
+                  <td><button type="button" class="btn btn-ghost btn-sm" data-open="review-dialog" data-title="بررسی فرشته کاظمی">بررسی</button></td></tr>
+                  <tr data-status="Pending"><td><b>رها مرادی</b></td><td>ناخن</td><td>مدرک فنی ندارد</td><td><span class="chip chip--pending">در انتظار بررسی</span></td><td>امروز</td>
+                  <td><button type="button" class="btn btn-ghost btn-sm" data-open="review-dialog" data-title="بررسی رها مرادی">بررسی</button></td></tr>
+                  <tr data-status="Active"><td><b>سارا محمدی</b></td><td>رنگ و لایت</td><td>کامل</td><td><span class="chip chip--confirmed">فعال</span></td><td>۱۴۰۴</td>
+                  <td><button type="button" class="btn btn-ghost btn-sm" data-open="review-dialog" data-title="بررسی سارا محمدی">بررسی</button></td></tr>
+                  <tr data-status="Active"><td><b>الهام نوری</b></td><td>مژه</td><td>کارت بهداشت ۷ روز دیگر</td><td><span class="chip chip--confirmed">فعال</span></td><td>۱۴۰۵</td>
+                  <td><button type="button" class="btn btn-ghost btn-sm" data-open="review-dialog" data-title="بررسی الهام نوری">بررسی</button></td></tr>
+                  <tr data-status="Suspended"><td><b>ترانه یزدانی</b></td><td>میکاپ</td><td>دور زدن سامانه</td><td><span class="chip chip--cancelled">تعلیق</span></td><td>دیروز</td>
+                  <td><button type="button" class="btn btn-ghost btn-sm" data-open="review-dialog" data-title="بررسی ترانه یزدانی">بررسی</button></td></tr>
+                  <tr class="table-empty-row" hidden><td colspan="6" class="table-empty">موردی پیدا نشد.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <dialog class="dialog-form" id="review-dialog" aria-labelledby="rv-title">
+            <form method="post" action="" class="form">
+              <div class="dialog-form__head"><h2 id="rv-title">بررسی مدارک</h2><button type="button" class="icon-btn" data-close aria-label="بستن">✕</button></div>
+              <div class="dialog-form__body form">
+                <div class="doc-grid"><a class="doc-thumb" href="#" onclick="return false"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#file"/></svg><span>کارت ملی</span></a><a class="doc-thumb" href="#" onclick="return false"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#file"/></svg><span>کارت بهداشت</span></a><a class="doc-thumb" href="#" onclick="return false"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#file"/></svg><span>مدرک فنی‌وحرفه‌ای</span></a></div>
+                <div class="pay-methods pay-methods--sm">
+                  <label class="pay-method"><input type="radio" name="decision" value="approve" checked /><span><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#check"/></svg><b>تأیید و فعال‌سازی</b></span></label>
+                  <label class="pay-method"><input type="radio" name="decision" value="reject" /><span><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#x"/></svg><b>نیاز به اصلاح</b></span></label>
+                  <label class="pay-method"><input type="radio" name="decision" value="suspend" /><span><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lock"/></svg><b>تعلیق</b></span></label>
+                </div>
+                <div class="field"><label for="rv-note">پیام به کاربر (پیامک می‌شود)</label><textarea id="rv-note" name="note" class="input" rows="3" placeholder="مثلاً تصویر پروانه خوانا نیست؛ دوباره بارگذاری کنید."></textarea></div>
+              </div>
+              <div class="dialog-form__foot"><button type="button" class="btn btn-ghost" data-close>انصراف</button><button class="btn btn-primary" type="submit">ثبت نتیجه</button></div>
+            </form>
+          </dialog>
+        </div>
+      </div>
+    </main>
+
+
+  </body>
+</html>

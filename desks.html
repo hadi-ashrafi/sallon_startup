@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>اجاره میز در سالن | بلا</title>
+    <meta name="description" content="آرایشگران مستقل: میز و صندلی در سالن‌های زیبایی را روزانه یا ماهانه اجاره کنید." />
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#131213" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="assets/img/icon-180.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="بلا" />
+    <link rel="preload" href="assets/fonts/vazirmatn-arabic.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- استایل‌ها -->
+    <link rel="stylesheet" href="assets/css/base/tokens.css" />
+    <link rel="stylesheet" href="assets/css/base/base.css" />
+    <link rel="stylesheet" href="assets/css/layout/header.css" />
+    <link rel="stylesheet" href="assets/css/layout/footer.css" />
+    <link rel="stylesheet" href="assets/css/components/buttons.css" />
+    <link rel="stylesheet" href="assets/css/components/forms.css" />
+    <link rel="stylesheet" href="assets/css/components/cards.css" />
+    <link rel="stylesheet" href="assets/css/components/tables.css" />
+    <link rel="stylesheet" href="assets/css/components/dialog.css" />
+    <link rel="stylesheet" href="assets/css/pages/catalog.css" />
+    <link rel="stylesheet" href="assets/css/pages/dashboard.css" />
+    <link rel="stylesheet" href="assets/css/pages/market.css" />
+    <link rel="stylesheet" href="assets/css/base/motion.css" />
+
+    <!-- اسکریپت‌ها -->
+    <script src="assets/js/theme-init.js"></script>
+    <script src="assets/js/common/location.js" defer></script>
+    <script src="assets/js/common/theme.js" defer></script>
+    <script src="assets/js/common/nav.js" defer></script>
+    <script src="assets/js/common/reveal.js" defer></script>
+    <script src="assets/js/common/ui.js" defer></script>
+    <script src="assets/js/common/forms.js" defer></script>
+    <script src="assets/js/common/pwa.js" defer></script>
+    <script src="assets/js/components/select.js" defer></script>
+    <script src="assets/js/components/panel.js" defer></script>
+    <script src="assets/js/pages/desks.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__bar">
+        <a class="brand" href="index.html" aria-label="صفحه اصلی بلا">
+          <span class="logo" role="img" aria-label="بلا"></span>
+          <span class="brand__name">
+            <b>بِلا</b>
+            <small class="brand__sub">سامانه سالن‌های زیبایی</small>
+          </span>
+        </a>
+        <nav id="site-nav" class="site-nav" aria-label="منوی اصلی">
+          <div class="site-nav__head">
+            <strong>منوی بِلا</strong>
+            <button type="button" class="icon-btn" data-nav-close aria-label="بستن منو"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#x"/></svg></button>
+          </div>
+          <form class="nav-search" action="salons.html" method="get" role="search">
+            <svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#search"/></svg><input name="q" type="search" placeholder="جستجوی سالن یا خدمت" aria-label="جستجوی سالن یا خدمت" />
+          </form>
+          <ul>
+            <li><a href="index.html">خانه</a></li>
+            <li><a href="salons.html?view=map">نقشه</a></li>
+            <li><a href="index.html#top-stylists">آرایشگران برتر</a></li>
+            <li><a href="index.html#by-category">دسته‌بندی‌ها</a></li>
+            <li><a href="customer/appointments.html">نوبت‌های من</a></li>
+            <li><a href="account/login.html">ورود</a></li>
+          </ul>
+        </nav>
+        <form class="hdr-search" action="salons.html" method="get" role="search" aria-label="جستجوی سالن">
+          <svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#search"/></svg>
+          <label class="visually-hidden" for="hdr-q">جستجوی سالن یا خدمت</label>
+          <input id="hdr-q" name="q" type="search" placeholder="جستجوی سالن، خدمت یا محله…" autocomplete="off" />
+        </form>
+        <div class="header-actions">
+          <button type="button" class="loc-chip" data-loc-open aria-label="موقعیت و شهر شما"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#pin"/></svg><span data-loc-city>شهر</span></button>
+          <a class="icon-btn hdr-search-btn" href="salons.html#f-q" aria-label="جستجو"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#search"/></svg></a>
+          <button type="button" class="icon-btn" data-theme-toggle aria-pressed="false" aria-label="تغییر حالت روشن و تیره">
+            <svg class="i-moon ph" aria-hidden="true"><use href="assets/img/icons.svg#moon"/></svg><svg class="i-sun ph" aria-hidden="true"><use href="assets/img/icons.svg#sun"/></svg>
+          </button>
+          <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="منو">
+            <svg class="ph" aria-hidden="true"><use href="assets/img/icons.svg#menu"/></svg>
+          </button>
+          <a class="btn btn-primary btn-book" href="booking.html">رزرو نوبت</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section class="section section--page" aria-labelledby="desk-title">
+        <div class="wrap">
+          <nav class="crumbs" aria-label="مسیر"><a href="index.html">خانه</a><span aria-hidden="true">/</span><span aria-current="page">اجاره میز</span></nav>
+          <div class="desk-intro glass">
+            <div>
+              <p class="eyebrow-sm">برای آرایشگران مستقل</p>
+              <h1 id="desk-title">در بهترین سالن‌ها میز اجاره کنید</h1>
+              <p>سالن‌ها میزهای خالی‌شان را روزانه یا ماهانه اجاره می‌دهند. اجاره از کیف پول شما پرداخت می‌شود و نوبت‌های مشتری‌هایتان در همان سالن ثبت می‌شود؛ درآمد هر نوبت مستقیم به کیف پول خودتان می‌رود.</p>
+              <div class="cluster"><a class="btn btn-primary" href="join/stylist.html">هنوز ثبت‌نام نکرده‌ام</a><a class="btn btn-ghost" href="legal/stylist-contract.html#desk">شرایط اجاره میز</a></div>
+            </div>
+            <ol class="desk-steps">
+              <li><b>۱</b>میز مناسب را انتخاب کنید</li>
+              <li><b>۲</b>تاریخ و نوع اجاره را بفرستید</li>
+              <li><b>۳</b>سالن تأیید می‌کند و مبلغ از کیف پول کسر می‌شود</li>
+            </ol>
+          </div>
+
+          <form class="filters mk-filters mt-4" method="get" data-desk-filters>
+            <div class="search-input"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#search"/></svg><label class="visually-hidden" for="d-q">جستجو</label><input id="d-q" name="q" class="input" placeholder="نام سالن یا محله" /></div>
+            <label class="visually-hidden" for="d-kind">نوع میز</label>
+            <select id="d-kind" name="kind" class="input"><option value="">همه تخصص‌ها</option><option>عروس</option><option>مو</option><option>مژه و ابرو</option><option>میکاپ</option><option>ناخن</option><option>پوست</option></select>
+            <label class="visually-hidden" for="d-sort">مرتب‌سازی</label>
+            <select id="d-sort" name="sort" class="input"><option value="">جدیدترین</option><option value="cheap">ارزان‌ترین روزانه</option></select>
+          </form>
+
+          <div class="desk-grid mt-4" data-desk-list>
+            <article class="desk-card glass" data-desk data-kind="مو" data-area="یوسف‌آباد" data-day="900000">
+              <div class="desk-card__head">
+                <span class="tile-icon tile-icon--sm"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#chair"/></svg></span>
+                <div><h3 class="h3">میز رنگ و کراتین</h3><a class="desk-card__salon" href="salon/1.html">سالن زیبایی آیدا · یوسف‌آباد</a></div>
+                <span class="chip chip--confirmed">۲ آزاد</span>
+              </div>
+              <ul class="desk-card__perks"><li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg>سشوار و اتو</li><li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg>سینک شستشو</li><li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg>مواد پایه</li></ul>
+              <div class="desk-card__prices">
+                <span><b>۹۰۰٬۰۰۰ تومان</b><small>روزانه</small></span>
+                <span><b>۱۶٬۰۰۰٬۰۰۰ تومان</b><small>ماهانه</small></span>
+                <span><b>صبح و عصر</b><small>شیفت</small></span>
+              </div>
+              <button type="button" class="btn btn-primary btn-block" data-open="rent-dialog" data-title="اجاره میز رنگ و کراتین — سالن زیبایی آیدا" data-fill='{"deskId":"1","dayPrice":"900000","monthPrice":"16000000"}'>درخواست اجاره</button>
+            </article>
+            <article class="desk-card glass" data-desk data-kind="ناخن" data-area="ونک" data-day="450000">
+              <div class="desk-card__head">
+                <span class="tile-icon tile-icon--sm"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#chair"/></svg></span>
+                <div><h3 class="h3">میز ناخن با هود مکنده</h3><a class="desk-card__salon" href="salon/3.html">استودیو ناخن لیا · ونک</a></div>
+                <span class="chip chip--confirmed">۳ آزاد</span>
+              </div>
+              <ul class="desk-card__perks"><li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg>هود مکنده</li><li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg>دستگاه UV</li><li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg>استریلیزاتور</li></ul>
+              <div class="desk-card__prices">
+                <span><b>۴۵۰٬۰۰۰ تومان</b><small>روزانه</small></span>
+                <span><b>۸٬۵۰۰٬۰۰۰ تومان</b><small>ماهانه</small></span>
+                <span><b>تمام‌وقت</b><small>شیفت</small></span>
+              </div>
+              <button type="button" class="btn btn-primary btn-block" data-open="rent-dialog" data-title="اجاره میز ناخن با هود مکنده — استودیو ناخن لیا" data-fill='{"deskId":"2","dayPrice":"450000","monthPrice":"8500000"}'>درخواست اجاره</button>
+            </article>
+            <article class="desk-card glass" data-desk data-kind="میکاپ" data-area="سعادت‌آباد" data-day="1400000">
+              <div class="desk-card__head">
+                <span class="tile-icon tile-icon--sm"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#chair"/></svg></span>
+                <div><h3 class="h3">اتاق میکاپ و شینیون</h3><a class="desk-card__salon" href="salon/2.html">رز سفید · سعادت‌آباد</a></div>
+                <span class="chip chip--confirmed">۱ آزاد</span>
+              </div>
+              <ul class="desk-card__perks"><li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg>نور رینگ‌لایت</li><li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg>صندلی هیدرولیک</li><li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg>آینه بزرگ</li></ul>
+              <div class="desk-card__prices">
+                <span><b>۱٬۴۰۰٬۰۰۰ تومان</b><small>روزانه</small></span>
+                <span><b>۲۶٬۰۰۰٬۰۰۰ تومان</b><small>ماهانه</small></span>
+                <span><b>عصر</b><small>شیفت</small></span>
+              </div>
+              <button type="button" class="btn btn-primary btn-block" data-open="rent-dialog" data-title="اجاره اتاق میکاپ و شینیون — رز سفید" data-fill='{"deskId":"3","dayPrice":"1400000","monthPrice":"26000000"}'>درخواست اجاره</button>
+            </article>
+            <article class="desk-card glass" data-desk data-kind="مژه و ابرو" data-area="نارمک" data-day="380000">
+              <div class="desk-card__head">
+                <span class="tile-icon tile-icon--sm"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#chair"/></svg></span>
+                <div><h3 class="h3">میز مژه و ابرو</h3><a class="desk-card__salon" href="salon/7.html">سالن ترمه · نارمک</a></div>
+                <span class="chip chip--confirmed">۴ آزاد</span>
+              </div>
+              <ul class="desk-card__perks"><li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg>تخت مژه</li><li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg>لوپ نوری</li></ul>
+              <div class="desk-card__prices">
+                <span><b>۳۸۰٬۰۰۰ تومان</b><small>روزانه</small></span>
+                <span><b>۷٬۰۰۰٬۰۰۰ تومان</b><small>ماهانه</small></span>
+                <span><b>صبح</b><small>شیفت</small></span>
+              </div>
+              <button type="button" class="btn btn-primary btn-block" data-open="rent-dialog" data-title="اجاره میز مژه و ابرو — سالن ترمه" data-fill='{"deskId":"4","dayPrice":"380000","monthPrice":"7000000"}'>درخواست اجاره</button>
+            </article>
+            <article class="desk-card glass" data-desk data-kind="مو" data-area="تهرانپارس" data-day="420000">
+              <div class="desk-card__head">
+                <span class="tile-icon tile-icon--sm"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#chair"/></svg></span>
+                <div><h3 class="h3">میز مو و براشینگ</h3><a class="desk-card__salon" href="salon/10.html">سالن گیسو · تهرانپارس</a></div>
+                <span class="chip chip--confirmed">۳ آزاد</span>
+              </div>
+              <ul class="desk-card__perks"><li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg>سشوار</li><li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg>سینک</li></ul>
+              <div class="desk-card__prices">
+                <span><b>۴۲۰٬۰۰۰ تومان</b><small>روزانه</small></span>
+                <span><b>۷٬۸۰۰٬۰۰۰ تومان</b><small>ماهانه</small></span>
+                <span><b>تمام‌وقت</b><small>شیفت</small></span>
+              </div>
+              <button type="button" class="btn btn-primary btn-block" data-open="rent-dialog" data-title="اجاره میز مو و براشینگ — سالن گیسو" data-fill='{"deskId":"6","dayPrice":"420000","monthPrice":"7800000"}'>درخواست اجاره</button>
+            </article>
+            <article class="desk-card glass" data-desk data-kind="عروس" data-area="شهرک غرب" data-day="2200000">
+              <div class="desk-card__head">
+                <span class="tile-icon tile-icon--sm"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#chair"/></svg></span>
+                <div><h3 class="h3">اتاق خصوصی عروس</h3><a class="desk-card__salon" href="salon/6.html">آتلیه عروس نیلا · شهرک غرب</a></div>
+                <span class="chip chip--confirmed">۱ آزاد</span>
+              </div>
+              <ul class="desk-card__perks"><li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg>اتاق خصوصی</li><li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg>نور استودیو</li><li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg>پارکینگ</li></ul>
+              <div class="desk-card__prices">
+                <span><b>۲٬۲۰۰٬۰۰۰ تومان</b><small>روزانه</small></span>
+                <span><small>فقط روزانه</small></span>
+                <span><b>روزانه</b><small>شیفت</small></span>
+              </div>
+              <button type="button" class="btn btn-primary btn-block" data-open="rent-dialog" data-title="اجاره اتاق خصوصی عروس — آتلیه عروس نیلا" data-fill='{"deskId":"7","dayPrice":"2200000","monthPrice":"0"}'>درخواست اجاره</button>
+            </article>
+            <article class="desk-card glass" data-desk data-kind="پوست" data-area="انقلاب" data-day="350000">
+              <div class="desk-card__head">
+                <span class="tile-icon tile-icon--sm"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#chair"/></svg></span>
+                <div><h3 class="h3">میز پوست و فیشیال</h3><a class="desk-card__salon" href="salon/12.html">سالن آینه · انقلاب</a></div>
+                <span class="chip chip--confirmed">۲ آزاد</span>
+              </div>
+              <ul class="desk-card__perks"><li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg>تخت فیشیال</li><li><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#check"/></svg>بخور</li></ul>
+              <div class="desk-card__prices">
+                <span><b>۳۵۰٬۰۰۰ تومان</b><small>روزانه</small></span>
+                <span><b>۶٬۵۰۰٬۰۰۰ تومان</b><small>ماهانه</small></span>
+                <span><b>صبح</b><small>شیفت</small></span>
+              </div>
+              <button type="button" class="btn btn-primary btn-block" data-open="rent-dialog" data-title="اجاره میز پوست و فیشیال — سالن آینه" data-fill='{"deskId":"8","dayPrice":"350000","monthPrice":"6500000"}'>درخواست اجاره</button>
+            </article>
+            <p class="list-empty" data-empty hidden>میزی با این فیلترها پیدا نشد.</p>
+          </div>
+        </div>
+      </section>
+
+      <dialog class="dialog-form" id="rent-dialog" aria-labelledby="rent-dialog-title">
+        <form method="post" action="" class="form" data-rent-form>
+          <div class="dialog-form__head"><h2 id="rent-dialog-title">درخواست اجاره میز</h2><button type="button" class="icon-btn" data-close aria-label="بستن">✕</button></div>
+          <div class="dialog-form__body form">
+            <input type="hidden" name="deskId" />
+            <input type="hidden" name="dayPrice" />
+            <input type="hidden" name="monthPrice" />
+            <fieldset class="fieldset-plain">
+              <legend class="field-label">نوع اجاره</legend>
+              <div class="pay-methods pay-methods--sm">
+                <label class="pay-method"><input type="radio" name="period" value="day" checked /><span><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#calendar"/></svg><b>روزانه</b><small>یک یا چند روز مشخص</small></span></label>
+                <label class="pay-method"><input type="radio" name="period" value="month" /><span><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#briefcase"/></svg><b>ماهانه</b><small>۳۰ روز از تاریخ شروع</small></span></label>
+              </div>
+            </fieldset>
+            <div class="form-row cols-2">
+              <div class="field"><label for="r-start">تاریخ شروع</label><input id="r-start" name="startDate" class="input" placeholder="۱۴۰۵/۰۹/۰۱" required /></div>
+              <div class="field"><label for="r-days">تعداد روز</label><input id="r-days" name="days" class="input" type="number" min="1" max="30" value="1" inputmode="numeric" /></div>
+            </div>
+            <div class="fee-box" data-rent-summary>
+              <div><span>مبلغ اجاره</span><b data-rent-total>-</b></div>
+              <div class="muted"><span>کارمزد بِلا (از سهم سالن کم می‌شود)</span><b>۰ تومان برای شما</b></div>
+              <div class="fee-box__total"><span>از کیف پول شما کسر می‌شود</span><b data-rent-total>-</b></div>
+            </div>
+            <label class="check"><input type="checkbox" name="acceptDesk" required />شرایط <a href="legal/stylist-contract.html#desk" target="_blank">اجاره میز</a> را خوانده‌ام و می‌پذیرم.</label>
+          </div>
+          <div class="dialog-form__foot"><button type="button" class="btn btn-ghost" data-close>انصراف</button><button class="btn btn-primary" type="submit">ارسال درخواست</button></div>
+        </form>
+      </dialog>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="wrap">
+        <div class="footer-box mk-footer">
+          <a class="footer-brand" href="index.html" aria-label="صفحه اصلی بلا">
+            <span class="logo" aria-hidden="true"></span>
+            <strong>بِلا</strong>
+          </a>
+          <p class="footer-tagline">سامانه سالن‌های زیبایی؛ نوبت بگیرید، سالن پیدا کنید، کار کنید.</p>
+          <div class="footer-contact">
+            <a class="footer-phone" href="tel:02100000000"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#phone"/></svg><span class="ltr">۰۲۱-۰۰۰۰۰۰۰۰</span></a>
+          </div>
+          <div class="mk-footer__cols">
+            <nav aria-label="مشتریان">
+              <strong>مشتریان</strong>
+              <a href="salons.html">جستجوی سالن</a>
+              <a href="salons.html?view=map">سالن‌ها روی نقشه</a>
+              <a href="salons.html?sort=top">برترین سالن‌ها</a>
+              <a href="customer/wallet.html">کیف پول</a>
+            </nav>
+            <nav aria-label="همکاران">
+              <strong>همکاران</strong>
+              <a href="join/stylist.html">ثبت‌نام آرایشگر</a>
+              <a href="join/salon.html">ثبت سالن زیبایی</a>
+              <a href="desks.html">اجاره میز در سالن</a>
+              <a href="legal/fees.html">کارمزد و تسویه</a>
+            </nav>
+            <nav aria-label="قوانین">
+              <strong>قوانین</strong>
+              <a href="legal/terms.html">قوانین و مقررات</a>
+              <a href="legal/privacy.html">حریم خصوصی</a>
+              <a href="legal/stylist-contract.html">قرارداد آرایشگران</a>
+              <a href="legal/salon-contract.html">قرارداد سالن‌ها</a>
+            </nav>
+          </div>
+        </div>
+        <p class="site-footer__base">© بِلا — سامانه سالن‌های زیبایی</p>
+      </div>
+    </footer>
+
+    <nav class="tabbar" aria-label="منوی پایین">
+      <a class="tabbar__item" href="index.html"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#home"/></svg><span>خانه</span></a>
+      <a class="tabbar__item" href="salons.html?view=map"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#map"/></svg><span>نقشه</span></a>
+      <a class="tabbar__book" href="booking.html">
+        <span class="tabbar__fab"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#calendar"/></svg></span>
+        <span>رزرو نوبت</span>
+      </a>
+      <a class="tabbar__item" href="customer/wallet.html"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#wallet"/></svg><span>کیف پول</span></a>
+      <a class="tabbar__item" href="account/login.html"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#user"/></svg><span>حساب</span></a>
+    </nav>
+  </body>
+</html>

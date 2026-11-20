@@ -28,10 +28,12 @@
     <link rel="stylesheet" href="../assets/css/components/dialog.css" />
     <link rel="stylesheet" href="../assets/css/layout/panel.css" />
     <link rel="stylesheet" href="../assets/css/pages/dashboard.css" />
+    <link rel="stylesheet" href="../assets/css/pages/market.css" />
     <link rel="stylesheet" href="../assets/css/base/motion.css" />
 
     <!-- اسکریپت‌ها -->
     <script src="../assets/js/theme-init.js"></script>
+    <script src="../assets/js/common/location.js" defer></script>
     <script src="../assets/js/common/theme.js" defer></script>
     <script src="../assets/js/common/nav.js" defer></script>
     <script src="../assets/js/common/reveal.js" defer></script>
@@ -43,54 +45,47 @@
   </head>
   <body class="no-footer">
     <a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
-
-    <!-- ===== سربرگ سایت ===== -->
     <header class="site-header">
       <div class="wrap site-header__bar">
-        <a class="brand" href="../index.html" aria-label="صفحه اصلی سالن زیبایی آیدا">
-          <span class="logo" role="img" aria-label="آیدا"></span>
+        <a class="brand" href="../index.html" aria-label="صفحه اصلی بلا">
+          <span class="logo" role="img" aria-label="بلا"></span>
           <span class="brand__name">
-            سالن زیبایی
-            <b>آیدا</b>
+            <b>بِلا</b>
+            <small class="brand__sub">سامانه سالن‌های زیبایی</small>
           </span>
         </a>
         <nav id="site-nav" class="site-nav" aria-label="منوی اصلی">
           <div class="site-nav__head">
-            <strong>منوی سالن</strong>
-            <button type="button" class="icon-btn" data-nav-close aria-label="بستن منو">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
-                <path d="M18 6L6 18M6 6l12 12" />
-              </svg>
-            </button>
+            <strong>منوی بِلا</strong>
+            <button type="button" class="icon-btn" data-nav-close aria-label="بستن منو"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#x"/></svg></button>
           </div>
+          <form class="nav-search" action="../salons.html" method="get" role="search">
+            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg><input name="q" type="search" placeholder="جستجوی سالن یا خدمت" aria-label="جستجوی سالن یا خدمت" />
+          </form>
           <ul>
             <li><a href="../index.html">خانه</a></li>
-            <li><a href="../services.html">خدمات</a></li>
-            <li><a href="../stylists.html">آرایشگران</a></li>
-            <li><a href="../about.html">درباره ما</a></li>
-            <li><a href="../index.html#contact">تماس</a></li>
-            <li><a href="../admin/index.html">پنل من</a></li>
+            <li><a href="../salons.html?view=map">نقشه</a></li>
+            <li><a href="../index.html#top-stylists">آرایشگران برتر</a></li>
+            <li><a href="../index.html#by-category">دسته‌بندی‌ها</a></li>
+            <li><a href="../customer/appointments.html">نوبت‌های من</a></li>
+            <li><a href="../account/login.html">ورود</a></li>
           </ul>
         </nav>
+        <form class="hdr-search" action="../salons.html" method="get" role="search" aria-label="جستجوی سالن">
+          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg>
+          <label class="visually-hidden" for="hdr-q">جستجوی سالن یا خدمت</label>
+          <input id="hdr-q" name="q" type="search" placeholder="جستجوی سالن، خدمت یا محله…" autocomplete="off" />
+        </form>
         <div class="header-actions">
-          <a class="icon-btn" href="../account/notifications.html" aria-label="اعلان‌ها">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-              <path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z" />
-              <path d="M10 20a2 2 0 0 0 4 0" />
-            </svg>
-            <span class="badge-count" aria-hidden="true">۲</span>
-          </a>
+          <button type="button" class="loc-chip" data-loc-open aria-label="موقعیت و شهر شما"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#pin"/></svg><span data-loc-city>شهر</span></button>
+          <a class="icon-btn hdr-search-btn" href="../salons.html#f-q" aria-label="جستجو"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg></a>
           <button type="button" class="icon-btn" data-theme-toggle aria-pressed="false" aria-label="تغییر حالت روشن و تیره">
-            <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-              <path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z" /></svg
-            ><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="4" />
-              <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
-            </svg>
+            <svg class="i-moon ph" aria-hidden="true"><use href="../assets/img/icons.svg#moon"/></svg><svg class="i-sun ph" aria-hidden="true"><use href="../assets/img/icons.svg#sun"/></svg>
           </button>
           <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="منو">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+            <svg class="ph" aria-hidden="true"><use href="../assets/img/icons.svg#menu"/></svg>
           </button>
+          <a class="btn btn-primary btn-book" href="../booking.html">رزرو نوبت</a>
         </div>
       </div>
     </header>
@@ -111,21 +106,13 @@
             <ul>
               <li>
                 <a href="../admin/index.html">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M4 4h6v8h-6z" />
-                    <path d="M4 16h6v4h-6z" />
-                    <path d="M14 12h6v8h-6z" />
-                    <path d="M14 4h6v4h-6z" />
-                  </svg>
+                  <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#dashboard"/></svg>
                   <span>داشبورد</span>
                 </a>
               </li>
               <li>
                 <a href="../admin/reports.html">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M3 3v18h18" />
-                    <path d="M7 15l4 -4l3 3l5 -6" />
-                  </svg>
+                  <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#chart-line"/></svg>
                   <span>گزارش‌ها و آمار</span>
                 </a>
               </li>
@@ -136,12 +123,7 @@
             <ul>
               <li>
                 <a href="../admin/appointments.html">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
-                    <path d="M16 3v4" />
-                    <path d="M8 3v4" />
-                    <path d="M4 11h16" />
-                  </svg>
+                  <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#calendar"/></svg>
                   <span>نوبت‌ها</span>
                   <span class="side-nav__badge">۲</span>
                 </a>
@@ -153,35 +135,37 @@
             <ul>
               <li>
                 <a href="../admin/services.html" aria-current="page">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                    <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                    <path d="M8.6 8.6l10.4 10.4" />
-                    <path d="M8.6 15.4l10.4 -10.4" />
-                  </svg>
+                  <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>
                   <span>خدمات و دسته‌ها</span>
                 </a>
               </li>
               <li>
                 <a href="../admin/staff.html">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-                    <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                    <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
-                  </svg>
+                  <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#users"/></svg>
                   <span>آرایشگران</span>
                 </a>
               </li>
               <li>
+                <a href="../admin/desks.html">
+                  <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#chair"/></svg>
+                  <span>اجاره میز</span>
+                </a>
+              </li>
+              <li>
                 <a href="../admin/discounts.html">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M15 5v2" />
-                    <path d="M15 11v2" />
-                    <path d="M15 17v2" />
-                    <path d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2" />
-                  </svg>
+                  <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#ticket"/></svg>
                   <span>کدهای تخفیف</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="side-nav__group">
+            <p class="side-nav__title">مالی</p>
+            <ul>
+              <li>
+                <a href="../admin/wallet.html">
+                  <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#wallet"/></svg>
+                  <span>کیف پول سالن</span>
                 </a>
               </li>
             </ul>
@@ -191,21 +175,14 @@
             <ul>
               <li>
                 <a href="../admin/reviews.html">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M8 9h8" />
-                    <path d="M8 13h6" />
-                    <path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12z" />
-                  </svg>
+                  <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#message"/></svg>
                   <span>نظرات</span>
                   <span class="side-nav__badge">۳</span>
                 </a>
               </li>
               <li>
                 <a href="../admin/users.html">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                  </svg>
+                  <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#user"/></svg>
                   <span>کاربران و نقش‌ها</span>
                 </a>
               </li>
@@ -216,11 +193,7 @@
             <ul>
               <li>
                 <a href="../admin/settings.html">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path
-                      d="M10.3 4.3c.4 -1.8 3 -1.8 3.4 0a1.7 1.7 0 0 0 2.6 1.1c1.5 -.9 3.3 .8 2.4 2.4a1.7 1.7 0 0 0 1 2.5c1.8 .4 1.8 3 0 3.4a1.7 1.7 0 0 0 -1 2.6c.9 1.5 -.9 3.3 -2.4 2.4a1.7 1.7 0 0 0 -2.6 1c-.4 1.8 -3 1.8 -3.4 0a1.7 1.7 0 0 0 -2.6 -1c-1.5 .9 -3.3 -.9 -2.4 -2.4a1.7 1.7 0 0 0 -1 -2.6c-1.8 -.4 -1.8 -3 0 -3.4a1.7 1.7 0 0 0 1 -2.5c-.9 -1.6 .9 -3.3 2.4 -2.4a1.7 1.7 0 0 0 2.6 -1.1z" />
-                    <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-                  </svg>
+                  <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#settings"/></svg>
                   <span>تنظیمات و تعطیلات</span>
                 </a>
               </li>
@@ -231,30 +204,20 @@
             <ul>
               <li>
                 <a href="../account/profile.html">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                  </svg>
+                  <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#user"/></svg>
                   <span>حساب من</span>
                 </a>
               </li>
               <li>
                 <a href="../account/notifications.html">
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
-                    <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
-                  </svg>
+                  <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#bell"/></svg>
                   <span>اعلان‌ها</span>
                   <span class="side-nav__badge">۲</span>
                 </a>
               </li>
               <li class="side-nav__logout-item">
                 <a class="side-nav__logout" href="../index.html" data-logout>
-                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
-                    <path d="M9 12h12l-3 -3" />
-                    <path d="M18 15l3 -3" />
-                  </svg>
+                  <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#logout"/></svg>
                   <span>خروج</span>
                 </a>
               </li>
@@ -272,17 +235,11 @@
             </div>
             <div class="p-head__actions">
               <button type="button" class="btn btn-ghost" data-open="cat-dialog" data-fill="{}" data-icon="" data-title="دسته تازه">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 5v14" />
-                  <path d="M5 12h14" />
-                </svg>
+                <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#plus"/></svg>
                 دسته تازه
               </button>
               <a class="btn btn-primary" href="../admin/service-edit.html">
-                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 5v14" />
-                  <path d="M5 12h14" />
-                </svg>
+                <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#plus"/></svg>
                 خدمت تازه
               </a>
             </div>
@@ -303,10 +260,7 @@
                 <div class="field field--search">
                   <label for="q-svc">جستجوی خدمت</label>
                   <div class="search-input">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-                      <path d="M21 21l-6 -6" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg>
                     <input id="q-svc" class="input" type="search" placeholder="مثلاً بالیاژ" data-table-search="svc" />
                   </div>
                 </div>
@@ -379,12 +333,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M8.6 8.6l10.4 10.4" />
-                              <path d="M8.6 15.4l10.4 -10.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>
                           </span>
                           <b>کوتاهی مو</b>
                         </span>
@@ -396,10 +345,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=1">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -408,12 +354,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M8.6 8.6l10.4 10.4" />
-                              <path d="M8.6 15.4l10.4 -10.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>
                           </span>
                           <b>رنگ مو</b>
                         </span>
@@ -425,10 +366,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=2">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -437,12 +375,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M8.6 8.6l10.4 10.4" />
-                              <path d="M8.6 15.4l10.4 -10.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>
                           </span>
                           <b>رنگ ریشه</b>
                         </span>
@@ -454,10 +387,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=3">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -466,12 +396,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M8.6 8.6l10.4 10.4" />
-                              <path d="M8.6 15.4l10.4 -10.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>
                           </span>
                           <b>رنگساژ</b>
                         </span>
@@ -483,10 +408,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=4">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -495,12 +417,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M8.6 8.6l10.4 10.4" />
-                              <path d="M8.6 15.4l10.4 -10.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>
                           </span>
                           <b>هایلایت و مش</b>
                         </span>
@@ -512,10 +429,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=5">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -524,12 +438,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M8.6 8.6l10.4 10.4" />
-                              <path d="M8.6 15.4l10.4 -10.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>
                           </span>
                           <b>بالیاژ و آمبره</b>
                         </span>
@@ -541,10 +450,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=6">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -553,12 +459,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M8.6 8.6l10.4 10.4" />
-                              <path d="M8.6 15.4l10.4 -10.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>
                           </span>
                           <b>دکلره</b>
                         </span>
@@ -570,10 +471,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=7">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -582,12 +480,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M8.6 8.6l10.4 10.4" />
-                              <path d="M8.6 15.4l10.4 -10.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>
                           </span>
                           <b>کراتین و احیا</b>
                         </span>
@@ -599,10 +492,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=8">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -611,12 +501,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M8.6 8.6l10.4 10.4" />
-                              <path d="M8.6 15.4l10.4 -10.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>
                           </span>
                           <b>صافی مو</b>
                         </span>
@@ -628,10 +513,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=9">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -640,12 +522,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M8.6 8.6l10.4 10.4" />
-                              <path d="M8.6 15.4l10.4 -10.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>
                           </span>
                           <b>بوتاکس مو</b>
                         </span>
@@ -657,10 +534,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=10">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -669,12 +543,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M8.6 8.6l10.4 10.4" />
-                              <path d="M8.6 15.4l10.4 -10.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>
                           </span>
                           <b>شینیون</b>
                         </span>
@@ -686,10 +555,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=11">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -698,12 +564,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M8.6 8.6l10.4 10.4" />
-                              <path d="M8.6 15.4l10.4 -10.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>
                           </span>
                           <b>براشینگ</b>
                         </span>
@@ -715,10 +576,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=12">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -727,12 +585,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M8.6 8.6l10.4 10.4" />
-                              <path d="M8.6 15.4l10.4 -10.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>
                           </span>
                           <b>بافت مو</b>
                         </span>
@@ -744,10 +597,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=13">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -756,12 +606,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                              <path d="M8.6 8.6l10.4 10.4" />
-                              <path d="M8.6 15.4l10.4 -10.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>
                           </span>
                           <b>اکستنشن مو</b>
                         </span>
@@ -773,10 +618,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=14">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -785,12 +627,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M9 10h6v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
-                              <path d="M10 10v-4h4v4" />
-                              <path d="M11 6v-3h2v3" />
-                              <path d="M11 14h2" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#nail"/></svg>
                           </span>
                           <b>کاشت ناخن</b>
                         </span>
@@ -802,10 +639,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=15">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -814,12 +648,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M9 10h6v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
-                              <path d="M10 10v-4h4v4" />
-                              <path d="M11 6v-3h2v3" />
-                              <path d="M11 14h2" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#nail"/></svg>
                           </span>
                           <b>ترمیم ناخن</b>
                         </span>
@@ -831,10 +660,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=16">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -843,12 +669,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M9 10h6v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
-                              <path d="M10 10v-4h4v4" />
-                              <path d="M11 6v-3h2v3" />
-                              <path d="M11 14h2" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#nail"/></svg>
                           </span>
                           <b>ژلیش</b>
                         </span>
@@ -860,10 +681,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=17">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -872,12 +690,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M9 10h6v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
-                              <path d="M10 10v-4h4v4" />
-                              <path d="M11 6v-3h2v3" />
-                              <path d="M11 14h2" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#nail"/></svg>
                           </span>
                           <b>لمینت ناخن</b>
                         </span>
@@ -889,10 +702,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=18">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -901,12 +711,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M9 10h6v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
-                              <path d="M10 10v-4h4v4" />
-                              <path d="M11 6v-3h2v3" />
-                              <path d="M11 14h2" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#nail"/></svg>
                           </span>
                           <b>مانیکور</b>
                         </span>
@@ -918,10 +723,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=19">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -930,12 +732,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M9 10h6v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
-                              <path d="M10 10v-4h4v4" />
-                              <path d="M11 6v-3h2v3" />
-                              <path d="M11 14h2" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#nail"/></svg>
                           </span>
                           <b>پدیکور</b>
                         </span>
@@ -947,10 +744,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=20">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -959,12 +753,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M9 10h6v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
-                              <path d="M10 10v-4h4v4" />
-                              <path d="M11 6v-3h2v3" />
-                              <path d="M11 14h2" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#nail"/></svg>
                           </span>
                           <b>طراحی ناخن</b>
                         </span>
@@ -976,10 +765,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=21">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -988,12 +774,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M9 10h6v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
-                              <path d="M10 10v-4h4v4" />
-                              <path d="M11 6v-3h2v3" />
-                              <path d="M11 14h2" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#nail"/></svg>
                           </span>
                           <b>ریموو ناخن</b>
                         </span>
@@ -1005,10 +786,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=22">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1017,11 +795,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M3 11c3 -4 11 -6 18 -2" />
-                              <path d="M5 15c2 2 4.5 3 7 3s5 -1 7 -3" />
-                              <path d="M12 15m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#brow"/></svg>
                           </span>
                           <b>اصلاح ابرو</b>
                         </span>
@@ -1033,10 +807,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=23">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1045,11 +816,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M3 11c3 -4 11 -6 18 -2" />
-                              <path d="M5 15c2 2 4.5 3 7 3s5 -1 7 -3" />
-                              <path d="M12 15m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#brow"/></svg>
                           </span>
                           <b>طراحی ابرو</b>
                         </span>
@@ -1061,10 +828,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=24">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1073,11 +837,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M3 11c3 -4 11 -6 18 -2" />
-                              <path d="M5 15c2 2 4.5 3 7 3s5 -1 7 -3" />
-                              <path d="M12 15m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#brow"/></svg>
                           </span>
                           <b>رنگ ابرو</b>
                         </span>
@@ -1089,10 +849,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=25">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1101,11 +858,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M3 11c3 -4 11 -6 18 -2" />
-                              <path d="M5 15c2 2 4.5 3 7 3s5 -1 7 -3" />
-                              <path d="M12 15m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#brow"/></svg>
                           </span>
                           <b>لیفت ابرو</b>
                         </span>
@@ -1117,10 +870,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=26">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1129,11 +879,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M3 11c3 -4 11 -6 18 -2" />
-                              <path d="M5 15c2 2 4.5 3 7 3s5 -1 7 -3" />
-                              <path d="M12 15m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#brow"/></svg>
                           </span>
                           <b>لمینت ابرو</b>
                         </span>
@@ -1145,10 +891,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=27">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1157,11 +900,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M3 11c3 -4 11 -6 18 -2" />
-                              <path d="M5 15c2 2 4.5 3 7 3s5 -1 7 -3" />
-                              <path d="M12 15m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#brow"/></svg>
                           </span>
                           <b>فیبروز و میکروبلیدینگ</b>
                         </span>
@@ -1173,10 +912,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=28">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1185,14 +921,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M3 13c3 -4 6 -6 9 -6s6 2 9 6" />
-                              <path d="M3 13c3 3 6 4.5 9 4.5s6 -1.5 9 -4.5" />
-                              <path d="M12 13m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                              <path d="M12 7v-3" />
-                              <path d="M7.5 8.5l-1.5 -2.5" />
-                              <path d="M16.5 8.5l1.5 -2.5" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lash"/></svg>
                           </span>
                           <b>اکستنشن مژه</b>
                         </span>
@@ -1204,10 +933,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=29">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1216,14 +942,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M3 13c3 -4 6 -6 9 -6s6 2 9 6" />
-                              <path d="M3 13c3 3 6 4.5 9 4.5s6 -1.5 9 -4.5" />
-                              <path d="M12 13m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                              <path d="M12 7v-3" />
-                              <path d="M7.5 8.5l-1.5 -2.5" />
-                              <path d="M16.5 8.5l1.5 -2.5" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lash"/></svg>
                           </span>
                           <b>لیفت مژه</b>
                         </span>
@@ -1235,10 +954,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=30">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1247,14 +963,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M3 13c3 -4 6 -6 9 -6s6 2 9 6" />
-                              <path d="M3 13c3 3 6 4.5 9 4.5s6 -1.5 9 -4.5" />
-                              <path d="M12 13m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                              <path d="M12 7v-3" />
-                              <path d="M7.5 8.5l-1.5 -2.5" />
-                              <path d="M16.5 8.5l1.5 -2.5" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lash"/></svg>
                           </span>
                           <b>لمینت مژه</b>
                         </span>
@@ -1266,10 +975,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=31">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1278,14 +984,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M3 13c3 -4 6 -6 9 -6s6 2 9 6" />
-                              <path d="M3 13c3 3 6 4.5 9 4.5s6 -1.5 9 -4.5" />
-                              <path d="M12 13m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                              <path d="M12 7v-3" />
-                              <path d="M7.5 8.5l-1.5 -2.5" />
-                              <path d="M16.5 8.5l1.5 -2.5" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lash"/></svg>
                           </span>
                           <b>رنگ مژه</b>
                         </span>
@@ -1297,10 +996,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=32">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1309,14 +1005,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M3 13c3 -4 6 -6 9 -6s6 2 9 6" />
-                              <path d="M3 13c3 3 6 4.5 9 4.5s6 -1.5 9 -4.5" />
-                              <path d="M12 13m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                              <path d="M12 7v-3" />
-                              <path d="M7.5 8.5l-1.5 -2.5" />
-                              <path d="M16.5 8.5l1.5 -2.5" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lash"/></svg>
                           </span>
                           <b>ترمیم مژه</b>
                         </span>
@@ -1328,10 +1017,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=33">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1340,14 +1026,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M3 13c3 -4 6 -6 9 -6s6 2 9 6" />
-                              <path d="M3 13c3 3 6 4.5 9 4.5s6 -1.5 9 -4.5" />
-                              <path d="M12 13m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                              <path d="M12 7v-3" />
-                              <path d="M7.5 8.5l-1.5 -2.5" />
-                              <path d="M16.5 8.5l1.5 -2.5" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lash"/></svg>
                           </span>
                           <b>ریموو مژه</b>
                         </span>
@@ -1359,10 +1038,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=34">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1371,12 +1047,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M3 21v-4a4 4 0 1 1 4 4h-4" />
-                              <path d="M21 3a16 16 0 0 0 -12.8 10.2" />
-                              <path d="M21 3a16 16 0 0 1 -10.2 12.8" />
-                              <path d="M10.6 9a9 9 0 0 1 4.4 4.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#makeup"/></svg>
                           </span>
                           <b>میکاپ روزانه</b>
                         </span>
@@ -1388,10 +1059,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=35">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1400,12 +1068,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M3 21v-4a4 4 0 1 1 4 4h-4" />
-                              <path d="M21 3a16 16 0 0 0 -12.8 10.2" />
-                              <path d="M21 3a16 16 0 0 1 -10.2 12.8" />
-                              <path d="M10.6 9a9 9 0 0 1 4.4 4.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#makeup"/></svg>
                           </span>
                           <b>میکاپ لایت</b>
                         </span>
@@ -1417,10 +1080,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=36">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1429,12 +1089,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M3 21v-4a4 4 0 1 1 4 4h-4" />
-                              <path d="M21 3a16 16 0 0 0 -12.8 10.2" />
-                              <path d="M21 3a16 16 0 0 1 -10.2 12.8" />
-                              <path d="M10.6 9a9 9 0 0 1 4.4 4.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#makeup"/></svg>
                           </span>
                           <b>میکاپ مجلسی</b>
                         </span>
@@ -1446,10 +1101,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=37">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1458,12 +1110,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M3 21v-4a4 4 0 1 1 4 4h-4" />
-                              <path d="M21 3a16 16 0 0 0 -12.8 10.2" />
-                              <path d="M21 3a16 16 0 0 1 -10.2 12.8" />
-                              <path d="M10.6 9a9 9 0 0 1 4.4 4.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#makeup"/></svg>
                           </span>
                           <b>میکاپ تخصصی</b>
                         </span>
@@ -1475,10 +1122,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=38">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1487,12 +1131,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M3 21v-4a4 4 0 1 1 4 4h-4" />
-                              <path d="M21 3a16 16 0 0 0 -12.8 10.2" />
-                              <path d="M21 3a16 16 0 0 1 -10.2 12.8" />
-                              <path d="M10.6 9a9 9 0 0 1 4.4 4.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#makeup"/></svg>
                           </span>
                           <b>گریم</b>
                         </span>
@@ -1504,10 +1143,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=39">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1516,12 +1152,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M3 21v-4a4 4 0 1 1 4 4h-4" />
-                              <path d="M21 3a16 16 0 0 0 -12.8 10.2" />
-                              <path d="M21 3a16 16 0 0 1 -10.2 12.8" />
-                              <path d="M10.6 9a9 9 0 0 1 4.4 4.4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#makeup"/></svg>
                           </span>
                           <b>خودآرایی</b>
                         </span>
@@ -1533,10 +1164,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=40">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1545,12 +1173,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0 -18" />
-                              <path d="M9 14.5c1.6 1.4 4.4 1.4 6 0" />
-                              <path d="M9 10h.01" />
-                              <path d="M15 10h.01" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#skin"/></svg>
                           </span>
                           <b>پاکسازی پوست</b>
                         </span>
@@ -1562,10 +1185,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=41">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1574,12 +1194,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0 -18" />
-                              <path d="M9 14.5c1.6 1.4 4.4 1.4 6 0" />
-                              <path d="M9 10h.01" />
-                              <path d="M15 10h.01" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#skin"/></svg>
                           </span>
                           <b>فیشیال کلاسیک</b>
                         </span>
@@ -1591,10 +1206,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=42">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1603,12 +1215,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0 -18" />
-                              <path d="M9 14.5c1.6 1.4 4.4 1.4 6 0" />
-                              <path d="M9 10h.01" />
-                              <path d="M15 10h.01" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#skin"/></svg>
                           </span>
                           <b>فیشیال تخصصی</b>
                         </span>
@@ -1620,10 +1227,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=43">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1632,12 +1236,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0 -18" />
-                              <path d="M9 14.5c1.6 1.4 4.4 1.4 6 0" />
-                              <path d="M9 10h.01" />
-                              <path d="M15 10h.01" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#skin"/></svg>
                           </span>
                           <b>آبرسانی پوست</b>
                         </span>
@@ -1649,10 +1248,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=44">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1661,12 +1257,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0 -18" />
-                              <path d="M9 14.5c1.6 1.4 4.4 1.4 6 0" />
-                              <path d="M9 10h.01" />
-                              <path d="M15 10h.01" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#skin"/></svg>
                           </span>
                           <b>فیشیال ضدجوش</b>
                         </span>
@@ -1678,10 +1269,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=45">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1690,12 +1278,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0 -18" />
-                              <path d="M9 14.5c1.6 1.4 4.4 1.4 6 0" />
-                              <path d="M9 10h.01" />
-                              <path d="M15 10h.01" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#skin"/></svg>
                           </span>
                           <b>فیشیال روشن‌کننده</b>
                         </span>
@@ -1707,10 +1290,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=46">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1719,12 +1299,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0 -18" />
-                              <path d="M9 14.5c1.6 1.4 4.4 1.4 6 0" />
-                              <path d="M9 10h.01" />
-                              <path d="M15 10h.01" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#skin"/></svg>
                           </span>
                           <b>مراقبت پوست حساس</b>
                         </span>
@@ -1736,10 +1311,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=47">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1748,12 +1320,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M5 4h14v4h-14z" />
-                              <path d="M7 8v2a5 5 0 0 0 10 0v-2" />
-                              <path d="M12 15v6" />
-                              <path d="M9 21h6" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#wax"/></svg>
                           </span>
                           <b>اصلاح صورت</b>
                         </span>
@@ -1765,10 +1332,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=48">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1777,12 +1341,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M5 4h14v4h-14z" />
-                              <path d="M7 8v2a5 5 0 0 0 10 0v-2" />
-                              <path d="M12 15v6" />
-                              <path d="M9 21h6" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#wax"/></svg>
                           </span>
                           <b>وکس صورت</b>
                         </span>
@@ -1794,10 +1353,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=49">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1806,12 +1362,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M5 4h14v4h-14z" />
-                              <path d="M7 8v2a5 5 0 0 0 10 0v-2" />
-                              <path d="M12 15v6" />
-                              <path d="M9 21h6" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#wax"/></svg>
                           </span>
                           <b>اپیلاسیون دست</b>
                         </span>
@@ -1823,10 +1374,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=50">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1835,12 +1383,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M5 4h14v4h-14z" />
-                              <path d="M7 8v2a5 5 0 0 0 10 0v-2" />
-                              <path d="M12 15v6" />
-                              <path d="M9 21h6" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#wax"/></svg>
                           </span>
                           <b>اپیلاسیون پا</b>
                         </span>
@@ -1852,10 +1395,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=51">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1864,12 +1404,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M5 4h14v4h-14z" />
-                              <path d="M7 8v2a5 5 0 0 0 10 0v-2" />
-                              <path d="M12 15v6" />
-                              <path d="M9 21h6" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#wax"/></svg>
                           </span>
                           <b>اپیلاسیون زیر بغل</b>
                         </span>
@@ -1881,10 +1416,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=52">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1893,12 +1425,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M5 4h14v4h-14z" />
-                              <path d="M7 8v2a5 5 0 0 0 10 0v-2" />
-                              <path d="M12 15v6" />
-                              <path d="M9 21h6" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#wax"/></svg>
                           </span>
                           <b>اپیلاسیون بیکینی</b>
                         </span>
@@ -1910,10 +1437,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=53">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1922,12 +1446,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M5 4h14v4h-14z" />
-                              <path d="M7 8v2a5 5 0 0 0 10 0v-2" />
-                              <path d="M12 15v6" />
-                              <path d="M9 21h6" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#wax"/></svg>
                           </span>
                           <b>اپیلاسیون فول بادی</b>
                         </span>
@@ -1939,10 +1458,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=54">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1951,11 +1467,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M4 20l4 -1l11 -11a2.1 2.1 0 0 0 -3 -3l-11 11z" />
-                              <path d="M14 6l3 3" />
-                              <path d="M4 20l1 -4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#pen"/></svg>
                           </span>
                           <b>میکروبلیدینگ</b>
                         </span>
@@ -1967,10 +1479,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=55">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -1979,11 +1488,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M4 20l4 -1l11 -11a2.1 2.1 0 0 0 -3 -3l-11 11z" />
-                              <path d="M14 6l3 3" />
-                              <path d="M4 20l1 -4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#pen"/></svg>
                           </span>
                           <b>فیبروز</b>
                         </span>
@@ -1995,10 +1500,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=56">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2007,11 +1509,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M4 20l4 -1l11 -11a2.1 2.1 0 0 0 -3 -3l-11 11z" />
-                              <path d="M14 6l3 3" />
-                              <path d="M4 20l1 -4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#pen"/></svg>
                           </span>
                           <b>شیدینگ ابرو</b>
                         </span>
@@ -2023,10 +1521,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=57">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2035,11 +1530,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M4 20l4 -1l11 -11a2.1 2.1 0 0 0 -3 -3l-11 11z" />
-                              <path d="M14 6l3 3" />
-                              <path d="M4 20l1 -4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#pen"/></svg>
                           </span>
                           <b>تاتو لب</b>
                         </span>
@@ -2051,10 +1542,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=58">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2063,11 +1551,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M4 20l4 -1l11 -11a2.1 2.1 0 0 0 -3 -3l-11 11z" />
-                              <path d="M14 6l3 3" />
-                              <path d="M4 20l1 -4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#pen"/></svg>
                           </span>
                           <b>شیدینگ لب</b>
                         </span>
@@ -2079,10 +1563,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=59">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2091,11 +1572,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M4 20l4 -1l11 -11a2.1 2.1 0 0 0 -3 -3l-11 11z" />
-                              <path d="M14 6l3 3" />
-                              <path d="M4 20l1 -4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#pen"/></svg>
                           </span>
                           <b>خط چشم دائم</b>
                         </span>
@@ -2107,10 +1584,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=60">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2119,11 +1593,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M4 20l4 -1l11 -11a2.1 2.1 0 0 0 -3 -3l-11 11z" />
-                              <path d="M14 6l3 3" />
-                              <path d="M4 20l1 -4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#pen"/></svg>
                           </span>
                           <b>بن مژه</b>
                         </span>
@@ -2135,10 +1605,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=61">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2147,11 +1614,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M4 20l4 -1l11 -11a2.1 2.1 0 0 0 -3 -3l-11 11z" />
-                              <path d="M14 6l3 3" />
-                              <path d="M4 20l1 -4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#pen"/></svg>
                           </span>
                           <b>ترمیم و ریموو</b>
                         </span>
@@ -2163,10 +1626,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=62">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2175,11 +1635,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M12 20c-5 0 -8 -4 -8 -8c4 0 8 3 8 8z" />
-                              <path d="M12 20c5 0 8 -4 8 -8c-4 0 -8 3 -8 8z" />
-                              <path d="M12 20c-2 -3 -2 -9 0 -13c2 4 2 10 0 13z" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lotus"/></svg>
                           </span>
                           <b>ماساژ صورت</b>
                         </span>
@@ -2191,10 +1647,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=63">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2203,11 +1656,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M12 20c-5 0 -8 -4 -8 -8c4 0 8 3 8 8z" />
-                              <path d="M12 20c5 0 8 -4 8 -8c-4 0 -8 3 -8 8z" />
-                              <path d="M12 20c-2 -3 -2 -9 0 -13c2 4 2 10 0 13z" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lotus"/></svg>
                           </span>
                           <b>ماساژ بدن</b>
                         </span>
@@ -2219,10 +1668,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=64">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2231,11 +1677,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M12 20c-5 0 -8 -4 -8 -8c4 0 8 3 8 8z" />
-                              <path d="M12 20c5 0 8 -4 8 -8c-4 0 -8 3 -8 8z" />
-                              <path d="M12 20c-2 -3 -2 -9 0 -13c2 4 2 10 0 13z" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lotus"/></svg>
                           </span>
                           <b>ماساژ ریلکسی</b>
                         </span>
@@ -2247,10 +1689,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=65">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2259,11 +1698,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M12 20c-5 0 -8 -4 -8 -8c4 0 8 3 8 8z" />
-                              <path d="M12 20c5 0 8 -4 8 -8c-4 0 -8 3 -8 8z" />
-                              <path d="M12 20c-2 -3 -2 -9 0 -13c2 4 2 10 0 13z" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lotus"/></svg>
                           </span>
                           <b>ماساژ سر و گردن</b>
                         </span>
@@ -2275,10 +1710,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=66">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2287,11 +1719,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M12 20c-5 0 -8 -4 -8 -8c4 0 8 3 8 8z" />
-                              <path d="M12 20c5 0 8 -4 8 -8c-4 0 -8 3 -8 8z" />
-                              <path d="M12 20c-2 -3 -2 -9 0 -13c2 4 2 10 0 13z" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lotus"/></svg>
                           </span>
                           <b>اسپا دست</b>
                         </span>
@@ -2303,10 +1731,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=67">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2315,11 +1740,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M12 20c-5 0 -8 -4 -8 -8c4 0 8 3 8 8z" />
-                              <path d="M12 20c5 0 8 -4 8 -8c-4 0 -8 3 -8 8z" />
-                              <path d="M12 20c-2 -3 -2 -9 0 -13c2 4 2 10 0 13z" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lotus"/></svg>
                           </span>
                           <b>اسپا پا</b>
                         </span>
@@ -2331,10 +1752,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=68">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2343,11 +1761,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M12 20c-5 0 -8 -4 -8 -8c4 0 8 3 8 8z" />
-                              <path d="M12 20c5 0 8 -4 8 -8c-4 0 -8 3 -8 8z" />
-                              <path d="M12 20c-2 -3 -2 -9 0 -13c2 4 2 10 0 13z" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lotus"/></svg>
                           </span>
                           <b>اسپا بدن</b>
                         </span>
@@ -2359,10 +1773,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=69">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2371,7 +1782,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4z" /></svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#crown"/></svg>
                           </span>
                           <b>میکاپ عروس</b>
                         </span>
@@ -2383,10 +1794,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=70">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2395,7 +1803,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4z" /></svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#crown"/></svg>
                           </span>
                           <b>شینیون عروس</b>
                         </span>
@@ -2407,10 +1815,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=71">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2419,7 +1824,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4z" /></svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#crown"/></svg>
                           </span>
                           <b>میکاپ و شینیون</b>
                         </span>
@@ -2431,10 +1836,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=72">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2443,7 +1845,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4z" /></svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#crown"/></svg>
                           </span>
                           <b>تست میکاپ</b>
                         </span>
@@ -2455,10 +1857,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=73">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2467,7 +1866,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4z" /></svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#crown"/></svg>
                           </span>
                           <b>تست شینیون</b>
                         </span>
@@ -2479,10 +1878,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=74">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2491,7 +1887,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4z" /></svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#crown"/></svg>
                           </span>
                           <b>پکیج عروس</b>
                         </span>
@@ -2503,10 +1899,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=75">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2515,11 +1908,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M9 3h6v3h-6z" />
-                              <path d="M8 6h8l1 3v10a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2v-10z" />
-                              <path d="M10 13h4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#bathtub"/></svg>
                           </span>
                           <b>اسکراب بدن</b>
                         </span>
@@ -2531,10 +1920,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=76">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2543,11 +1929,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M9 3h6v3h-6z" />
-                              <path d="M8 6h8l1 3v10a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2v-10z" />
-                              <path d="M10 13h4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#bathtub"/></svg>
                           </span>
                           <b>لایه‌برداری بدن</b>
                         </span>
@@ -2559,10 +1941,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=77">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2571,11 +1950,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M9 3h6v3h-6z" />
-                              <path d="M8 6h8l1 3v10a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2v-10z" />
-                              <path d="M10 13h4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#bathtub"/></svg>
                           </span>
                           <b>آبرسانی بدن</b>
                         </span>
@@ -2587,10 +1962,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=78">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2599,11 +1971,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M9 3h6v3h-6z" />
-                              <path d="M8 6h8l1 3v10a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2v-10z" />
-                              <path d="M10 13h4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#bathtub"/></svg>
                           </span>
                           <b>مراقبت پوست بدن</b>
                         </span>
@@ -2615,10 +1983,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=79">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2627,11 +1992,7 @@
                       <td data-label="خدمت">
                         <span class="cluster nowrap">
                           <span class="tile-icon tile-icon--sm">
-                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                              <path d="M9 3h6v3h-6z" />
-                              <path d="M8 6h8l1 3v10a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2v-10z" />
-                              <path d="M10 13h4" />
-                            </svg>
+                            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#bathtub"/></svg>
                           </span>
                           <b>فرم‌دهی بدن</b>
                         </span>
@@ -2643,10 +2004,7 @@
                       <td data-label="وضعیت"><span class="chip chip--confirmed">فعال</span></td>
                       <td class="actions">
                         <a class="btn btn-ghost btn-sm" href="../admin/service-edit.html?id=80">
-                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                          </svg>
+                          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                           ویرایش
                         </a>
                       </td>
@@ -2668,12 +2026,7 @@
               <article class="mini-card">
                 <div class="mini-card__top">
                   <span class="tile-icon">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                      <path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                      <path d="M8.6 8.6l10.4 10.4" />
-                      <path d="M8.6 15.4l10.4 -10.4" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>
                   </span>
                   <div>
                     <b>مو</b>
@@ -2693,10 +2046,7 @@
                 </div>
                 <div class="mini-card__actions">
                   <button type="button" class="btn btn-ghost btn-sm" data-open="cat-dialog" data-fill="{&quot;catName&quot;: &quot;مو&quot;, &quot;catEn&quot;: &quot;Hair&quot;, &quot;catDesc&quot;: &quot;کوتاهی، رنگ، لایت، صافی و شینیون&quot;, &quot;catOrder&quot;: 1}" data-icon="hair" data-title="ویرایش دسته «مو»">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                      <path d="M13.5 6.5l4 4" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                     ویرایش
                   </button>
                   <button
@@ -2712,12 +2062,7 @@
               <article class="mini-card">
                 <div class="mini-card__top">
                   <span class="tile-icon">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M9 10h6v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
-                      <path d="M10 10v-4h4v4" />
-                      <path d="M11 6v-3h2v3" />
-                      <path d="M11 14h2" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#nail"/></svg>
                   </span>
                   <div>
                     <b>ناخن</b>
@@ -2737,10 +2082,7 @@
                 </div>
                 <div class="mini-card__actions">
                   <button type="button" class="btn btn-ghost btn-sm" data-open="cat-dialog" data-fill="{&quot;catName&quot;: &quot;ناخن&quot;, &quot;catEn&quot;: &quot;Nails&quot;, &quot;catDesc&quot;: &quot;کاشت، ژلیش، مانیکور و طراحی&quot;, &quot;catOrder&quot;: 2}" data-icon="nails" data-title="ویرایش دسته «ناخن»">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                      <path d="M13.5 6.5l4 4" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                     ویرایش
                   </button>
                   <button
@@ -2756,11 +2098,7 @@
               <article class="mini-card">
                 <div class="mini-card__top">
                   <span class="tile-icon">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M3 11c3 -4 11 -6 18 -2" />
-                      <path d="M5 15c2 2 4.5 3 7 3s5 -1 7 -3" />
-                      <path d="M12 15m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#brow"/></svg>
                   </span>
                   <div>
                     <b>ابرو</b>
@@ -2780,10 +2118,7 @@
                 </div>
                 <div class="mini-card__actions">
                   <button type="button" class="btn btn-ghost btn-sm" data-open="cat-dialog" data-fill="{&quot;catName&quot;: &quot;ابرو&quot;, &quot;catEn&quot;: &quot;Brows&quot;, &quot;catDesc&quot;: &quot;اصلاح، طراحی، لیفت و لمینت&quot;, &quot;catOrder&quot;: 3}" data-icon="brows" data-title="ویرایش دسته «ابرو»">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                      <path d="M13.5 6.5l4 4" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                     ویرایش
                   </button>
                   <button
@@ -2799,14 +2134,7 @@
               <article class="mini-card">
                 <div class="mini-card__top">
                   <span class="tile-icon">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M3 13c3 -4 6 -6 9 -6s6 2 9 6" />
-                      <path d="M3 13c3 3 6 4.5 9 4.5s6 -1.5 9 -4.5" />
-                      <path d="M12 13m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                      <path d="M12 7v-3" />
-                      <path d="M7.5 8.5l-1.5 -2.5" />
-                      <path d="M16.5 8.5l1.5 -2.5" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lash"/></svg>
                   </span>
                   <div>
                     <b>مژه</b>
@@ -2826,10 +2154,7 @@
                 </div>
                 <div class="mini-card__actions">
                   <button type="button" class="btn btn-ghost btn-sm" data-open="cat-dialog" data-fill="{&quot;catName&quot;: &quot;مژه&quot;, &quot;catEn&quot;: &quot;Lashes&quot;, &quot;catDesc&quot;: &quot;اکستنشن، لیفت و لمینت مژه&quot;, &quot;catOrder&quot;: 4}" data-icon="lashes" data-title="ویرایش دسته «مژه»">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                      <path d="M13.5 6.5l4 4" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                     ویرایش
                   </button>
                   <button
@@ -2845,12 +2170,7 @@
               <article class="mini-card">
                 <div class="mini-card__top">
                   <span class="tile-icon">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M3 21v-4a4 4 0 1 1 4 4h-4" />
-                      <path d="M21 3a16 16 0 0 0 -12.8 10.2" />
-                      <path d="M21 3a16 16 0 0 1 -10.2 12.8" />
-                      <path d="M10.6 9a9 9 0 0 1 4.4 4.4" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#makeup"/></svg>
                   </span>
                   <div>
                     <b>میکاپ و گریم</b>
@@ -2870,10 +2190,7 @@
                 </div>
                 <div class="mini-card__actions">
                   <button type="button" class="btn btn-ghost btn-sm" data-open="cat-dialog" data-fill="{&quot;catName&quot;: &quot;میکاپ و گریم&quot;, &quot;catEn&quot;: &quot;Makeup&quot;, &quot;catDesc&quot;: &quot;از میکاپ روزانه تا گریم تخصصی&quot;, &quot;catOrder&quot;: 5}" data-icon="makeup" data-title="ویرایش دسته «میکاپ و گریم»">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                      <path d="M13.5 6.5l4 4" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                     ویرایش
                   </button>
                   <button
@@ -2889,12 +2206,7 @@
               <article class="mini-card">
                 <div class="mini-card__top">
                   <span class="tile-icon">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0 -18" />
-                      <path d="M9 14.5c1.6 1.4 4.4 1.4 6 0" />
-                      <path d="M9 10h.01" />
-                      <path d="M15 10h.01" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#skin"/></svg>
                   </span>
                   <div>
                     <b>پوست و فیشیال</b>
@@ -2914,10 +2226,7 @@
                 </div>
                 <div class="mini-card__actions">
                   <button type="button" class="btn btn-ghost btn-sm" data-open="cat-dialog" data-fill="{&quot;catName&quot;: &quot;پوست و فیشیال&quot;, &quot;catEn&quot;: &quot;Skin Care&quot;, &quot;catDesc&quot;: &quot;پاکسازی، فیشیال و آبرسانی&quot;, &quot;catOrder&quot;: 6}" data-icon="skin" data-title="ویرایش دسته «پوست و فیشیال»">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                      <path d="M13.5 6.5l4 4" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                     ویرایش
                   </button>
                   <button
@@ -2933,12 +2242,7 @@
               <article class="mini-card">
                 <div class="mini-card__top">
                   <span class="tile-icon">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M5 4h14v4h-14z" />
-                      <path d="M7 8v2a5 5 0 0 0 10 0v-2" />
-                      <path d="M12 15v6" />
-                      <path d="M9 21h6" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#wax"/></svg>
                   </span>
                   <div>
                     <b>اپیلاسیون و اصلاح</b>
@@ -2958,10 +2262,7 @@
                 </div>
                 <div class="mini-card__actions">
                   <button type="button" class="btn btn-ghost btn-sm" data-open="cat-dialog" data-fill="{&quot;catName&quot;: &quot;اپیلاسیون و اصلاح&quot;, &quot;catEn&quot;: &quot;Hair Removal&quot;, &quot;catDesc&quot;: &quot;اصلاح و وکس صورت تا فول بادی&quot;, &quot;catOrder&quot;: 7}" data-icon="removal" data-title="ویرایش دسته «اپیلاسیون و اصلاح»">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                      <path d="M13.5 6.5l4 4" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                     ویرایش
                   </button>
                   <button
@@ -2977,11 +2278,7 @@
               <article class="mini-card">
                 <div class="mini-card__top">
                   <span class="tile-icon">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M4 20l4 -1l11 -11a2.1 2.1 0 0 0 -3 -3l-11 11z" />
-                      <path d="M14 6l3 3" />
-                      <path d="M4 20l1 -4" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#pen"/></svg>
                   </span>
                   <div>
                     <b>آرایش دائم</b>
@@ -3001,10 +2298,7 @@
                 </div>
                 <div class="mini-card__actions">
                   <button type="button" class="btn btn-ghost btn-sm" data-open="cat-dialog" data-fill="{&quot;catName&quot;: &quot;آرایش دائم&quot;, &quot;catEn&quot;: &quot;Permanent Makeup&quot;, &quot;catDesc&quot;: &quot;میکروبلیدینگ، تاتو و شیدینگ&quot;, &quot;catOrder&quot;: 8}" data-icon="permanent" data-title="ویرایش دسته «آرایش دائم»">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                      <path d="M13.5 6.5l4 4" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                     ویرایش
                   </button>
                   <button
@@ -3020,11 +2314,7 @@
               <article class="mini-card">
                 <div class="mini-card__top">
                   <span class="tile-icon">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 20c-5 0 -8 -4 -8 -8c4 0 8 3 8 8z" />
-                      <path d="M12 20c5 0 8 -4 8 -8c-4 0 -8 3 -8 8z" />
-                      <path d="M12 20c-2 -3 -2 -9 0 -13c2 4 2 10 0 13z" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lotus"/></svg>
                   </span>
                   <div>
                     <b>ماساژ و اسپا</b>
@@ -3044,10 +2334,7 @@
                 </div>
                 <div class="mini-card__actions">
                   <button type="button" class="btn btn-ghost btn-sm" data-open="cat-dialog" data-fill="{&quot;catName&quot;: &quot;ماساژ و اسپا&quot;, &quot;catEn&quot;: &quot;Massage &amp; Spa&quot;, &quot;catDesc&quot;: &quot;ماساژ ریلکسی و اسپای دست، پا و بدن&quot;, &quot;catOrder&quot;: 9}" data-icon="spa" data-title="ویرایش دسته «ماساژ و اسپا»">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                      <path d="M13.5 6.5l4 4" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                     ویرایش
                   </button>
                   <button
@@ -3063,7 +2350,7 @@
               <article class="mini-card">
                 <div class="mini-card__top">
                   <span class="tile-icon">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4z" /></svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#crown"/></svg>
                   </span>
                   <div>
                     <b>خدمات عروس</b>
@@ -3083,10 +2370,7 @@
                 </div>
                 <div class="mini-card__actions">
                   <button type="button" class="btn btn-ghost btn-sm" data-open="cat-dialog" data-fill="{&quot;catName&quot;: &quot;خدمات عروس&quot;, &quot;catEn&quot;: &quot;Bridal&quot;, &quot;catDesc&quot;: &quot;میکاپ، شینیون، تست و پکیج عروس&quot;, &quot;catOrder&quot;: 10}" data-icon="bridal" data-title="ویرایش دسته «خدمات عروس»">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                      <path d="M13.5 6.5l4 4" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                     ویرایش
                   </button>
                   <button
@@ -3102,11 +2386,7 @@
               <article class="mini-card">
                 <div class="mini-card__top">
                   <span class="tile-icon">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M9 3h6v3h-6z" />
-                      <path d="M8 6h8l1 3v10a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2v-10z" />
-                      <path d="M10 13h4" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#bathtub"/></svg>
                   </span>
                   <div>
                     <b>مراقبت و زیبایی بدن</b>
@@ -3126,10 +2406,7 @@
                 </div>
                 <div class="mini-card__actions">
                   <button type="button" class="btn btn-ghost btn-sm" data-open="cat-dialog" data-fill="{&quot;catName&quot;: &quot;مراقبت و زیبایی بدن&quot;, &quot;catEn&quot;: &quot;Body Care&quot;, &quot;catDesc&quot;: &quot;اسکراب، لایه‌برداری و آبرسانی بدن&quot;, &quot;catOrder&quot;: 11}" data-icon="body" data-title="ویرایش دسته «مراقبت و زیبایی بدن»">
-                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                      <path d="M13.5 6.5l4 4" />
-                    </svg>
+                    <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#edit"/></svg>
                     ویرایش
                   </button>
                   <button
@@ -3173,92 +2450,92 @@
                   <div class="icon-pick__grid">
                     <label class="icon-pick__item" title="مو">
                       <input type="radio" name="catIcon" value="hair" required />
-                      <span class="icon-pick__tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M6 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M8.6 8.6l10.4 10.4" /><path d="M8.6 15.4l10.4 -10.4" /></svg></span>
+                      <span class="icon-pick__tile"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg></span>
                       <span class="visually-hidden">مو</span>
                     </label>
                     <label class="icon-pick__item" title="ناخن">
                       <input type="radio" name="catIcon" value="nails" />
-                      <span class="icon-pick__tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 10h6v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M10 10v-4h4v4" /><path d="M11 6v-3h2v3" /><path d="M11 14h2" /></svg></span>
+                      <span class="icon-pick__tile"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#nail"/></svg></span>
                       <span class="visually-hidden">ناخن</span>
                     </label>
                     <label class="icon-pick__item" title="ابرو">
                       <input type="radio" name="catIcon" value="brows" />
-                      <span class="icon-pick__tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11c3 -4 11 -6 18 -2" /><path d="M5 15c2 2 4.5 3 7 3s5 -1 7 -3" /><path d="M12 15m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg></span>
+                      <span class="icon-pick__tile"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#brow"/></svg></span>
                       <span class="visually-hidden">ابرو</span>
                     </label>
                     <label class="icon-pick__item" title="مژه">
                       <input type="radio" name="catIcon" value="lashes" />
-                      <span class="icon-pick__tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13c3 -4 6 -6 9 -6s6 2 9 6" /><path d="M3 13c3 3 6 4.5 9 4.5s6 -1.5 9 -4.5" /><path d="M12 13m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M12 7v-3" /><path d="M7.5 8.5l-1.5 -2.5" /><path d="M16.5 8.5l1.5 -2.5" /></svg></span>
+                      <span class="icon-pick__tile"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lash"/></svg></span>
                       <span class="visually-hidden">مژه</span>
                     </label>
                     <label class="icon-pick__item" title="میکاپ">
                       <input type="radio" name="catIcon" value="makeup" />
-                      <span class="icon-pick__tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21v-4a4 4 0 1 1 4 4h-4" /><path d="M21 3a16 16 0 0 0 -12.8 10.2" /><path d="M21 3a16 16 0 0 1 -10.2 12.8" /><path d="M10.6 9a9 9 0 0 1 4.4 4.4" /></svg></span>
+                      <span class="icon-pick__tile"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#makeup"/></svg></span>
                       <span class="visually-hidden">میکاپ</span>
                     </label>
                     <label class="icon-pick__item" title="پوست">
                       <input type="radio" name="catIcon" value="skin" />
-                      <span class="icon-pick__tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0 -18" /><path d="M9 14.5c1.6 1.4 4.4 1.4 6 0" /><path d="M9 10h.01" /><path d="M15 10h.01" /></svg></span>
+                      <span class="icon-pick__tile"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#skin"/></svg></span>
                       <span class="visually-hidden">پوست</span>
                     </label>
                     <label class="icon-pick__item" title="اپیلاسیون">
                       <input type="radio" name="catIcon" value="removal" />
-                      <span class="icon-pick__tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v4h-14z" /><path d="M7 8v2a5 5 0 0 0 10 0v-2" /><path d="M12 15v6" /><path d="M9 21h6" /></svg></span>
+                      <span class="icon-pick__tile"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#wax"/></svg></span>
                       <span class="visually-hidden">اپیلاسیون</span>
                     </label>
                     <label class="icon-pick__item" title="آرایش دائم">
                       <input type="radio" name="catIcon" value="permanent" />
-                      <span class="icon-pick__tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4 -1l11 -11a2.1 2.1 0 0 0 -3 -3l-11 11z" /><path d="M14 6l3 3" /><path d="M4 20l1 -4" /></svg></span>
+                      <span class="icon-pick__tile"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#pen"/></svg></span>
                       <span class="visually-hidden">آرایش دائم</span>
                     </label>
                     <label class="icon-pick__item" title="اسپا">
                       <input type="radio" name="catIcon" value="spa" />
-                      <span class="icon-pick__tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20c-5 0 -8 -4 -8 -8c4 0 8 3 8 8z" /><path d="M12 20c5 0 8 -4 8 -8c-4 0 -8 3 -8 8z" /><path d="M12 20c-2 -3 -2 -9 0 -13c2 4 2 10 0 13z" /></svg></span>
+                      <span class="icon-pick__tile"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lotus"/></svg></span>
                       <span class="visually-hidden">اسپا</span>
                     </label>
                     <label class="icon-pick__item" title="عروس">
                       <input type="radio" name="catIcon" value="bridal" />
-                      <span class="icon-pick__tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4z" /></svg></span>
+                      <span class="icon-pick__tile"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#crown"/></svg></span>
                       <span class="visually-hidden">عروس</span>
                     </label>
                     <label class="icon-pick__item" title="بدن">
                       <input type="radio" name="catIcon" value="body" />
-                      <span class="icon-pick__tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6v3h-6z" /><path d="M8 6h8l1 3v10a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2v-10z" /><path d="M10 13h4" /></svg></span>
+                      <span class="icon-pick__tile"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#bathtub"/></svg></span>
                       <span class="visually-hidden">بدن</span>
                     </label>
                     <label class="icon-pick__item" title="درخشش">
                       <input type="radio" name="catIcon" value="sparkles" />
-                      <span class="icon-pick__tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2z" /><path d="M16 6a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2z" /><path d="M9 18a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z" /></svg></span>
+                      <span class="icon-pick__tile"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#sparkles"/></svg></span>
                       <span class="visually-hidden">درخشش</span>
                     </label>
                     <label class="icon-pick__item" title="قلب">
                       <input type="radio" name="catIcon" value="heart" />
-                      <span class="icon-pick__tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg></span>
+                      <span class="icon-pick__tile"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#heart"/></svg></span>
                       <span class="visually-hidden">قلب</span>
                     </label>
                     <label class="icon-pick__item" title="ستاره">
                       <input type="radio" name="catIcon" value="star" />
-                      <span class="icon-pick__tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg></span>
+                      <span class="icon-pick__tile"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#star-line"/></svg></span>
                       <span class="visually-hidden">ستاره</span>
                     </label>
                     <label class="icon-pick__item" title="قطره">
                       <input type="radio" name="catIcon" value="droplet" />
-                      <span class="icon-pick__tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.502 19.423c2.602 2.105 6.395 2.105 8.996 0c2.602 -2.105 3.262 -5.708 1.566 -8.546l-4.89 -7.26c-.42 -.625 -1.287 -.803 -1.936 -.397a1.376 1.376 0 0 0 -.41 .397l-4.893 7.26c-1.695 2.838 -1.035 6.441 1.567 8.546z" /></svg></span>
+                      <span class="icon-pick__tile"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#drop"/></svg></span>
                       <span class="visually-hidden">قطره</span>
                     </label>
                     <label class="icon-pick__item" title="خورشید">
                       <input type="radio" name="catIcon" value="sun" />
-                      <span class="icon-pick__tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg></span>
+                      <span class="icon-pick__tile"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#sun"/></svg></span>
                       <span class="visually-hidden">خورشید</span>
                     </label>
                     <label class="icon-pick__item" title="هدیه">
                       <input type="radio" name="catIcon" value="gift" />
-                      <span class="icon-pick__tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1z" /><path d="M12 8v13" /><path d="M19 12v7a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-7" /><path d="M7.5 8a2.5 2.5 0 0 1 0 -5a4.8 8 0 0 1 4.5 5a4.8 8 0 0 1 4.5 -5a2.5 2.5 0 0 1 0 5" /></svg></span>
+                      <span class="icon-pick__tile"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#gift"/></svg></span>
                       <span class="visually-hidden">هدیه</span>
                     </label>
                     <label class="icon-pick__item" title="الماس">
                       <input type="radio" name="catIcon" value="diamond" />
-                      <span class="icon-pick__tile"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h12l3 5l-8.5 9.5a.7 .7 0 0 1 -1 0l-8.5 -9.5l3 -5" /><path d="M10 12l-2 -2.2l.6 -1" /></svg></span>
+                      <span class="icon-pick__tile"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#diamond"/></svg></span>
                       <span class="visually-hidden">الماس</span>
                     </label>
                   </div>

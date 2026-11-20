@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<!-- پیش‌نویس حقوقی: پیش از انتشار عمومی، متن را وکیل بازبینی کند و جاهای [ـــ] (نام شرکت، شماره ثبت، نشانی، شماره تماس) پر شود. -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>قوانین و مقررات | بلا</title>
+    <meta name="description" content="شرایط استفاده از بِلا برای مشتریان، آرایشگران و سالن‌ها. استفاده از سامانه یعنی پذیرش این شرایط." />
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#131213" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../assets/img/icon-180.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="بلا" />
+    <link rel="preload" href="../assets/fonts/vazirmatn-arabic.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- استایل‌ها -->
+    <link rel="stylesheet" href="../assets/css/base/tokens.css" />
+    <link rel="stylesheet" href="../assets/css/base/base.css" />
+    <link rel="stylesheet" href="../assets/css/layout/header.css" />
+    <link rel="stylesheet" href="../assets/css/layout/footer.css" />
+    <link rel="stylesheet" href="../assets/css/components/buttons.css" />
+    <link rel="stylesheet" href="../assets/css/components/forms.css" />
+    <link rel="stylesheet" href="../assets/css/components/cards.css" />
+    <link rel="stylesheet" href="../assets/css/components/tables.css" />
+    <link rel="stylesheet" href="../assets/css/components/dialog.css" />
+    <link rel="stylesheet" href="../assets/css/pages/catalog.css" />
+    <link rel="stylesheet" href="../assets/css/pages/dashboard.css" />
+    <link rel="stylesheet" href="../assets/css/pages/market.css" />
+    <link rel="stylesheet" href="../assets/css/base/motion.css" />
+
+    <!-- اسکریپت‌ها -->
+    <script src="../assets/js/theme-init.js"></script>
+    <script src="../assets/js/common/location.js" defer></script>
+    <script src="../assets/js/common/theme.js" defer></script>
+    <script src="../assets/js/common/nav.js" defer></script>
+    <script src="../assets/js/common/reveal.js" defer></script>
+    <script src="../assets/js/common/ui.js" defer></script>
+    <script src="../assets/js/common/forms.js" defer></script>
+    <script src="../assets/js/common/pwa.js" defer></script>
+    <script src="../assets/js/components/select.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__bar">
+        <a class="brand" href="../index.html" aria-label="صفحه اصلی بلا">
+          <span class="logo" role="img" aria-label="بلا"></span>
+          <span class="brand__name">
+            <b>بِلا</b>
+            <small class="brand__sub">سامانه سالن‌های زیبایی</small>
+          </span>
+        </a>
+        <nav id="site-nav" class="site-nav" aria-label="منوی اصلی">
+          <div class="site-nav__head">
+            <strong>منوی بِلا</strong>
+            <button type="button" class="icon-btn" data-nav-close aria-label="بستن منو"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#x"/></svg></button>
+          </div>
+          <form class="nav-search" action="../salons.html" method="get" role="search">
+            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg><input name="q" type="search" placeholder="جستجوی سالن یا خدمت" aria-label="جستجوی سالن یا خدمت" />
+          </form>
+          <ul>
+            <li><a href="../index.html">خانه</a></li>
+            <li><a href="../salons.html?view=map">نقشه</a></li>
+            <li><a href="../index.html#top-stylists">آرایشگران برتر</a></li>
+            <li><a href="../index.html#by-category">دسته‌بندی‌ها</a></li>
+            <li><a href="../customer/appointments.html">نوبت‌های من</a></li>
+            <li><a href="../account/login.html">ورود</a></li>
+          </ul>
+        </nav>
+        <form class="hdr-search" action="../salons.html" method="get" role="search" aria-label="جستجوی سالن">
+          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg>
+          <label class="visually-hidden" for="hdr-q">جستجوی سالن یا خدمت</label>
+          <input id="hdr-q" name="q" type="search" placeholder="جستجوی سالن، خدمت یا محله…" autocomplete="off" />
+        </form>
+        <div class="header-actions">
+          <button type="button" class="loc-chip" data-loc-open aria-label="موقعیت و شهر شما"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#pin"/></svg><span data-loc-city>شهر</span></button>
+          <a class="icon-btn hdr-search-btn" href="../salons.html#f-q" aria-label="جستجو"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg></a>
+          <button type="button" class="icon-btn" data-theme-toggle aria-pressed="false" aria-label="تغییر حالت روشن و تیره">
+            <svg class="i-moon ph" aria-hidden="true"><use href="../assets/img/icons.svg#moon"/></svg><svg class="i-sun ph" aria-hidden="true"><use href="../assets/img/icons.svg#sun"/></svg>
+          </button>
+          <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="منو">
+            <svg class="ph" aria-hidden="true"><use href="../assets/img/icons.svg#menu"/></svg>
+          </button>
+          <a class="btn btn-primary btn-book" href="../booking.html">رزرو نوبت</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section class="section section--page">
+        <div class="wrap">
+          <nav class="crumbs" aria-label="مسیر"><a href="../index.html">خانه</a><span aria-hidden="true">/</span><span>قوانین</span><span aria-hidden="true">/</span><span aria-current="page">قوانین و مقررات</span></nav>
+          <nav class="legal-tabs" aria-label="صفحه‌های قوانین"><a href="../legal/terms.html" aria-current="page"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scale"/></svg>قوانین و مقررات</a><a href="../legal/fees.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#percent"/></svg>پرداخت، کارمزد و لغو</a><a href="../legal/privacy.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lock"/></svg>حریم خصوصی</a><a href="../legal/stylist-contract.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>قرارداد آرایشگران</a><a href="../legal/salon-contract.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#store"/></svg>قرارداد سالن‌ها</a></nav>
+          <div class="legal">
+            <aside class="legal__toc glass">
+              <b>فهرست</b>
+              <ol><li><a href="#t-def">تعاریف</a></li><li><a href="#t-role">نقش سامانه</a></li><li><a href="#t-account">حساب کاربری</a></li><li><a href="#t-booking">نوبت‌گیری</a></li><li><a href="#t-pay">پرداخت</a></li><li><a href="#t-cancel">لغو و تغییر نوبت</a></li><li><a href="#t-wallet">کیف پول</a></li><li><a href="#t-review">نظر و امتیاز</a></li><li><a href="#t-forbid">کارهای ممنوع</a></li><li><a href="#t-liab">حدود مسئولیت</a></li><li><a href="#t-dispute">رسیدگی به شکایت</a></li><li><a href="#t-law">قانون حاکم و تغییر مقررات</a></li><li><a href="#t-contact">تماس</a></li></ol>
+              <button type="button" class="btn btn-ghost btn-sm btn-block" onclick="window.print()"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#file"/></svg>چاپ / ذخیره PDF</button>
+            </aside>
+            <article class="legal__body panel">
+              <header class="legal__head">
+                <h1>قوانین و مقررات</h1>
+                <p>شرایط استفاده از بِلا برای مشتریان، آرایشگران و سالن‌ها. استفاده از سامانه یعنی پذیرش این شرایط.</p>
+                <p class="legal__rev"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#clock"/></svg>آخرین بازنگری: ۱ آذر ۱۴۰۵ · نسخه ۱٫۰</p>
+              </header>
+            <section id="t-def" class="legal__sec">
+              <h2><span class="legal__num">۱</span>تعاریف</h2>
+              <p>«سامانه» یا «بِلا»: وب‌سایت و اپلیکیشن بِلا که شرکت [نام شرکت] (سهامی خاص) به شماره ثبت [ـــ] و شناسه ملی [ـــ] (از این پس «بِلا») آن را اداره می‌کند.</p><ol><li>«مشتری»: هر شخصی که برای دریافت خدمات زیبایی از طریق سامانه نوبت می‌گیرد.</li><li>«آرایشگر»: شخص حقیقی دارای صلاحیت فنی که در سامانه ثبت‌نام کرده و خدمات ارائه می‌دهد؛ چه کارمند یک سالن باشد، چه مستقل.</li><li>«سالن»: واحد صنفی دارای پروانه کسب معتبر از اتحادیه مربوط که در سامانه ثبت شده است.</li><li>«ارائه‌دهنده»: سالن یا آرایشگری که خدمت نوبت را انجام می‌دهد.</li><li>«بیعانه»: ۲۰٪ مبلغ نوبت که برای قطعی شدن نوبت با پرداخت در سالن، آنلاین پرداخت می‌شود.</li><li>«کارمزد»: سهم بِلا بابت خدمات واسطه‌گری، برابر ۱۰٪ مبلغ نوبت.</li><li>«کیف پول»: حساب اعتباری هر کاربر در سامانه که شارژ، برگشت وجه، درآمد و برداشت در آن ثبت می‌شود.</li><li>«اجاره میز»: در اختیار گذاشتن میز یا صندلی کار در سالن به آرایشگر مستقل برای مدت معین در برابر اجاره‌بها.</li></ol>
+            </section>
+            <section id="t-role" class="legal__sec">
+              <h2><span class="legal__num">۲</span>نقش سامانه</h2>
+              <p>بِلا بستر واسط میان مشتری، سالن و آرایشگر است و خودش خدمات آرایشی ارائه نمی‌دهد. قرارداد ارائه خدمت میان مشتری و ارائه‌دهنده منعقد می‌شود و بِلا مسئول انجام درست نوبت‌دهی، نگهداری امن وجه و تسویه طبق همین مقررات است.</p><p>بِلا مدارک هویتی، پروانه کسب سالن‌ها و صلاحیت آرایشگران (مانند کارت بهداشت و مدرک فنی‌وحرفه‌ای) را پیش از فعال‌سازی بررسی می‌کند؛ با این حال مسئولیت کیفیت، ایمنی و بهداشت خدمت بر عهده ارائه‌دهنده است.</p>
+            </section>
+            <section id="t-account" class="legal__sec">
+              <h2><span class="legal__num">۳</span>حساب کاربری</h2>
+              <ol><li>ثبت‌نام با شماره موبایل متعلق به خود کاربر انجام می‌شود و هر شخص فقط یک حساب از هر نوع دارد.</li><li>کاربر باید دست‌کم ۱۸ سال سن داشته باشد؛ نوبت برای افراد زیر ۱۸ سال باید با حساب ولی یا سرپرست قانونی گرفته شود.</li><li>حفظ رمز عبور و کد تأیید با کاربر است؛ هر فعالیتی که با حساب کاربر انجام شود به نام او ثبت می‌شود.</li><li>ارائه اطلاعات نادرست، جعل مدارک یا استفاده از هویت دیگران موجب مسدود شدن حساب و پیگیری قانونی است.</li></ol>
+            </section>
+            <section id="t-booking" class="legal__sec">
+              <h2><span class="legal__num">۴</span>نوبت‌گیری</h2>
+              <ol><li>ساعت‌های نمایش‌داده‌شده همان ساعت‌های آزاد ارائه‌دهنده است و نوبت فقط پس از پرداخت موفق (کامل یا بیعانه) قطعی می‌شود.</li><li>ساعت انتخاب‌شده تا پایان مهلت پرداخت برای مشتری نگه داشته می‌شود؛ اگر پرداخت انجام نشود، نوبت خودکار لغو می‌شود.</li><li>قیمت هر خدمت هنگام رزرو ثبت می‌شود و تغییر بعدی قیمت، نوبت ثبت‌شده را عوض نمی‌کند.</li><li>اگر در سالن خدمتی اضافه بر نوبت درخواست شود، قیمت آن باید پیش از انجام به مشتری اعلام و با رضایت او انجام شود.</li><li>تأخیر بیش از ۱۵ دقیقه مشتری ممکن است به کوتاه شدن خدمت یا «عدم حضور» منجر شود.</li></ol>
+            </section>
+            <section id="t-pay" class="legal__sec">
+              <h2><span class="legal__num">۵</span>پرداخت</h2>
+              <p>مشتری هنگام ثبت نوبت یکی از دو روش زیر را انتخاب می‌کند:</p><ol><li><b>پرداخت آنلاین کامل:</b> کل مبلغ از درگاه بانکی یا کیف پول پرداخت می‌شود.</li><li><b>پرداخت در سالن (نقدی):</b> ۲۰٪ مبلغ به‌عنوان بیعانه آنلاین پرداخت و باقی‌مانده پس از انجام خدمت، نقدی یا با کارتخوان به سالن پرداخت می‌شود.</li></ol><p>همه پرداخت‌های آنلاین از درگاه‌های دارای مجوز بانک مرکزی (شاپرک) انجام می‌شود و بِلا اطلاعات کارت بانکی کاربران را ذخیره نمی‌کند. جزئیات تقسیم مبلغ در صفحه «<a href="fees.html">پرداخت، کارمزد و لغو</a>» آمده است.</p>
+            </section>
+            <section id="t-cancel" class="legal__sec">
+              <h2><span class="legal__num">۶</span>لغو و تغییر نوبت</h2>
+              <ol><li>مشتری تا ۳ ساعت پیش از شروع نوبت می‌تواند آن را از پنل خود لغو یا جابه‌جا کند و کل مبلغ پرداختی همان لحظه به کیف پولش برمی‌گردد.</li><li>لغو کمتر از ۳ ساعت مانده به نوبت، یا حاضر نشدن مشتری: بیعانه برگشت داده نمی‌شود؛ در پرداخت آنلاین کامل، باقی مبلغ (پس از کسر بیعانه) به کیف پول برمی‌گردد.</li><li>اگر ارائه‌دهنده نوبت را لغو کند یا خدمت را انجام ندهد، کل مبلغ بدون کسر هیچ کارمزدی به مشتری برمی‌گردد.</li><li>مشتری می‌تواند به‌جای کیف پول، برگشت وجه به کارت بانکی پرداخت‌کننده را درخواست کند که ظرف ۷۲ ساعت کاری انجام می‌شود.</li></ol>
+            </section>
+            <section id="t-wallet" class="legal__sec">
+              <h2><span class="legal__num">۷</span>کیف پول</h2>
+              <ol><li>کیف پول هر کاربر (مشتری، آرایشگر و سالن) جداگانه است و موجودی آن به تومان نمایش داده می‌شود.</li><li>موجودی کیف پول مشتری از شارژ، برگشت وجه و هدیه تشکیل می‌شود و برای پرداخت نوبت‌ها قابل استفاده است.</li><li>درآمد ارائه‌دهندگان ۲۴ ساعت پس از ثبت «انجام شد» قابل برداشت می‌شود تا فرصت رسیدگی به اعتراض باشد.</li><li>برداشت فقط به شماره شبای به نام صاحب حساب کاربری (یا شخص حقوقی سالن) انجام می‌شود.</li><li>موجودی کیف پول سود ندارد و قابل انتقال به حساب کاربر دیگر نیست.</li><li>در صورت مشاهده تراکنش مشکوک، بِلا می‌تواند تا پایان بررسی، برداشت را موقتاً متوقف کند و نتیجه را به کاربر اطلاع دهد.</li></ol>
+            </section>
+            <section id="t-review" class="legal__sec">
+              <h2><span class="legal__num">۸</span>نظر و امتیاز</h2>
+              <p>فقط مشتری‌ای که نوبتش «انجام شد» ثبت شده می‌تواند برای همان نوبت نظر بدهد. نظرهای توهین‌آمیز، تبلیغاتی، دارای اطلاعات شخصی یا خلاف واقع منتشر نمی‌شوند. ارائه‌دهنده نمی‌تواند نظر را حذف کند اما می‌تواند پاسخ بدهد یا گزارش تخلف ثبت کند.</p>
+            </section>
+            <section id="t-forbid" class="legal__sec">
+              <h2><span class="legal__num">۹</span>کارهای ممنوع</h2>
+              <ol><li>دور زدن سامانه: گرفتن نوبت یا دریافت وجه خارج از سامانه از مشتری‌ای که از طریق سامانه آشنا شده است.</li><li>ثبت نوبت یا نظر جعلی، یا ثبت چند حساب برای سوءاستفاده از کد تخفیف و هدیه.</li><li>انتشار محتوای خلاف قوانین جمهوری اسلامی ایران، شئونات عمومی یا حقوق دیگران.</li><li>تلاش برای دسترسی غیرمجاز، اختلال در سامانه یا جمع‌آوری خودکار اطلاعات آن.</li></ol><p>تخلف از این بندها، بسته به شدت آن، به اخطار، تعلیق موقت یا بستن دائمی حساب منجر می‌شود.</p>
+            </section>
+            <section id="t-liab" class="legal__sec">
+              <h2><span class="legal__num">۱۰</span>حدود مسئولیت</h2>
+              <p>بِلا مسئول درستی عملکرد سامانه، نگهداری امن وجوه و اجرای تسویه‌هاست. مسئولیت هر خسارت ناشی از انجام خدمت (از جمله حساسیت، آسیب یا نارضایتی از نتیجه) با ارائه‌دهنده است؛ بِلا در رسیدگی به شکایت، ارائه سوابق و در صورت لزوم برگشت وجه، همکاری کامل می‌کند.</p><p>قطعی‌های خارج از اختیار (مانند قطعی سراسری اینترنت یا درگاه بانکی) قوه قاهره محسوب می‌شود؛ در این موارد نوبت‌های آسیب‌دیده بدون جریمه لغو یا جابه‌جا می‌شوند.</p>
+            </section>
+            <section id="t-dispute" class="legal__sec">
+              <h2><span class="legal__num">۱۱</span>رسیدگی به شکایت</h2>
+              <ol><li>شکایت از بخش «پشتیبانی» پنل یا شماره پشتیبانی ثبت و حداکثر ظرف ۴۸ ساعت کاری پاسخ داده می‌شود.</li><li>بِلا می‌تواند تا پایان بررسی، مبلغ نوبت مورد اختلاف را در کیف پول ارائه‌دهنده مسدود نگه دارد.</li><li>اگر اختلاف با مذاکره حل نشود، طرفین می‌توانند به مراجع صالح قضایی یا سازمان حمایت مصرف‌کنندگان و تولیدکنندگان مراجعه کنند.</li></ol>
+            </section>
+            <section id="t-law" class="legal__sec">
+              <h2><span class="legal__num">۱۲</span>قانون حاکم و تغییر مقررات</h2>
+              <p>این مقررات تابع قوانین جمهوری اسلامی ایران، از جمله قانون تجارت الکترونیکی و قانون حمایت از حقوق مصرف‌کنندگان است.</p><p>بِلا می‌تواند این مقررات را به‌روز کند؛ تغییرات مهم دست‌کم ۷ روز پیش از اجرا از طریق پیامک یا اعلان به کاربران اطلاع داده می‌شود. ادامه استفاده از سامانه پس از آن تاریخ، به معنی پذیرش تغییرات است. نوبت‌های ثبت‌شده تابع مقررات زمان ثبت خود هستند.</p>
+            </section>
+            <section id="t-contact" class="legal__sec">
+              <h2><span class="legal__num">۱۳</span>تماس</h2>
+              <p>نشانی: [نشانی دفتر مرکزی] · تلفن پشتیبانی: ۰۲۱-۰۰۰۰۰۰۰۰ · ایمیل: support@[دامنه] · نماد اعتماد الکترونیکی: [ـــ]</p>
+            </section>
+
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="wrap">
+        <div class="footer-box mk-footer">
+          <a class="footer-brand" href="../index.html" aria-label="صفحه اصلی بلا">
+            <span class="logo" aria-hidden="true"></span>
+            <strong>بِلا</strong>
+          </a>
+          <p class="footer-tagline">سامانه سالن‌های زیبایی؛ نوبت بگیرید، سالن پیدا کنید، کار کنید.</p>
+          <div class="footer-contact">
+            <a class="footer-phone" href="tel:02100000000"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#phone"/></svg><span class="ltr">۰۲۱-۰۰۰۰۰۰۰۰</span></a>
+          </div>
+          <div class="mk-footer__cols">
+            <nav aria-label="مشتریان">
+              <strong>مشتریان</strong>
+              <a href="../salons.html">جستجوی سالن</a>
+              <a href="../salons.html?view=map">سالن‌ها روی نقشه</a>
+              <a href="../salons.html?sort=top">برترین سالن‌ها</a>
+              <a href="../customer/wallet.html">کیف پول</a>
+            </nav>
+            <nav aria-label="همکاران">
+              <strong>همکاران</strong>
+              <a href="../join/stylist.html">ثبت‌نام آرایشگر</a>
+              <a href="../join/salon.html">ثبت سالن زیبایی</a>
+              <a href="../desks.html">اجاره میز در سالن</a>
+              <a href="../legal/fees.html">کارمزد و تسویه</a>
+            </nav>
+            <nav aria-label="قوانین">
+              <strong>قوانین</strong>
+              <a href="../legal/terms.html">قوانین و مقررات</a>
+              <a href="../legal/privacy.html">حریم خصوصی</a>
+              <a href="../legal/stylist-contract.html">قرارداد آرایشگران</a>
+              <a href="../legal/salon-contract.html">قرارداد سالن‌ها</a>
+            </nav>
+          </div>
+        </div>
+        <p class="site-footer__base">© بِلا — سامانه سالن‌های زیبایی</p>
+      </div>
+    </footer>
+
+    <nav class="tabbar" aria-label="منوی پایین">
+      <a class="tabbar__item" href="../index.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#home"/></svg><span>خانه</span></a>
+      <a class="tabbar__item" href="../salons.html?view=map"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#map"/></svg><span>نقشه</span></a>
+      <a class="tabbar__book" href="../booking.html">
+        <span class="tabbar__fab"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#calendar"/></svg></span>
+        <span>رزرو نوبت</span>
+      </a>
+      <a class="tabbar__item" href="../customer/wallet.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#wallet"/></svg><span>کیف پول</span></a>
+      <a class="tabbar__item" href="../account/login.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#user"/></svg><span>حساب</span></a>
+    </nav>
+  </body>
+</html>

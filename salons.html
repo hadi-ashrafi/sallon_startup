@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>سالن‌های زیبایی | بلا</title>
+    <meta name="description" content="جستجو، فیلتر و نقشه سالن‌های زیبایی؛ نزدیک‌ترین، برترین و ارزان‌ترین." />
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#131213" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="assets/img/icon-180.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="بلا" />
+    <link rel="preload" href="assets/fonts/vazirmatn-arabic.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- استایل‌ها -->
+    <link rel="stylesheet" href="assets/css/base/tokens.css" />
+    <link rel="stylesheet" href="assets/css/base/base.css" />
+    <link rel="stylesheet" href="assets/css/layout/header.css" />
+    <link rel="stylesheet" href="assets/css/layout/footer.css" />
+    <link rel="stylesheet" href="assets/css/components/buttons.css" />
+    <link rel="stylesheet" href="assets/css/components/forms.css" />
+    <link rel="stylesheet" href="assets/css/components/cards.css" />
+    <link rel="stylesheet" href="assets/css/components/tables.css" />
+    <link rel="stylesheet" href="assets/css/components/dialog.css" />
+    <link rel="stylesheet" href="assets/css/pages/catalog.css" />
+    <link rel="stylesheet" href="assets/css/pages/dashboard.css" />
+    <link rel="stylesheet" href="assets/css/pages/market.css" />
+    <link rel="stylesheet" href="assets/css/base/motion.css" />
+    <!-- نقشه: Leaflet از CDN با کاشی‌های OpenStreetMap. برای سرور ایران می‌شود نقشه نشان (سازگار با Leaflet) را جایگزین کرد. -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
+    <!-- اسکریپت‌ها -->
+    <script src="assets/js/theme-init.js"></script>
+    <script src="assets/js/common/location.js" defer></script>
+    <script src="assets/js/common/theme.js" defer></script>
+    <script src="assets/js/common/nav.js" defer></script>
+    <script src="assets/js/common/reveal.js" defer></script>
+    <script src="assets/js/common/ui.js" defer></script>
+    <script src="assets/js/common/forms.js" defer></script>
+    <script src="assets/js/common/pwa.js" defer></script>
+    <script src="assets/js/components/select.js" defer></script>
+    <script src="assets/js/pages/salons.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__bar">
+        <a class="brand" href="index.html" aria-label="صفحه اصلی بلا">
+          <span class="logo" role="img" aria-label="بلا"></span>
+          <span class="brand__name">
+            <b>بِلا</b>
+            <small class="brand__sub">سامانه سالن‌های زیبایی</small>
+          </span>
+        </a>
+        <nav id="site-nav" class="site-nav" aria-label="منوی اصلی">
+          <div class="site-nav__head">
+            <strong>منوی بِلا</strong>
+            <button type="button" class="icon-btn" data-nav-close aria-label="بستن منو"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#x"/></svg></button>
+          </div>
+          <form class="nav-search" action="salons.html" method="get" role="search">
+            <svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#search"/></svg><input name="q" type="search" placeholder="جستجوی سالن یا خدمت" aria-label="جستجوی سالن یا خدمت" />
+          </form>
+          <ul>
+            <li><a href="index.html">خانه</a></li>
+            <li><a href="salons.html?view=map">نقشه</a></li>
+            <li><a href="index.html#top-stylists">آرایشگران برتر</a></li>
+            <li><a href="index.html#by-category">دسته‌بندی‌ها</a></li>
+            <li><a href="customer/appointments.html">نوبت‌های من</a></li>
+            <li><a href="account/login.html">ورود</a></li>
+          </ul>
+        </nav>
+        <form class="hdr-search" action="salons.html" method="get" role="search" aria-label="جستجوی سالن">
+          <svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#search"/></svg>
+          <label class="visually-hidden" for="hdr-q">جستجوی سالن یا خدمت</label>
+          <input id="hdr-q" name="q" type="search" placeholder="جستجوی سالن، خدمت یا محله…" autocomplete="off" />
+        </form>
+        <div class="header-actions">
+          <button type="button" class="loc-chip" data-loc-open aria-label="موقعیت و شهر شما"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#pin"/></svg><span data-loc-city>شهر</span></button>
+          <a class="icon-btn hdr-search-btn" href="salons.html#f-q" aria-label="جستجو"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#search"/></svg></a>
+          <button type="button" class="icon-btn" data-theme-toggle aria-pressed="false" aria-label="تغییر حالت روشن و تیره">
+            <svg class="i-moon ph" aria-hidden="true"><use href="assets/img/icons.svg#moon"/></svg><svg class="i-sun ph" aria-hidden="true"><use href="assets/img/icons.svg#sun"/></svg>
+          </button>
+          <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="منو">
+            <svg class="ph" aria-hidden="true"><use href="assets/img/icons.svg#menu"/></svg>
+          </button>
+          <a class="btn btn-primary btn-book" href="booking.html">رزرو نوبت</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section class="section section--page sl-page" aria-labelledby="list-title">
+        <div class="wrap">
+          <!-- فیلترها همان لحظه اعمال می‌شوند و در آدرس صفحه می‌مانند (?q= &category= &sort= &view=) -->
+          <form class="sl-form" method="get" data-salon-filters>
+            <div class="sl-head">
+              <h1 id="list-title">سالن‌های زیبایی <span data-loc-city>تهران</span></h1>
+              <div class="view-toggle" role="group" aria-label="نوع نمایش">
+                <button type="button" class="view-toggle__btn" data-view="list" aria-pressed="true"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#list"/></svg><span>فهرست</span></button>
+                <button type="button" class="view-toggle__btn" data-view="map" aria-pressed="false"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#map"/></svg><span>نقشه</span></button>
+              </div>
+            </div>
+
+            <!-- نوار چسبان: جستجو -->
+            <div class="sl-bar">
+              <div class="search-input sl-bar__search">
+                <svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#search"/></svg>
+                <label class="visually-hidden" for="f-q">جستجو</label>
+                <input id="f-q" class="input" name="q" type="search" placeholder="نام سالن، محله یا خدمت" autocomplete="off" />
+              </div>
+            </div>
+
+            <div class="sl-meta">
+              <p class="list-status" aria-live="polite"><b data-count>۱۰</b> سالن<span data-near-status></span></p>
+              <div class="sl-selects">
+              <select id="f-cat" name="category" class="input" aria-label="خدمات"><option value="">همه خدمات</option><option value="1">مو</option><option value="2">ناخن</option><option value="3">ابرو</option><option value="4">مژه</option><option value="5">میکاپ</option><option value="6">پوست</option><option value="7">اپیلاسیون</option><option value="8">عروس</option><option value="10">ماساژ و اسپا</option></select>
+              <div class="sl-sort">
+                <select name="sort" class="input" aria-label="مرتب‌سازی">
+                  <option value="">پیشنهاد بِلا</option>
+                  <option value="near">نزدیک‌ترین</option>
+                  <option value="top">بیشترین امتیاز</option>
+                  <option value="popular">پرطرفدارترین</option>
+                  <option value="cheap">ارزان‌ترین</option>
+                  <option value="expensive">گران‌ترین</option>
+                </select>
+              </div>
+              </div>
+            </div>
+            <div class="sl-active" data-active-filters hidden></div>
+
+          </form>
+
+          <div class="map-split" data-map-split data-view-mode="list">
+            <div class="salon-grid salon-grid--list" data-salon-list>
+            <article class="salon-card" data-salon data-id="1" data-name="سالن زیبایی آیدا" data-area="یوسف‌آباد" data-lat="35.73" data-lng="51.405"
+              data-rating="4.9" data-reviews="412" data-price="350000"
+              data-cats="1,2,3,4,5,8" data-open="1" data-top="1">
+              <a class="salon-card__cover has-photo" href="salon/1.html" tabindex="-1" aria-hidden="true">
+                <img class="cover-img" src="assets/img/salon.svg" alt="" loading="lazy" />
+                <span class="salon-card__badges"><span class="s-badge s-badge--top"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#crown"/></svg>برتر</span></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/1.html">سالن زیبایی آیدا</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۹</b></span>
+                </div>
+                <p class="salon-card__area">یوسف‌آباد · از ۳۵۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">مو · ناخن · ابرو و ۳ خدمت دیگر</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="2" data-name="رز سفید" data-area="سعادت‌آباد" data-lat="35.78" data-lng="51.378"
+              data-rating="4.8" data-reviews="286" data-price="600000"
+              data-cats="1,5,6,8" data-open="1" data-top="1">
+              <a class="salon-card__cover" href="salon/2.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"><span class="s-badge s-badge--top"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#crown"/></svg>برتر</span></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/2.html">رز سفید</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۸</b></span>
+                </div>
+                <p class="salon-card__area">سعادت‌آباد · از ۶۰۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">مو · میکاپ · پوست و ۱ خدمت دیگر</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="3" data-name="استودیو ناخن لیا" data-area="ونک" data-lat="35.757" data-lng="51.41"
+              data-rating="4.7" data-reviews="198" data-price="180000"
+              data-cats="2,3,4" data-open="1" data-top="0">
+              <a class="salon-card__cover" href="salon/3.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/3.html">استودیو ناخن لیا</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۷</b></span>
+                </div>
+                <p class="salon-card__area">ونک · از ۱۸۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">ناخن · ابرو · مژه</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="5" data-name="خانه زیبایی مهرو" data-area="تجریش" data-lat="35.8045" data-lng="51.4335"
+              data-rating="4.6" data-reviews="157" data-price="300000"
+              data-cats="1,6,7,10" data-open="1" data-top="0">
+              <a class="salon-card__cover" href="salon/5.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/5.html">خانه زیبایی مهرو</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۶</b></span>
+                </div>
+                <p class="salon-card__area">تجریش · از ۳۰۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">مو · پوست · اپیلاسیون و ۱ خدمت دیگر</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="6" data-name="آتلیه عروس نیلا" data-area="شهرک غرب" data-lat="35.76" data-lng="51.37"
+              data-rating="4.9" data-reviews="233" data-price="900000"
+              data-cats="5,8,1" data-open="1" data-top="1">
+              <a class="salon-card__cover" href="salon/6.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"><span class="s-badge s-badge--top"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#crown"/></svg>برتر</span></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/6.html">آتلیه عروس نیلا</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۹</b></span>
+                </div>
+                <p class="salon-card__area">شهرک غرب · از ۹۰۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">میکاپ · عروس · مو</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="7" data-name="سالن ترمه" data-area="نارمک" data-lat="35.74" data-lng="51.504"
+              data-rating="4.5" data-reviews="96" data-price="150000"
+              data-cats="1,2,3,7" data-open="1" data-top="0">
+              <a class="salon-card__cover" href="salon/7.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/7.html">سالن ترمه</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۵</b></span>
+                </div>
+                <p class="salon-card__area">نارمک · از ۱۵۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">مو · ناخن · ابرو و ۱ خدمت دیگر</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="9" data-name="کلینیک پوست و زیبایی سپید" data-area="جردن" data-lat="35.769" data-lng="51.418"
+              data-rating="4.7" data-reviews="208" data-price="500000"
+              data-cats="6,7,10" data-open="0" data-top="0">
+              <a class="salon-card__cover" href="salon/9.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/9.html">کلینیک پوست و زیبایی سپید</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۷</b></span>
+                </div>
+                <p class="salon-card__area">جردن · از ۵۰۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">پوست · اپیلاسیون · ماساژ و اسپا</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="10" data-name="سالن گیسو" data-area="تهرانپارس" data-lat="35.74" data-lng="51.54"
+              data-rating="4.4" data-reviews="83" data-price="140000"
+              data-cats="1,2,4" data-open="1" data-top="0">
+              <a class="salon-card__cover" href="salon/10.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/10.html">سالن گیسو</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۴</b></span>
+                </div>
+                <p class="salon-card__area">تهرانپارس · از ۱۴۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">مو · ناخن · مژه</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="11" data-name="لاکچری اسپا نیاوران" data-area="نیاوران" data-lat="35.815" data-lng="51.47"
+              data-rating="4.8" data-reviews="119" data-price="800000"
+              data-cats="10,6,2" data-open="1" data-top="1">
+              <a class="salon-card__cover" href="salon/11.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"><span class="s-badge s-badge--top"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#crown"/></svg>برتر</span></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/11.html">لاکچری اسپا نیاوران</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۸</b></span>
+                </div>
+                <p class="salon-card__area">نیاوران · از ۸۰۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">ماساژ و اسپا · پوست · ناخن</p>
+              </div>
+            </article>
+            <article class="salon-card" data-salon data-id="12" data-name="سالن آینه" data-area="انقلاب" data-lat="35.701" data-lng="51.391"
+              data-rating="4.3" data-reviews="64" data-price="130000"
+              data-cats="1,3,5" data-open="1" data-top="0">
+              <a class="salon-card__cover" href="salon/12.html" tabindex="-1" aria-hidden="true">
+                <span class="cover-emblem" aria-hidden="true"></span>
+                <span class="salon-card__badges"></span>
+                <span class="salon-card__dist" data-distance hidden></span>
+              </a>
+              <div class="salon-card__body">
+                <div class="salon-card__top">
+                  <h3 class="h3"><a href="salon/12.html">سالن آینه</a></h3>
+                  <span class="salon-card__rate"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#star"/></svg><b>۴.۳</b></span>
+                </div>
+                <p class="salon-card__area">انقلاب · از ۱۳۰٬۰۰۰ تومان</p>
+                <p class="salon-card__cats">مو · ابرو · میکاپ</p>
+              </div>
+            </article>
+              <div class="list-empty" data-empty hidden>
+                <p>سالنی با این فیلترها پیدا نشد.</p>
+                <button type="button" class="btn btn-ghost btn-sm" data-filters-reset>پاک کردن فیلترها</button>
+              </div>
+            </div>
+            <div class="mk-map glass" data-map aria-label="نقشه سالن‌ها">
+              <div class="mk-map__canvas" data-map-canvas></div>
+              <p class="mk-map__fallback" data-map-fallback hidden>نقشه بارگذاری نشد؛ اتصال اینترنت را بررسی کنید. فهرست سالن‌ها همچنان کار می‌کند.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="wrap">
+        <div class="footer-box mk-footer">
+          <a class="footer-brand" href="index.html" aria-label="صفحه اصلی بلا">
+            <span class="logo" aria-hidden="true"></span>
+            <strong>بِلا</strong>
+          </a>
+          <p class="footer-tagline">سامانه سالن‌های زیبایی؛ نوبت بگیرید، سالن پیدا کنید، کار کنید.</p>
+          <div class="footer-contact">
+            <a class="footer-phone" href="tel:02100000000"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#phone"/></svg><span class="ltr">۰۲۱-۰۰۰۰۰۰۰۰</span></a>
+          </div>
+          <div class="mk-footer__cols">
+            <nav aria-label="مشتریان">
+              <strong>مشتریان</strong>
+              <a href="salons.html">جستجوی سالن</a>
+              <a href="salons.html?view=map">سالن‌ها روی نقشه</a>
+              <a href="salons.html?sort=top">برترین سالن‌ها</a>
+              <a href="customer/wallet.html">کیف پول</a>
+            </nav>
+            <nav aria-label="همکاران">
+              <strong>همکاران</strong>
+              <a href="join/stylist.html">ثبت‌نام آرایشگر</a>
+              <a href="join/salon.html">ثبت سالن زیبایی</a>
+              <a href="desks.html">اجاره میز در سالن</a>
+              <a href="legal/fees.html">کارمزد و تسویه</a>
+            </nav>
+            <nav aria-label="قوانین">
+              <strong>قوانین</strong>
+              <a href="legal/terms.html">قوانین و مقررات</a>
+              <a href="legal/privacy.html">حریم خصوصی</a>
+              <a href="legal/stylist-contract.html">قرارداد آرایشگران</a>
+              <a href="legal/salon-contract.html">قرارداد سالن‌ها</a>
+            </nav>
+          </div>
+        </div>
+        <p class="site-footer__base">© بِلا — سامانه سالن‌های زیبایی</p>
+      </div>
+    </footer>
+
+    <nav class="tabbar" aria-label="منوی پایین">
+      <a class="tabbar__item" href="index.html"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#home"/></svg><span>خانه</span></a>
+      <a class="tabbar__item" href="salons.html?view=map" aria-current="page"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#map"/></svg><span>نقشه</span></a>
+      <a class="tabbar__book" href="booking.html">
+        <span class="tabbar__fab"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#calendar"/></svg></span>
+        <span>رزرو نوبت</span>
+      </a>
+      <a class="tabbar__item" href="customer/wallet.html"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#wallet"/></svg><span>کیف پول</span></a>
+      <a class="tabbar__item" href="account/login.html"><svg class="icon ph" aria-hidden="true"><use href="assets/img/icons.svg#user"/></svg><span>حساب</span></a>
+    </nav>
+  </body>
+</html>

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<!-- پیش‌نویس حقوقی: پیش از انتشار عمومی، متن را وکیل بازبینی کند و جاهای [ـــ] (نام شرکت، شماره ثبت، نشانی، شماره تماس) پر شود. -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>سیاست حریم خصوصی | بلا</title>
+    <meta name="description" content="چه اطلاعاتی از شما نگه می‌داریم، برای چه و چطور از آن محافظت می‌کنیم." />
+    <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#131213" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../assets/img/icon-180.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="بلا" />
+    <link rel="preload" href="../assets/fonts/vazirmatn-arabic.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- استایل‌ها -->
+    <link rel="stylesheet" href="../assets/css/base/tokens.css" />
+    <link rel="stylesheet" href="../assets/css/base/base.css" />
+    <link rel="stylesheet" href="../assets/css/layout/header.css" />
+    <link rel="stylesheet" href="../assets/css/layout/footer.css" />
+    <link rel="stylesheet" href="../assets/css/components/buttons.css" />
+    <link rel="stylesheet" href="../assets/css/components/forms.css" />
+    <link rel="stylesheet" href="../assets/css/components/cards.css" />
+    <link rel="stylesheet" href="../assets/css/components/tables.css" />
+    <link rel="stylesheet" href="../assets/css/components/dialog.css" />
+    <link rel="stylesheet" href="../assets/css/pages/catalog.css" />
+    <link rel="stylesheet" href="../assets/css/pages/dashboard.css" />
+    <link rel="stylesheet" href="../assets/css/pages/market.css" />
+    <link rel="stylesheet" href="../assets/css/base/motion.css" />
+
+    <!-- اسکریپت‌ها -->
+    <script src="../assets/js/theme-init.js"></script>
+    <script src="../assets/js/common/location.js" defer></script>
+    <script src="../assets/js/common/theme.js" defer></script>
+    <script src="../assets/js/common/nav.js" defer></script>
+    <script src="../assets/js/common/reveal.js" defer></script>
+    <script src="../assets/js/common/ui.js" defer></script>
+    <script src="../assets/js/common/forms.js" defer></script>
+    <script src="../assets/js/common/pwa.js" defer></script>
+    <script src="../assets/js/components/select.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__bar">
+        <a class="brand" href="../index.html" aria-label="صفحه اصلی بلا">
+          <span class="logo" role="img" aria-label="بلا"></span>
+          <span class="brand__name">
+            <b>بِلا</b>
+            <small class="brand__sub">سامانه سالن‌های زیبایی</small>
+          </span>
+        </a>
+        <nav id="site-nav" class="site-nav" aria-label="منوی اصلی">
+          <div class="site-nav__head">
+            <strong>منوی بِلا</strong>
+            <button type="button" class="icon-btn" data-nav-close aria-label="بستن منو"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#x"/></svg></button>
+          </div>
+          <form class="nav-search" action="../salons.html" method="get" role="search">
+            <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg><input name="q" type="search" placeholder="جستجوی سالن یا خدمت" aria-label="جستجوی سالن یا خدمت" />
+          </form>
+          <ul>
+            <li><a href="../index.html">خانه</a></li>
+            <li><a href="../salons.html?view=map">نقشه</a></li>
+            <li><a href="../index.html#top-stylists">آرایشگران برتر</a></li>
+            <li><a href="../index.html#by-category">دسته‌بندی‌ها</a></li>
+            <li><a href="../customer/appointments.html">نوبت‌های من</a></li>
+            <li><a href="../account/login.html">ورود</a></li>
+          </ul>
+        </nav>
+        <form class="hdr-search" action="../salons.html" method="get" role="search" aria-label="جستجوی سالن">
+          <svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg>
+          <label class="visually-hidden" for="hdr-q">جستجوی سالن یا خدمت</label>
+          <input id="hdr-q" name="q" type="search" placeholder="جستجوی سالن، خدمت یا محله…" autocomplete="off" />
+        </form>
+        <div class="header-actions">
+          <button type="button" class="loc-chip" data-loc-open aria-label="موقعیت و شهر شما"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#pin"/></svg><span data-loc-city>شهر</span></button>
+          <a class="icon-btn hdr-search-btn" href="../salons.html#f-q" aria-label="جستجو"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#search"/></svg></a>
+          <button type="button" class="icon-btn" data-theme-toggle aria-pressed="false" aria-label="تغییر حالت روشن و تیره">
+            <svg class="i-moon ph" aria-hidden="true"><use href="../assets/img/icons.svg#moon"/></svg><svg class="i-sun ph" aria-hidden="true"><use href="../assets/img/icons.svg#sun"/></svg>
+          </button>
+          <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-controls="site-nav" aria-expanded="false" aria-label="منو">
+            <svg class="ph" aria-hidden="true"><use href="../assets/img/icons.svg#menu"/></svg>
+          </button>
+          <a class="btn btn-primary btn-book" href="../booking.html">رزرو نوبت</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section class="section section--page">
+        <div class="wrap">
+          <nav class="crumbs" aria-label="مسیر"><a href="../index.html">خانه</a><span aria-hidden="true">/</span><span>قوانین</span><span aria-hidden="true">/</span><span aria-current="page">سیاست حریم خصوصی</span></nav>
+          <nav class="legal-tabs" aria-label="صفحه‌های قوانین"><a href="../legal/terms.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scale"/></svg>قوانین و مقررات</a><a href="../legal/fees.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#percent"/></svg>پرداخت، کارمزد و لغو</a><a href="../legal/privacy.html" aria-current="page"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#lock"/></svg>حریم خصوصی</a><a href="../legal/stylist-contract.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#scissors"/></svg>قرارداد آرایشگران</a><a href="../legal/salon-contract.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#store"/></svg>قرارداد سالن‌ها</a></nav>
+          <div class="legal">
+            <aside class="legal__toc glass">
+              <b>فهرست</b>
+              <ol><li><a href="#p-collect">چه اطلاعاتی جمع می‌کنیم</a></li><li><a href="#p-use">استفاده از اطلاعات</a></li><li><a href="#p-share">با چه کسی به اشتراک می‌گذاریم</a></li><li><a href="#p-keep">نگهداری و امنیت</a></li><li><a href="#p-rights">حقوق شما</a></li></ol>
+              <button type="button" class="btn btn-ghost btn-sm btn-block" onclick="window.print()"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#file"/></svg>چاپ / ذخیره PDF</button>
+            </aside>
+            <article class="legal__body panel">
+              <header class="legal__head">
+                <h1>سیاست حریم خصوصی</h1>
+                <p>چه اطلاعاتی از شما نگه می‌داریم، برای چه و چطور از آن محافظت می‌کنیم.</p>
+                <p class="legal__rev"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#clock"/></svg>آخرین بازنگری: ۱ آذر ۱۴۰۵ · نسخه ۱٫۰</p>
+              </header>
+            <section id="p-collect" class="legal__sec">
+              <h2><span class="legal__num">۱</span>چه اطلاعاتی جمع می‌کنیم</h2>
+              <ol><li><b>همه کاربران:</b> نام، شماره موبایل، رمز عبور (فقط به‌صورت رمزنگاری‌شده)، سابقه نوبت‌ها و تراکنش‌های کیف پول.</li><li><b>آرایشگران و سالن‌ها:</b> کد ملی، تصویر مدارک (کارت ملی، کارت بهداشت، مدرک فنی، پروانه کسب)، شماره شبا و نشانی سالن.</li><li><b>موقعیت مکانی:</b> فقط وقتی خودتان «نزدیک من» را بزنید و فقط برای مرتب کردن سالن‌ها روی دستگاه شما؛ ذخیره نمی‌شود.</li><li><b>اطلاعات فنی:</b> نوع دستگاه و مرورگر، IP و زمان ورود، برای امنیت و جلوگیری از سوءاستفاده.</li></ol>
+            </section>
+            <section id="p-use" class="legal__sec">
+              <h2><span class="legal__num">۲</span>استفاده از اطلاعات</h2>
+              <p>اطلاعات فقط برای نوبت‌دهی، پرداخت و تسویه، احراز هویت، ارسال یادآوری و اعلان، رسیدگی به شکایت و بهبود سامانه استفاده می‌شود. اطلاعات شما فروخته نمی‌شود.</p>
+            </section>
+            <section id="p-share" class="legal__sec">
+              <h2><span class="legal__num">۳</span>با چه کسی به اشتراک می‌گذاریم</h2>
+              <ol><li>نام و شماره موبایل مشتری فقط با سالن و آرایشگرِ همان نوبت، و فقط برای انجام همان نوبت.</li><li>درگاه پرداخت و بانک، فقط به اندازه لازم برای انجام تراکنش.</li><li>سرویس پیامک، فقط شماره موبایل و متن پیام.</li><li>مراجع قانونی، فقط با دستور مقام قضایی صالح.</li></ol><p>مدارک هویتی و شبای ارائه‌دهندگان هیچ‌وقت عمومی نمی‌شود.</p>
+            </section>
+            <section id="p-keep" class="legal__sec">
+              <h2><span class="legal__num">۴</span>نگهداری و امنیت</h2>
+              <p>اطلاعات روی سرورهای داخل ایران نگهداری می‌شود. رمزها با bcrypt رمزنگاری و ارتباط‌ها با HTTPS انجام می‌شود. سوابق مالی طبق قوانین مالیاتی تا ۱۰ سال نگهداری می‌شوند.</p>
+            </section>
+            <section id="p-rights" class="legal__sec">
+              <h2><span class="legal__num">۵</span>حقوق شما</h2>
+              <p>می‌توانید اطلاعات حساب خود را ببینید و اصلاح کنید، پیامک‌های یادآوری و تبلیغاتی را خاموش کنید و درخواست بستن حساب بدهید. پس از بستن حساب، اطلاعات شخصی غیرمالی ظرف ۳۰ روز حذف یا بی‌نام می‌شود.</p>
+            </section>
+
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="wrap">
+        <div class="footer-box mk-footer">
+          <a class="footer-brand" href="../index.html" aria-label="صفحه اصلی بلا">
+            <span class="logo" aria-hidden="true"></span>
+            <strong>بِلا</strong>
+          </a>
+          <p class="footer-tagline">سامانه سالن‌های زیبایی؛ نوبت بگیرید، سالن پیدا کنید، کار کنید.</p>
+          <div class="footer-contact">
+            <a class="footer-phone" href="tel:02100000000"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#phone"/></svg><span class="ltr">۰۲۱-۰۰۰۰۰۰۰۰</span></a>
+          </div>
+          <div class="mk-footer__cols">
+            <nav aria-label="مشتریان">
+              <strong>مشتریان</strong>
+              <a href="../salons.html">جستجوی سالن</a>
+              <a href="../salons.html?view=map">سالن‌ها روی نقشه</a>
+              <a href="../salons.html?sort=top">برترین سالن‌ها</a>
+              <a href="../customer/wallet.html">کیف پول</a>
+            </nav>
+            <nav aria-label="همکاران">
+              <strong>همکاران</strong>
+              <a href="../join/stylist.html">ثبت‌نام آرایشگر</a>
+              <a href="../join/salon.html">ثبت سالن زیبایی</a>
+              <a href="../desks.html">اجاره میز در سالن</a>
+              <a href="../legal/fees.html">کارمزد و تسویه</a>
+            </nav>
+            <nav aria-label="قوانین">
+              <strong>قوانین</strong>
+              <a href="../legal/terms.html">قوانین و مقررات</a>
+              <a href="../legal/privacy.html">حریم خصوصی</a>
+              <a href="../legal/stylist-contract.html">قرارداد آرایشگران</a>
+              <a href="../legal/salon-contract.html">قرارداد سالن‌ها</a>
+            </nav>
+          </div>
+        </div>
+        <p class="site-footer__base">© بِلا — سامانه سالن‌های زیبایی</p>
+      </div>
+    </footer>
+
+    <nav class="tabbar" aria-label="منوی پایین">
+      <a class="tabbar__item" href="../index.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#home"/></svg><span>خانه</span></a>
+      <a class="tabbar__item" href="../salons.html?view=map"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#map"/></svg><span>نقشه</span></a>
+      <a class="tabbar__book" href="../booking.html">
+        <span class="tabbar__fab"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#calendar"/></svg></span>
+        <span>رزرو نوبت</span>
+      </a>
+      <a class="tabbar__item" href="../customer/wallet.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#wallet"/></svg><span>کیف پول</span></a>
+      <a class="tabbar__item" href="../account/login.html"><svg class="icon ph" aria-hidden="true"><use href="../assets/img/icons.svg#user"/></svg><span>حساب</span></a>
+    </nav>
+  </body>
+</html>
